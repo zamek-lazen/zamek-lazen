@@ -1,14 +1,76 @@
 {
-  "HomePage": {
-    "title": "Začněte úpravou souboru page.tsx.",
-    "description": "Hledáte výchozí bod nebo další instrukce? Podívejte se na",
-    "templates": "šablony",
-    "or": "nebo na",
-    "learning": "Learning centrum",
-    "deploy": "Nasadit nyní",
-    "docs": "Dokumentace",
-    "switchLanguage": "Přepnout jazyk na {language}",
+  "Nav": {
+    "home": "Úvod",
+    "history": "Historie",
+    "gallery": "Galerie",
+    "events": "Akce",
+    "family": "Rod",
+    "weddings": "Svatby",
+    "contact": "Kontakt"
+  },
+  "LanguageSwitch": {
+    "switchTo": "Přepnout na {language}",
     "czech": "češtinu",
     "german": "němčinu"
+  },
+  "HomePage": {
+    "eyebrow": "Vítejte na webové prezentaci",
+    "title": "Zámek Lázeň v Chudenicích",
+    "lead": "Historické letní sídlo rodu Czerninů obklopené parkem s jedinečnou atmosférou.",
+    "description": "Zámek Lázeň navazuje na lázeňskou tradici i dlouhou historii rodu v Chudenicích. Na webu najdete informace o historii, rodu, svatbách, akcích i kontaktech.",
+    "ctaHistory": "Přečíst historii",
+    "ctaContact": "Kontaktovat správu",
+    "highlightsTitle": "Hlavní sekce webu",
+    "historyDescription": "Vývoj zámku od lázeňského domu až po dnešní podobu.",
+    "familyDescription": "Historie a souvislosti rodu Czerninů z Chudenic.",
+    "weddingsDescription": "Jak probíhá rezervace svatebního obřadu a kde může proběhnout.",
+    "eventsDescription": "Přehled kulturních a společenských akcí na zámku.",
+    "galleryDescription": "Fotogalerie areálu zámku a parku."
+  },
+  "HistoryPage": {
+    "title": "Zámek Lázeň s parkem",
+    "lead": "Příběh sídla, které vzniklo z lázeňské tradice a dnes znovu slouží rodině Czerninů.",
+    "p1": "V 19. století se Czerninové z Chudenic rozhodli vybudovat poblíž rodového zámku další sídlo určené k odpočinku a péči o zdraví. Podle návrhu architekta F. M. Kaňky zde kolem roku 1728 vznikl lázeňský dům s kapličkou nad léčivým pramenem.",
+    "p2": "V letech 1792 až 1794 byl postaven nový lázeňský hostinec, který Evžen Karel v letech 1821 až 1823 přeměnil na vzdušný letní zámeček. V okolí byl vybudován anglický park o rozloze 12 hektarů s romantickými průhledy do krajiny a cizokrajnými dřevinami.",
+    "p3": "Dnešní podoba zámku pochází z klasicistní přestavby z let 1849 až 1859. Po válce byl objekt odebrán rodině a sloužil jako rekreační a školící středisko. V září 2009 byl zámek vrácen Karlu Evženu Czerninovi a dnes opět slouží jako letní sídlo rodiny i místo kulturních a společenských akcí."
+  },
+  "FamilyPage": {
+    "title": "Rod Czerninů z Chudenic",
+    "lead": "Rod spojený s Chudenicemi po staletí, od středověkých zmínek až po současnost.",
+    "p1": "Podle kroniky založil již kolem roku 1200 jeden z Czerninů chudenický kostel. V průběhu staletí se rodové jméno ustálilo a s ním i historická vazba na Chudenice, která zůstává významnou součástí identity rodu dodnes.",
+    "p2": "Současnou hlavou rodu a majitelem zámku Lázeň je Karel Evžen Czernin z Chudenic, narozený roku 1956 ve Vídni. Vystudoval lesní inženýrství, část života strávil v Argentině a dnes žije s rodinou mezi Chudenicemi a okolím Vídně.",
+    "p3": "Historie rodu je úzce propojena s dějinami jižního Plzeňska. Rod Czerninů navazuje i na starší kontinuitu historických rodů regionu a patří mezi nejdéle doložené šlechtické linie v českých zemích."
+  },
+  "WeddingsPage": {
+    "title": "Svatby na zámku",
+    "lead": "Zámek Lázeň nabízí důstojné prostředí pro svatební obřad v parku i interiéru.",
+    "p1": "Prvním krokem je informativní schůzka přímo na zámku, kde vám představíme podmínky a ukážeme prostory určené pro obřad.",
+    "p2": "Po rozhodnutí pro svatbu na zámku nám sdělíte požadovaný termín. Pomůžeme vám se zajištěním kontaktu na církevní úřady nebo s ověřením termínu na matrice městyse Chudenice.",
+    "p3": "Po potvrzení termínu stvrdíme vše smlouvou. Obřad je možné uspořádat v zámeckém parku u altánku nebo v tanečním sále (zimní zahrada).",
+    "p4": "Neváhejte nás kontaktovat, rádi vám poskytneme všechny potřebné informace."
+  },
+  "EventsPage": {
+    "title": "Akce a společenské události",
+    "lead": "Průběžně připravujeme kulturní a společenský program v prostorách zámku.",
+    "notice": "Aktuální přehled akcí bude zveřejněn brzy."
+  },
+  "GalleryPage": {
+    "title": "Fotogalerie",
+    "lead": "Výběr fotografií zámku Lázeň a přilehlého parku.",
+    "notice": "Galerie se právě připravuje."
+  },
+  "ContactPage": {
+    "title": "Kontakty",
+    "lead": "Czernínská správa majetku s.r.o.",
+    "company": "Správa zámku Lázeň",
+    "addressLabel": "Adresa",
+    "address": "Chudenice 60, 339 01 Chudenice",
+    "icoLabel": "IČO",
+    "ico": "CZ27074714",
+    "phoneLabel": "Telefon",
+    "phonePouza": "Pan Pouza: +420 731 246 757",
+    "phoneTrdlicova": "Mgr. Trdlicová: +43 2256 81767",
+    "emailLabel": "E-mail",
+    "email": "zameklazen@kecz.at"
   }
 }

@@ -1,14 +1,76 @@
 {
-  "HomePage": {
-    "title": "Bearbeiten Sie zuerst die Datei page.tsx.",
-    "description": "Sie suchen einen Einstieg oder weitere Anleitungen? Schauen Sie bei den",
-    "templates": "Vorlagen",
-    "or": "oder im",
-    "learning": "Learning-Center",
-    "deploy": "Jetzt deployen",
-    "docs": "Dokumentation",
-    "switchLanguage": "Sprache auf {language} wechseln",
+  "Nav": {
+    "home": "Start",
+    "history": "Geschichte",
+    "gallery": "Galerie",
+    "events": "Veranstaltungen",
+    "family": "Familie",
+    "weddings": "Hochzeiten",
+    "contact": "Kontakt"
+  },
+  "LanguageSwitch": {
+    "switchTo": "Zu {language} wechseln",
     "czech": "Tschechisch",
     "german": "Deutsch"
+  },
+  "HomePage": {
+    "eyebrow": "Willkommen auf der Website",
+    "title": "Schloss Lázeň in Chudenice",
+    "lead": "Historische Sommerresidenz der Familie Czernin in einem weitläufigen Park.",
+    "description": "Das Schloss knüpft an die Kurtradition und die lange Geschichte der Familie in Chudenice an. Auf der Website finden Sie Informationen zur Geschichte, zur Familie, zu Hochzeiten, Veranstaltungen und Kontakten.",
+    "ctaHistory": "Geschichte lesen",
+    "ctaContact": "Verwaltung kontaktieren",
+    "highlightsTitle": "Hauptbereiche der Website",
+    "historyDescription": "Die Entwicklung vom Kurhaus zum heutigen Schloss.",
+    "familyDescription": "Hintergrund und historische Zusammenhänge der Familie Czernin.",
+    "weddingsDescription": "Ablauf der Hochzeitsanfrage und mögliche Trauungsorte.",
+    "eventsDescription": "Überblick über kulturelle und gesellschaftliche Veranstaltungen.",
+    "galleryDescription": "Fotogalerie des Schlossareals und Parks."
+  },
+  "HistoryPage": {
+    "title": "Schloss und Park Lázeň",
+    "lead": "Die Geschichte eines Sitzes, der aus der Kurtradition entstand und heute wieder der Familie Czernin dient.",
+    "p1": "Im 19. Jahrhundert ließen die Grafen Czernin von Chudenic nahe ihrem Stammschloss einen weiteren Sitz errichten, der der Erholung und der Kur dienen sollte. Nach dem Entwurf von F. M. Kaňka entstand um 1728 an einer Heilquelle ein Kurhaus mit Kapelle.",
+    "p2": "Zwischen 1792 und 1794 wurde ein neues Kurhaus gebaut und in den Jahren 1821 bis 1823 von Eugen Karel Czernin zu einem luftigen Sommerschloss umgestaltet. Im direkten Umfeld entstand ein englischer Park mit etwa 12 Hektar Fläche, romantischen Sichtachsen und exotischen Baumarten.",
+    "p3": "Die heutige klassizistische Form stammt aus dem Umbau der Jahre 1849 bis 1859. Nach dem Krieg wurde das Objekt der Familie entzogen und als Erholungs- und Ausbildungszentrum genutzt. Im September 2009 wurde es Karl Eugen Czernin zurückgegeben und dient heute wieder als Sommerresidenz sowie als Ort für kulturelle und gesellschaftliche Veranstaltungen."
+  },
+  "FamilyPage": {
+    "title": "Die Familie Czernin von Chudenice",
+    "lead": "Eine Familie, die seit Jahrhunderten mit Chudenice verbunden ist.",
+    "p1": "Laut Chroniken gründete ein Czernin bereits um 1200 die Kirche in Chudenice. Im Laufe der Zeit festigte sich der Familienname ebenso wie die enge historische Bindung an den Ort.",
+    "p2": "Der heutige Familienchef und Eigentümer des Schlosses Lázeň ist Karl Eugen Czernin von Chudenic, geboren 1956 in Wien. Er studierte Forstwirtschaft, lebte zeitweise in Argentinien und lebt heute mit seiner Familie zwischen Chudenice und der Region Wien.",
+    "p3": "Die Geschichte der Familie ist eng mit der Geschichte Südböhmens und Westböhmens verbunden. Die Linie der Czernins zählt zu den am längsten dokumentierten Adelslinien in den böhmischen Ländern."
+  },
+  "WeddingsPage": {
+    "title": "Hochzeiten im Schloss",
+    "lead": "Schloss Lázeň bietet einen würdigen Rahmen für Trauungen im Park oder im Innenbereich.",
+    "p1": "Der erste Schritt ist ein Informationsgespräch direkt im Schloss, bei dem wir die Bedingungen erklären und die vorgesehenen Orte zeigen.",
+    "p2": "Wenn Sie sich für eine Hochzeit im Schloss entscheiden, teilen Sie uns bitte Ihren Wunschtermin mit. Wir unterstützen Sie beim Kontakt mit kirchlichen Behörden oder bei der Terminabstimmung mit dem Standesamt in Chudenice.",
+    "p3": "Nach Bestätigung des Termins werden alle Vereinbarungen vertraglich festgehalten. Die Trauung kann im Schlosspark am Pavillon oder im Tanzsaal (Wintergarten) stattfinden.",
+    "p4": "Kontaktieren Sie uns gerne, wir senden Ihnen alle benötigten Informationen."
+  },
+  "EventsPage": {
+    "title": "Veranstaltungen und gesellschaftliche Events",
+    "lead": "Wir bereiten laufend kulturelle und gesellschaftliche Programmpunkte im Schloss vor.",
+    "notice": "Die aktuelle Veranstaltungsübersicht wird in Kürze veröffentlicht."
+  },
+  "GalleryPage": {
+    "title": "Fotogalerie",
+    "lead": "Ausgewählte Eindrücke vom Schloss Lázeň und dem Park.",
+    "notice": "Die Galerie befindet sich aktuell im Aufbau."
+  },
+  "ContactPage": {
+    "title": "Kontakt",
+    "lead": "Czernínská správa majetku s.r.o.",
+    "company": "Verwaltung Schloss Lázeň",
+    "addressLabel": "Adresse",
+    "address": "Chudenice 60, 339 01 Chudenice",
+    "icoLabel": "Identifikationsnummer",
+    "ico": "CZ27074714",
+    "phoneLabel": "Telefon",
+    "phonePouza": "Herr Pouza: +420 731 246 757",
+    "phoneTrdlicova": "Frau Mgr. Trdlicová: +43 2256 81767",
+    "emailLabel": "E-Mail",
+    "email": "zameklazen@kecz.at"
   }
 }

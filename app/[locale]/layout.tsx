@@ -2,6 +2,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { SiteHeader } from "@/components/site-header";
 
 type LocaleLayoutProps = Readonly<{
   children: React.ReactNode;
@@ -25,5 +26,12 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const messages = await getMessages();
 
-  return <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>;
+  return (
+    <NextIntlClientProvider messages={messages}>
+      <div className="min-h-screen bg-zinc-50 text-zinc-900">
+        <SiteHeader />
+        <main className="mx-auto w-full max-w-6xl px-6 py-10">{children}</main>
+      </div>
+    </NextIntlClientProvider>
+  );
 }
