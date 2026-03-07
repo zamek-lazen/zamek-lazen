@@ -1,0 +1,14 @@
+{
+  "HomePage": {
+    "title": "Začněte úpravou souboru page.tsx.",
+    "description": "Hledáte výchozí bod nebo další instrukce? Podívejte se na",
+    "templates": "šablony",
+    "or": "nebo na",
+    "learning": "Learning centrum",
+    "deploy": "Nasadit nyní",
+    "docs": "Dokumentace",
+    "switchLanguage": "Přepnout jazyk na {language}",
+    "czech": "češtinu",
+    "german": "němčinu"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "HomePage": {
+    "title": "Bearbeiten Sie zuerst die Datei page.tsx.",
+    "description": "Sie suchen einen Einstieg oder weitere Anleitungen? Schauen Sie bei den",
+    "templates": "Vorlagen",
+    "or": "oder im",
+    "learning": "Learning-Center",
+    "deploy": "Jetzt deployen",
+    "docs": "Dokumentation",
+    "switchLanguage": "Sprache auf {language} wechseln",
+    "czech": "Tschechisch",
+    "german": "Deutsch"
+  }
+}
