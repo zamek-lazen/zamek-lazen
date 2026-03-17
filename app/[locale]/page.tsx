@@ -1,61 +1,133 @@
-import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
+import { getTranslations } from 'next-intl/server'
+import {
+  type HomepageContactDetails,
+  Homepage,
+  type HomepageCopy,
+  type HomepageEditorialSection,
+  type HomepageProfileCard,
+  type HomepageSpotlightLink,
+  type HomepageWeddingStep,
+} from '@/components/pages/home'
 
-const sectionLinks = [
-  { href: "/historie" as const, navKey: "history", descKey: "historyDescription" },
-  { href: "/rod" as const, navKey: "family", descKey: "familyDescription" },
-  { href: "/svatby" as const, navKey: "weddings", descKey: "weddingsDescription" },
-  { href: "/akce" as const, navKey: "events", descKey: "eventsDescription" },
-  { href: "/galerie" as const, navKey: "gallery", descKey: "galleryDescription" }
-] as const;
+const spotlightConfig = [
+  {
+    href: '/historie' as const,
+    navKey: 'history',
+    descKey: 'historyDescription',
+  },
+  { href: '/rod' as const, navKey: 'family', descKey: 'familyDescription' },
+  {
+    href: '/svatby' as const,
+    navKey: 'weddings',
+    descKey: 'weddingsDescription',
+  },
+  { href: '/akce' as const, navKey: 'events', descKey: 'eventsDescription' },
+  {
+    href: '/galerie' as const,
+    navKey: 'gallery',
+    descKey: 'galleryDescription',
+  },
+] as const
 
 export default async function HomePage() {
-  const t = await getTranslations("HomePage");
-  const nav = await getTranslations("Nav");
+  const home = await getTranslations('HomePage')
+  const nav = await getTranslations('Nav')
+  const history = await getTranslations('HistoryPage')
+  const family = await getTranslations('FamilyPage')
+  const weddings = await getTranslations('WeddingsPage')
+  const events = await getTranslations('EventsPage')
+  const gallery = await getTranslations('GalleryPage')
+  const contactT = await getTranslations('ContactPage')
 
-  return (
-    <div className="space-y-10">
-      <section className="overflow-hidden rounded-3xl border border-zinc-200 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-700 p-8 text-zinc-100 md:p-12">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-zinc-300">
-          {t("eyebrow")}
-        </p>
-        <h1 className="max-w-3xl text-3xl font-semibold tracking-tight md:text-5xl">
-          {t("title")}
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-zinc-200">{t("lead")}</p>
-        <p className="mt-3 max-w-3xl text-zinc-300">{t("description")}</p>
+  const historySection: HomepageEditorialSection = {
+    eyebrow: nav('history'),
+    title: history('title'),
+    lead: history('lead'),
+    paragraphs: [history('p1'), history('p2'), history('p3')],
+  }
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/historie"
-            className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200"
-          >
-            {t("ctaHistory")}
-          </Link>
-          <Link
-            href="/kontakt"
-            className="rounded-full border border-zinc-400 px-5 py-2 text-sm font-semibold text-zinc-100 transition hover:border-zinc-100"
-          >
-            {t("ctaContact")}
-          </Link>
-        </div>
-      </section>
+  const familySection: HomepageEditorialSection = {
+    eyebrow: nav('family'),
+    title: family('title'),
+    lead: family('lead'),
+    paragraphs: [family('p1'), family('p2'), family('p3')],
+  }
 
-      <section className="space-y-4">
-        <h2 className="text-xl font-semibold text-zinc-900">{t("highlightsTitle")}</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          {sectionLinks.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-2xl border border-zinc-200 bg-white p-5 transition hover:border-zinc-400"
-            >
-              <h3 className="text-lg font-semibold text-zinc-900">{nav(item.navKey)}</h3>
-              <p className="mt-2 text-sm text-zinc-600">{t(item.descKey)}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
-    </div>
-  );
+  const familyProfile: HomepageProfileCard = {
+    eyebrow: family('currentHeadLabel'),
+    title: family('currentHeadTitle'),
+    body: family('currentHeadBody'),
+  }
+
+  const weddingsSection: HomepageEditorialSection = {
+    eyebrow: nav('weddings'),
+    title: weddings('title'),
+    lead: weddings('lead'),
+    paragraphs: [weddings('p1'), weddings('p2'), weddings('p3'), weddings('p4')],
+  }
+
+  const weddingSteps: HomepageWeddingStep[] = [
+    { title: weddings('step1Title'), body: weddings('p1') },
+    { title: weddings('step2Title'), body: weddings('p2') },
+    { title: weddings('step3Title'), body: weddings('p3') },
+    { title: weddings('step4Title'), body: weddings('p4') },
+  ]
+
+  const contact: HomepageContactDetails = {
+    company: contactT('company'),
+    addressLabel: contactT('addressLabel'),
+    address: contactT('address'),
+    icoLabel: contactT('icoLabel'),
+    ico: contactT('ico'),
+    phoneLabel: contactT('phoneLabel'),
+    phonePouza: contactT('phonePouza'),
+    phoneTrdlicova: contactT('phoneTrdlicova'),
+    emailLabel: contactT('emailLabel'),
+    email: contactT('email'),
+  }
+
+  const copy: HomepageCopy = {
+    eyebrow: home('eyebrow'),
+    loaderLabel: home('loaderLabel'),
+    loaderHint: home('loaderHint'),
+    sideLeft: home('sideLeft'),
+    sideRight: home('sideRight'),
+    scrollPrompt: home('scrollPrompt'),
+    title: home('title'),
+    lead: home('lead'),
+    description: home('description'),
+    highlightsTitle: home('highlightsTitle'),
+    historySection,
+    familySection,
+    familyProfile,
+    weddingsSection,
+    weddingProcessTitle: weddings('processTitle'),
+    weddingSteps,
+    weddingVenuesTitle: weddings('venueTitle'),
+    weddingVenues: [weddings('venueOne'), weddings('venueTwo')],
+    eventsTitle: events('title'),
+    eventsLead: events('lead'),
+    eventsNotice: events('notice'),
+    galleryTitle: gallery('title'),
+    galleryLead: gallery('lead'),
+    galleryNotice: gallery('notice'),
+    contactTitle: contactT('title'),
+    contactLead: contactT('lead'),
+    contact,
+    factOne: home('factOne'),
+    factTwo: home('factTwo'),
+    factThree: home('factThree'),
+    factFour: home('factFour'),
+    ctaHistory: home('ctaHistory'),
+    ctaContact: home('ctaContact'),
+    ctaGallery: home('ctaGallery'),
+  }
+
+  const spotlightLinks: HomepageSpotlightLink[] = spotlightConfig.map(item => ({
+    href: item.href,
+    title: nav(item.navKey),
+    description: home(item.descKey),
+  }))
+
+  return <Homepage copy={copy} spotlightLinks={spotlightLinks} />
 }
