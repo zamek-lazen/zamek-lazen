@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { ContactSection } from './contact-section'
 import { EventsSection } from './events-section'
 import { FamilySection } from './family-section'
@@ -11,76 +10,18 @@ import { ImageBreak } from './image-break'
 import { ParallaxScene } from './parallax-scene'
 import { Story } from './story'
 import { WeddingsSection } from './weddings-section'
-import type { HomepageCopy, HomepageSpotlightLink, IntroPhase } from './types'
+import type { HomepageCopy, HomepageSpotlightLink } from './types'
 
 type HomepageProps = {
   copy: HomepageCopy
   spotlightLinks: HomepageSpotlightLink[]
 }
 
-type SceneStyle = CSSProperties & {
-  '--intro-progress': string
-  '--intro-reverse': string
-  '--loader-progress': string
-  '--mx': string
-  '--my': string
-  '--scroll': string
-}
-
 export function Homepage({ copy, spotlightLinks }: HomepageProps) {
-  const [phase, setPhase] = useState<IntroPhase>('loading')
-  const [progress, setProgress] = useState(0)
-  const rootRef = useRef<HTMLDivElement | null>(null)
-  const heroRef = useRef<HTMLElement | null>(null)
-
-  useEffect(() => {
-    if (phase === 'ready') {
-      document.body.classList.remove('intro-lock')
-      return
-    }
-
-    document.body.classList.add('intro-lock')
-
-    return () => {
-      document.body.classList.remove('intro-lock')
-    }
-  }, [phase])
-
-  const sceneStyle = useMemo<SceneStyle>(
-    () => ({
-      '--intro-progress': '0',
-      '--intro-reverse': '1',
-      '--loader-progress': (progress / 100).toFixed(4),
-      '--mx': '0',
-      '--my': '0',
-      '--scroll': '0',
-    }),
-    [progress],
-  )
-
   return (
-    <div
-      ref={rootRef}
-      className='relative left-1/2 right-1/2 -mt-28 min-w-screen max-w-screen w-screen -translate-x-1/2 overflow-x-hidden overflow-clip bg-[#082019] text-[#dfe8e0] md:-mt-32'
-      style={sceneStyle}
-    >
-      <Hero
-        heroRef={heroRef}
-        loaderHint={copy.loaderHint}
-        loaderLabel={copy.loaderLabel}
-        phase={phase}
-        progress={progress}
-        scrollPrompt={copy.scrollPrompt}
-        sideLeft={copy.sideLeft}
-        sideRight={copy.sideRight}
-      >
-        <ParallaxScene
-          heroRef={heroRef}
-          phase={phase}
-          rootRef={rootRef}
-          setPhase={setPhase}
-          setProgress={setProgress}
-        />
+    <div className='relative left-1/2 right-1/2 -mt-28 min-w-screen max-w-screen w-screen -translate-x-1/2 overflow-x-hidden overflow-clip bg-[#082019] text-[#dfe8e0] md:-mt-32'>
+      <Hero scrollPrompt={copy.scrollPrompt} sideLeft={copy.sideLeft} sideRight={copy.sideRight}>
+        <ParallaxScene />
       </Hero>
 
       <Story

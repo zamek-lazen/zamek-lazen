@@ -80,5 +80,3 @@ export type HomepageCopy = {
   ctaContact: string
   ctaGallery: string
 }
-
-export type IntroPhase = 'loading' | 'unfold' | 'ready'
