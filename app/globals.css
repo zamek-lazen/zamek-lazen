@@ -37,7 +37,11 @@ body {
   --font-secondary: var(--font-primary);
   margin: 0;
   background:
-    radial-gradient(circle at 20% -15%, rgba(68, 110, 85, 0.22), transparent 34%),
+    radial-gradient(
+      circle at 20% -15%,
+      rgba(68, 110, 85, 0.22),
+      transparent 34%
+    ),
     radial-gradient(circle at 80% 8%, rgba(23, 74, 57, 0.32), transparent 38%),
     var(--color-forest-950);
   color: var(--color-mist-100);

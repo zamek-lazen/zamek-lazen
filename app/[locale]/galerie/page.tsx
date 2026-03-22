@@ -1,15 +1,31 @@
 import { getTranslations } from "next-intl/server";
+import { galleryImages } from "@/components/pages/gallery/gallery-images";
+import { GalleryMasonry } from "@/components/pages/gallery/gallery-masonry";
+import { PageHero } from "@/components/shared/page-hero";
 
 export default async function GalleryPage() {
   const t = await getTranslations("GalleryPage");
+  const images = galleryImages.map((image) => ({
+    ...image,
+    alt: t(`images.${image.altKey}`),
+  }));
 
   return (
-    <section className="rounded-3xl border border-zinc-200 bg-white p-8">
-      <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">{t("title")}</h1>
-      <p className="mt-3 text-zinc-700">{t("lead")}</p>
-      <div className="mt-8 rounded-2xl border border-dashed border-zinc-300 bg-zinc-50 p-8 text-center text-zinc-600">
-        {t("notice")}
-      </div>
-    </section>
+    <div className="-mt-28 md:-mt-32">
+      <PageHero eyebrow={t("eyebrow")} title={t("title")} lead={t("lead")} />
+
+      <section className="bg-[linear-gradient(180deg,#0c221d,#0f362e)] px-[1.2rem] py-[clamp(3rem,7vw,5.5rem)] text-[var(--color-mist-100)] md:px-8">
+        <div className="mx-auto w-full max-w-[94rem]">
+          <GalleryMasonry
+            images={images}
+            ui={{
+              closeImageLabel: t("closeImageLabel"),
+              imageDialogLabel: t("imageDialogLabel"),
+              openImageLabel: t("openImageLabel"),
+            }}
+          />
+        </div>
+      </section>
+    </div>
   );
 }
