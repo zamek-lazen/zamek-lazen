@@ -3,12 +3,23 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 import { Link, usePathname } from "@/i18n/navigation";
 import { navItems } from "@/components/shared/nav-items";
+
+type StaticPathname =
+  | "/"
+  | "/kontakt"
+  | "/historie"
+  | "/galerie"
+  | "/akce"
+  | "/rod"
+  | "/svatby";
 
 export function Navbar() {
   const t = useTranslations("Nav");
   const pathname = usePathname();
+  const params = useParams<{ slug?: string }>();
   const locale = useLocale();
   const nextLocale = locale === "de" ? "cs" : "de";
   const isHomePage = pathname === "/";
@@ -27,6 +38,15 @@ export function Navbar() {
   const headerClassName = isFloatingOverHero
     ? "border-transparent bg-transparent shadow-none"
     : "border-[rgba(185,212,197,0.14)] bg-[linear-gradient(180deg,rgba(6,22,17,0.94),rgba(6,22,17,0.82))] shadow-[0_18px_48px_rgba(0,0,0,0.22)] backdrop-blur-[14px]";
+  const localeHref: StaticPathname | { pathname: "/akce/[slug]"; params: { slug: string } } =
+    pathname === "/akce/[slug]" && typeof params.slug === "string"
+      ? {
+          pathname: "/akce/[slug]",
+          params: { slug: params.slug },
+        }
+      : pathname === "/akce/[slug]"
+        ? "/akce"
+        : pathname;
 
   return (
     <header
@@ -56,7 +76,7 @@ export function Navbar() {
             </span>
           </Link>
 
-          <nav className="pointer-events-auto hidden items-center gap-4 text-[0.64rem] uppercase tracking-[0.2em] md:flex lg:gap-6">
+          <nav className="pointer-events-auto hidden items-center gap-4 text-[0.85rem] uppercase tracking-[0.2em] md:flex lg:gap-6">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
 
@@ -78,7 +98,7 @@ export function Navbar() {
           </nav>
 
           <Link
-            href={pathname}
+            href={localeHref}
             locale={nextLocale}
             className={`pointer-events-auto flex items-center gap-2 rounded-full border px-3 py-1 text-[0.58rem] tracking-[0.16em] text-mist-200 transition md:text-[0.65rem] md:tracking-[0.2em] ${
               isFloatingOverHero
