@@ -1,145 +1,144 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
-const STORAGE_KEY = "zamek-home-intro-seen";
-const DEFAULT_LOAD_DURATION_MS = 2400;
-const DEFAULT_REVEAL_DELAY_MS = 180;
-const DEFAULT_REVEAL_DURATION_MS = 420;
-const REDUCED_LOAD_DURATION_MS = 520;
-const REDUCED_REVEAL_DELAY_MS = 60;
-const REDUCED_REVEAL_DURATION_MS = 180;
+const STORAGE_KEY = 'zamek-home-intro-seen'
+const DEFAULT_LOAD_DURATION_MS = 2400
+const DEFAULT_REVEAL_DELAY_MS = 180
+const DEFAULT_REVEAL_DURATION_MS = 420
+const REDUCED_LOAD_DURATION_MS = 520
+const REDUCED_REVEAL_DELAY_MS = 60
+const REDUCED_REVEAL_DURATION_MS = 180
 
-type IntroPhase = "loading" | "revealing" | "done";
+type IntroPhase = 'loading' | 'revealing' | 'done'
 
 function easeOutQuart(value: number) {
-  return 1 - (1 - value) ** 4;
+  return 1 - (1 - value) ** 4
 }
 
 export function HomeIntroLoader() {
-  const [phase, setPhase] = useState<IntroPhase>("loading");
-  const [progress, setProgress] = useState(0);
+  const [phase, setPhase] = useState<IntroPhase>('loading')
+  const [progress, setProgress] = useState(0)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
-    if (typeof window === "undefined") {
-      return false;
+    if (typeof window === 'undefined') {
+      return false
     }
 
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  });
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  })
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const reducedMotion = mediaQuery.matches;
-    const handleMotionChange = () =>
-      setPrefersReducedMotion(mediaQuery.matches);
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const reducedMotion = mediaQuery.matches
+    const handleMotionChange = () => setPrefersReducedMotion(mediaQuery.matches)
 
-    mediaQuery.addEventListener("change", handleMotionChange);
+    mediaQuery.addEventListener('change', handleMotionChange)
 
     try {
-      if (window.sessionStorage.getItem(STORAGE_KEY) === "1") {
+      if (window.sessionStorage.getItem(STORAGE_KEY) === '1') {
         window.requestAnimationFrame(() => {
-          setPhase("done");
-        });
+          setPhase('done')
+        })
 
-        return () => mediaQuery.removeEventListener("change", handleMotionChange);
+        return () =>
+          mediaQuery.removeEventListener('change', handleMotionChange)
       }
     } catch {
       // Ignore storage access issues and allow the intro to play.
     }
 
-    const loadDuration = reducedMotion
-      ? REDUCED_LOAD_DURATION_MS
-      : DEFAULT_LOAD_DURATION_MS;
-    const revealDelay = reducedMotion
-      ? REDUCED_REVEAL_DELAY_MS
-      : DEFAULT_REVEAL_DELAY_MS;
-    const revealDuration = reducedMotion
-      ? REDUCED_REVEAL_DURATION_MS
-      : DEFAULT_REVEAL_DURATION_MS;
+    const loadDuration =
+      reducedMotion ? REDUCED_LOAD_DURATION_MS : DEFAULT_LOAD_DURATION_MS
+    const revealDelay =
+      reducedMotion ? REDUCED_REVEAL_DELAY_MS : DEFAULT_REVEAL_DELAY_MS
+    const revealDuration =
+      reducedMotion ? REDUCED_REVEAL_DURATION_MS : DEFAULT_REVEAL_DURATION_MS
 
-    let frameId = 0;
-    let revealTimeout = 0;
-    let finishTimeout = 0;
-    let startedAt: number | null = null;
+    let frameId = 0
+    let revealTimeout = 0
+    let finishTimeout = 0
+    let startedAt: number | null = null
 
-    document.body.classList.add("intro-lock");
+    document.body.classList.add('intro-lock')
 
     const tick = (timestamp: number) => {
       if (startedAt === null) {
-        startedAt = timestamp;
+        startedAt = timestamp
       }
 
-      const elapsed = timestamp - startedAt;
-      const ratio = Math.min(elapsed / loadDuration, 1);
-      const easedRatio = reducedMotion ? ratio : easeOutQuart(ratio);
-      const nextProgress = Math.max(3, Math.round(easedRatio * 100));
+      const elapsed = timestamp - startedAt
+      const ratio = Math.min(elapsed / loadDuration, 1)
+      const easedRatio = reducedMotion ? ratio : easeOutQuart(ratio)
+      const nextProgress = Math.max(3, Math.round(easedRatio * 100))
 
-      setProgress(nextProgress);
+      setProgress(nextProgress)
 
       if (ratio < 1) {
-        frameId = window.requestAnimationFrame(tick);
+        frameId = window.requestAnimationFrame(tick)
 
-        return;
+        return
       }
 
       try {
-        window.sessionStorage.setItem(STORAGE_KEY, "1");
+        window.sessionStorage.setItem(STORAGE_KEY, '1')
       } catch {
         // Ignore storage access issues and complete the intro normally.
       }
 
       revealTimeout = window.setTimeout(() => {
-        setPhase("revealing");
-      }, revealDelay);
+        setPhase('revealing')
+      }, revealDelay)
 
       finishTimeout = window.setTimeout(() => {
-        document.body.classList.remove("intro-lock");
-        setPhase("done");
-      }, revealDelay + revealDuration);
-    };
+        document.body.classList.remove('intro-lock')
+        setPhase('done')
+      }, revealDelay + revealDuration)
+    }
 
-    frameId = window.requestAnimationFrame(tick);
+    frameId = window.requestAnimationFrame(tick)
 
     return () => {
-      window.cancelAnimationFrame(frameId);
-      window.clearTimeout(revealTimeout);
-      window.clearTimeout(finishTimeout);
-      document.body.classList.remove("intro-lock");
-      mediaQuery.removeEventListener("change", handleMotionChange);
-    };
-  }, []);
+      window.cancelAnimationFrame(frameId)
+      window.clearTimeout(revealTimeout)
+      window.clearTimeout(finishTimeout)
+      document.body.classList.remove('intro-lock')
+      mediaQuery.removeEventListener('change', handleMotionChange)
+    }
+  }, [])
 
-  if (phase === "done") {
-    return null;
+  if (phase === 'done') {
+    return null
   }
 
-  const progressLabel = `${Math.max(0, Math.min(progress, 100))}%`;
+  const progressLabel = `${Math.max(0, Math.min(progress, 100))}%`
 
   return (
     <div
       aria-hidden
       className={`home-intro-loader ${
-        phase === "revealing" ? "is-revealing" : ""
-      } ${prefersReducedMotion ? "is-reduced-motion" : ""}`}
+        phase === 'revealing' ? 'is-revealing' : ''
+      } ${prefersReducedMotion ? 'is-reduced-motion' : ''}`}
     >
-      <div className="home-intro-loader__content">
-        <p className="font-serif text-[clamp(1.7rem,3vw,2.5rem)] leading-none tracking-[0.28em] text-[rgba(242,246,241,0.94)] uppercase">
+      <div className='home-intro-loader__content'>
+        <p className='font-serif text-[clamp(1.7rem,3vw,2.5rem)] leading-none tracking-[0.28em] text-[rgba(242,246,241,0.94)] uppercase'>
           Zámek Lázeň
         </p>
-        <p className="mt-3 font-sans text-[0.62rem] uppercase tracking-[0.46em] text-[rgba(184,201,191,0.72)]">
+        <p className='mt-3 font-sans text-[0.62rem] tracking-[0.46em] text-[rgba(184,201,191,0.72)] uppercase'>
           Chudenice
         </p>
       </div>
 
-      <div className="home-intro-loader__progress">
-        <span className="home-intro-loader__progress-label">{progressLabel}</span>
-        <div className="home-intro-loader__progress-rail">
+      <div className='home-intro-loader__progress'>
+        <span className='home-intro-loader__progress-label'>
+          {progressLabel}
+        </span>
+        <div className='home-intro-loader__progress-rail'>
           <span
-            className="home-intro-loader__progress-fill"
+            className='home-intro-loader__progress-fill'
             style={{ width: progressLabel }}
           />
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,1 +1,1 @@
-export { HistoryInteractiveTimeline } from "./interactive-timeline";
+export { HistoryInteractiveTimeline } from './interactive-timeline'

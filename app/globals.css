@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --color-forest-950: #061611;
@@ -46,7 +46,7 @@ body {
     radial-gradient(circle at 80% 8%, rgba(23, 74, 57, 0.32), transparent 38%),
     var(--color-forest-950);
   color: var(--color-mist-100);
-  font-family: var(--font-primary), "Helvetica Neue", sans-serif;
+  font-family: var(--font-primary), 'Helvetica Neue', sans-serif;
   text-rendering: optimizeLegibility;
 }
 
@@ -115,7 +115,7 @@ a {
 .home-intro-loader__progress-label {
   display: inline-block;
   min-width: 2.5rem;
-  font-family: var(--font-primary), "Helvetica Neue", sans-serif;
+  font-family: var(--font-primary), 'Helvetica Neue', sans-serif;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
