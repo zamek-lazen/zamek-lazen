@@ -1,13 +1,22 @@
+import type {SanityImageSource} from "@sanity/image-url/lib/types/types";
+
 export type HomepageSpotlightLink = {
-  href: "/historie" | "/rod" | "/svatby" | "/akce";
+  href: "/historie" | "/rod" | "/svatby" | "/akce" | "/galerie";
   title: string;
   description: string;
 };
 
+export type EventDetailHref = {
+  pathname: "/akce/[slug]";
+  params: {
+    slug: string;
+  };
+};
+
 export type HomepageEventPreview = {
   title: string;
-  status: string;
-  href: "/akce";
+  label: string;
+  href: "/akce" | EventDetailHref;
 };
 
 export type HomepageCopy = {
@@ -18,4 +27,22 @@ export type HomepageCopy = {
   highlightsTitle: string;
   ctaHistory: string;
   ctaContact: string;
+};
+
+export type LocalizedEvent = {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  image?: SanityImageSource;
+  smsticketEmbedCode?: string;
+};
+
+export type HeroUpcomingEvent = {
+  label: string;
+  title: string;
+  date: string;
+  href: EventDetailHref;
+  cta: string;
 };
