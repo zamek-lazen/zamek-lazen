@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, Syne } from "next/font/google";
+import { Bodoni_Moda, Syne, Aguafina_Script, Bonheur_Royale, Arizonia, Cormorant_Garamond } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import "./globals.css";
 
-const primaryFont = Syne({
+const primaryFont = Cormorant_Garamond({
   variable: "--font-primary",
   subsets: ["latin"],
-  weight: ["400", "500", "700", "800"],
+  weight: ["400", "500", "700", ],
 });
 
 const titleFont = Bodoni_Moda({
@@ -14,6 +14,12 @@ const titleFont = Bodoni_Moda({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
+
+
+const scriptFont = Arizonia({
+  variable: "--font-script",
+  weight: ["400"],
+})
 
 export const metadata: Metadata = {
   title: "Zámek Lázeň",
@@ -35,7 +41,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${primaryFont.variable} ${titleFont.variable} antialiased`}
+        className={`${primaryFont.variable} ${titleFont.variable} ${scriptFont.variable} antialiased`}
       >
         {children}
       </body>
