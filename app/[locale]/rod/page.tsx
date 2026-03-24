@@ -18,7 +18,7 @@ export default async function FamilyPage() {
 
           <aside className="rounded-[1.25rem] border border-[rgba(19,52,45,0.08)] bg-white/56 p-7 shadow-[0_18px_48px_rgba(15,33,28,0.08)] md:p-8">
             <p className="font-sans text-[0.72rem] uppercase tracking-[0.2em] text-[rgba(19,52,45,0.56)]">{t("currentHeadLabel")}</p>
-            <h2 className="mt-4 max-w-[14ch] font-serif text-[clamp(2rem,4vw,3rem)] leading-[1] tracking-[-0.02em] text-balance">{t("currentHeadTitle")}</h2>
+            <h2 className="mt-4 max-w-[15ch] font-serif text-[clamp(2rem,4vw,3rem)] leading-[1] tracking-[-0.02em]">{t("currentHeadTitle")}</h2>
             <p className="mt-5 font-sans text-[1rem] leading-[1.85] text-[rgba(19,52,45,0.74)]">{t("currentHeadBody")}</p>
           </aside>
         </div>
