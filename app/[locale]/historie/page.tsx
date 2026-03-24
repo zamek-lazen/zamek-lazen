@@ -1,57 +1,140 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import { PageHero } from "@/components/shared/page-hero";
+import { HistoryInteractiveTimeline } from "@/components/pages/history";
 
 export default async function HistoryPage() {
   const t = await getTranslations("HistoryPage");
+  const imageT = await getTranslations("GalleryPage.images");
+
+  const paragraphs = [t("p1"), t("p2"), t("p3")];
+
+  const chapters = [
+    {
+      id: "timeline-pramen",
+      navLabel: t("chapter1Nav"),
+      year: t("chapter1Year"),
+      title: t("chapter1Title"),
+      body: t("chapter1Body"),
+      note: t("chapter1Note"),
+      detail: t("chapter1Detail"),
+      images: [
+        {
+          src: "/images/historical/lazen-estate-park-view-archive.webp",
+          alt: imageT("imageArchiveParkView"),
+          caption: imageT("imageArchiveParkView"),
+          objectPosition: "50% 46%",
+        },
+        {
+          src: "/images/historical/lazen-estate-front-path-archive.webp",
+          alt: imageT("imageArchiveFrontPath"),
+          caption: imageT("imageArchiveFrontPath"),
+          objectPosition: "50% 46%",
+        },
+      ] as const,
+    },
+    {
+      id: "timeline-promena",
+      navLabel: t("chapter2Nav"),
+      year: t("chapter2Year"),
+      title: t("chapter2Title"),
+      body: t("chapter2Body"),
+      note: t("chapter2Note"),
+      detail: t("chapter2Detail"),
+      images: [
+        {
+          src: "/images/historical/lazen-estate-illustration.webp",
+          alt: imageT("imageArchiveIllustration"),
+          caption: imageT("imageArchiveIllustration"),
+          objectPosition: "50% 42%",
+        },
+        {
+          src: "/images/historical/lazen-estate-frontage-archive.webp",
+          alt: imageT("imageArchiveFrontage"),
+          caption: imageT("imageArchiveFrontage"),
+          objectPosition: "50% 45%",
+        },
+      ] as const,
+    },
+    {
+      id: "timeline-park",
+      navLabel: t("chapter3Nav"),
+      year: t("chapter3Year"),
+      title: t("chapter3Title"),
+      body: t("chapter3Body"),
+      note: t("chapter3Note"),
+      detail: t("chapter3Detail"),
+      images: [
+        {
+          src: "/images/historical/lazen-estate-hillside-1927.webp",
+          alt: imageT("imageArchiveHillside1927"),
+          caption: imageT("imageArchiveHillside1927"),
+          objectPosition: "50% 48%",
+        },
+        {
+          src: "/images/historical/lazen-estate-side-facade-archive.webp",
+          alt: imageT("imageArchiveSideFacade"),
+          caption: imageT("imageArchiveSideFacade"),
+          objectPosition: "50% 44%",
+        },
+      ] as const,
+    },
+    {
+      id: "timeline-zvrat",
+      navLabel: t("chapter4Nav"),
+      year: t("chapter4Year"),
+      title: t("chapter4Title"),
+      body: t("chapter4Body"),
+      note: t("chapter4Note"),
+      detail: t("chapter4Detail"),
+      images: [
+        {
+          src: "/images/historical/lazen-pioneer-center-archive.webp",
+          alt: imageT("imageArchivePioneerCenter"),
+          caption: imageT("imageArchivePioneerCenter"),
+          objectPosition: "50% 44%",
+        },
+        {
+          src: "/images/historical/lazen-estate-main-facade-archive.webp",
+          alt: imageT("imageArchiveMainFacade"),
+          caption: imageT("imageArchiveMainFacade"),
+          objectPosition: "50% 45%",
+        },
+      ] as const,
+    },
+  ];
+
+  const closing = {
+    id: "timeline-dnes",
+    label: t("closingLabel"),
+    title: t("closingTitle"),
+    body: t("closingBody"),
+    detail: t("closingDetail"),
+    images: [
+      {
+        src: "/images/estate/castle-front-summer-path.webp",
+        alt: imageT("imageCastleFrontSummerPath"),
+        caption: imageT("imageCastleFrontSummerPath"),
+        objectPosition: "50% 56%",
+      },
+      {
+        src: "/images/estate/castle-front-park.webp",
+        alt: imageT("imageCastleFrontPark"),
+        caption: imageT("imageCastleFrontPark"),
+        objectPosition: "50% 54%",
+      },
+    ] as const,
+  };
 
   return (
     <div className="-mt-28 md:-mt-32">
       <PageHero eyebrow={t("introLabel")} title={t("title")} lead={t("lead")} />
-
-      <section className="bg-[linear-gradient(180deg,#f4efe4,#ece4d8)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-[var(--color-forest-900)] md:px-8">
-        <div className="mx-auto grid w-full max-w-[94rem] gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-[1rem] border border-[rgba(19,52,45,0.08)] bg-[rgba(255,255,255,0.48)] p-5 shadow-[0_18px_48px_rgba(15,33,28,0.08)]">
-              <p className="font-serif text-[2.2rem] leading-none">{t("fact1Value")}</p>
-              <p className="mt-3 font-sans text-[0.92rem] uppercase tracking-[0.14em] text-[rgba(19,52,45,0.62)]">{t("fact1Label")}</p>
-            </div>
-            <div className="rounded-[1rem] border border-[rgba(19,52,45,0.08)] bg-[rgba(255,255,255,0.48)] p-5 shadow-[0_18px_48px_rgba(15,33,28,0.08)]">
-              <p className="font-serif text-[2.2rem] leading-none">{t("fact2Value")}</p>
-              <p className="mt-3 font-sans text-[0.92rem] uppercase tracking-[0.14em] text-[rgba(19,52,45,0.62)]">{t("fact2Label")}</p>
-            </div>
-            <div className="rounded-[1rem] border border-[rgba(19,52,45,0.08)] bg-[rgba(255,255,255,0.48)] p-5 shadow-[0_18px_48px_rgba(15,33,28,0.08)]">
-              <p className="font-serif text-[2.2rem] leading-none">{t("fact3Value")}</p>
-              <p className="mt-3 font-sans text-[0.92rem] uppercase tracking-[0.14em] text-[rgba(19,52,45,0.62)]">{t("fact3Label")}</p>
-            </div>
-            <div className="rounded-[1rem] border border-[rgba(19,52,45,0.08)] bg-[rgba(255,255,255,0.48)] p-5 shadow-[0_18px_48px_rgba(15,33,28,0.08)]">
-              <p className="font-serif text-[2.2rem] leading-none">{t("fact4Value")}</p>
-              <p className="mt-3 font-sans text-[0.92rem] uppercase tracking-[0.14em] text-[rgba(19,52,45,0.62)]">{t("fact4Label")}</p>
-            </div>
-          </div>
-
-          <div>
-            <p className="max-w-[58ch] font-sans text-[1rem] leading-[1.9] text-[rgba(19,52,45,0.74)]">{t("p1")}</p>
-            <p className="mt-5 max-w-[58ch] font-sans text-[1rem] leading-[1.9] text-[rgba(19,52,45,0.74)]">{t("p2")}</p>
-            <p className="mt-5 max-w-[58ch] font-sans text-[1rem] leading-[1.9] text-[rgba(19,52,45,0.74)]">{t("p3")}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/rod" className="inline-flex min-h-11 items-center justify-center border border-[rgba(19,52,45,0.16)] bg-white/60 px-6 py-3 font-sans text-[0.75rem] uppercase tracking-[0.18em] transition-transform duration-200 hover:-translate-y-0.5">
-                {t("jumpFamily")}
-              </Link>
-              <Link href="/kontakt" className="inline-flex min-h-11 items-center justify-center border border-[rgba(19,52,45,0.16)] px-6 py-3 font-sans text-[0.75rem] uppercase tracking-[0.18em] transition-transform duration-200 hover:-translate-y-0.5">
-                {t("jumpContact")}
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-10 grid w-full max-w-[94rem] gap-4 md:grid-cols-3">
-          <div className="relative min-h-[15rem] overflow-hidden rounded-[1rem]"><Image src="/images/historical/lazen-estate-main-facade-archive.webp" alt="" fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover" /></div>
-          <div className="relative min-h-[15rem] overflow-hidden rounded-[1rem]"><Image src="/images/historical/lazen-estate-illustration.webp" alt="" fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover" /></div>
-          <div className="relative min-h-[15rem] overflow-hidden rounded-[1rem]"><Image src="/images/historical/lazen-estate-park-view-archive.webp" alt="" fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover" /></div>
-        </div>
-      </section>
+      <HistoryInteractiveTimeline
+        chapters={chapters}
+        closing={closing}
+        introLabel={t("introLabel")}
+        paragraphs={paragraphs}
+        timelineLabel={t("timelineLabel")}
+      />
     </div>
   );
 }
