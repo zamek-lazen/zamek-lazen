@@ -1,18 +1,29 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
+import Script from "next/script";
 import type { HomepageEventPreview, HomepageSpotlightLink } from "@/types";
 import {
-  EstatePreview,
   EventsPreview,
   GalleryPreview,
   Hero,
+  HomeIntroLoader,
   HistoryFamilyPreview,
   Story,
   WeddingsPreview,
 } from "@/components/pages/home";
+import {
+  formatEventDate,
+  getNearestEvent,
+  getUpcomingEvents,
+} from "@/sanity/lib/events";
 
 export default async function HomePage() {
+  const locale = (await getLocale()) as "cs" | "de";
   const t = await getTranslations("HomePage");
   const nav = await getTranslations("Nav");
+  const [nearestEvent, upcomingEvents] = await Promise.all([
+    getNearestEvent(locale),
+    getUpcomingEvents(locale, 3),
+  ]);
 
   const spotlightLinks: HomepageSpotlightLink[] = [
     {
@@ -35,28 +46,62 @@ export default async function HomePage() {
       title: nav("events"),
       description: t("storyEventsDescription"),
     },
+    {
+      href: "/galerie",
+      title: nav("gallery"),
+      description: t("storyGalleryDescription"),
+    },
   ];
 
-  const eventPreviews: HomepageEventPreview[] = [
-    {
-      href: "/akce",
-      title: t("eventsCardOneTitle"),
-      status: t("eventsCardOneStatus"),
-    },
-    {
-      href: "/akce",
-      title: t("eventsCardTwoTitle"),
-      status: t("eventsCardTwoStatus"),
-    },
-    {
-      href: "/akce",
-      title: t("eventsCardThreeTitle"),
-      status: t("eventsCardThreeStatus"),
-    },
-  ];
+  const eventPreviews: HomepageEventPreview[] =
+    upcomingEvents.length > 0
+      ? upcomingEvents.map((event) => ({
+          href: {
+            pathname: "/akce/[slug]",
+            params: { slug: event.slug },
+          },
+          title: event.title,
+          label: formatEventDate(event.date, locale),
+        }))
+      : [
+          {
+            href: "/akce",
+            title: t("eventsCardOneTitle"),
+            label: t("eventsCardOneStatus"),
+          },
+          {
+            href: "/akce",
+            title: t("eventsCardTwoTitle"),
+            label: t("eventsCardTwoStatus"),
+          },
+          {
+            href: "/akce",
+            title: t("eventsCardThreeTitle"),
+            label: t("eventsCardThreeStatus"),
+          },
+        ];
+
+  const featuredEvent = upcomingEvents[0];
 
   return (
     <div className="-mt-28 md:-mt-32">
+      <Script id="home-intro-bootstrap" strategy="beforeInteractive">
+        {`(() => {
+  try {
+    const seen = window.sessionStorage.getItem("zamek-home-intro-seen") === "1";
+    if (!seen || document.getElementById("home-intro-repeat-style")) return;
+    const style = document.createElement("style");
+    style.id = "home-intro-repeat-style";
+    style.textContent = ".home-intro-loader{display:none!important}";
+    document.head.appendChild(style);
+  } catch {
+    // Ignore storage access issues and allow the intro to play.
+  }
+})();`}
+      </Script>
+
+      <HomeIntroLoader />
+
       <Hero
         eyebrow={t("heroEyebrow")}
         title={t("heroTitle")}
@@ -67,6 +112,20 @@ export default async function HomePage() {
         scrollPrompt={t("scrollPrompt")}
         sideLeft={t("sideLeft")}
         sideRight={t("sideRight")}
+        nextEvent={
+          nearestEvent
+            ? {
+                cta: t("heroUpcomingCta"),
+                date: formatEventDate(nearestEvent.date, locale),
+                href: {
+                  pathname: "/akce/[slug]",
+                  params: { slug: nearestEvent.slug },
+                },
+                label: t("heroUpcomingLabel"),
+                title: nearestEvent.title,
+              }
+            : null
+        }
       />
 
       <Story
@@ -78,14 +137,6 @@ export default async function HomePage() {
         ctaHistory={t("storyCtaHistory")}
         ctaContact={t("storyCtaContact")}
         spotlightLinks={spotlightLinks}
-      />
-
-      <EstatePreview
-        eyebrow={t("estateEyebrow")}
-        title={t("estateTitle")}
-        lead={t("estateLead")}
-        body={t("estateBody")}
-        cta={t("estateCta")}
       />
 
       <HistoryFamilyPreview
@@ -116,9 +167,13 @@ export default async function HomePage() {
         eyebrow={t("eventsEyebrow")}
         title={t("eventsTitle")}
         body={t("eventsBody")}
-        featuredLabel={t("eventsFeaturedLabel")}
-        featuredTitle={t("eventsFeaturedTitle")}
-        featuredBody={t("eventsFeaturedBody")}
+        featuredLabel={
+          featuredEvent
+            ? t("eventsFeaturedUpcomingLabel")
+            : t("eventsFeaturedLabel")
+        }
+        featuredTitle={featuredEvent?.title ?? t("eventsFeaturedTitle")}
+        featuredBody={featuredEvent?.description ?? t("eventsFeaturedBody")}
         cta={t("eventsCta")}
         events={eventPreviews}
       />

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import type { HeroUpcomingEvent } from "@/types";
 
 type HeroProps = {
   eyebrow: string;
@@ -14,6 +15,7 @@ type HeroProps = {
   scrollPrompt: string;
   sideLeft: string;
   sideRight: string;
+  nextEvent?: HeroUpcomingEvent | null;
 };
 
 export function Hero({
@@ -26,6 +28,7 @@ export function Hero({
   sideLeft,
   sideRight,
   title,
+  nextEvent,
 }: HeroProps) {
   const [pointer, setPointer] = useState({ x: 0, y: 0 });
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -81,8 +84,7 @@ export function Hero({
             className="object-cover [object-position:center_35%]"
           />
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,22,17,0.34),rgba(6,22,17,0.18)_22%,rgba(6,22,17,0.56)_58%,rgba(6,22,17,0.9)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_18%,rgba(214,226,188,0.2),transparent_25%),radial-gradient(circle_at_72%_20%,rgba(255,211,165,0.16),transparent_24%),radial-gradient(circle_at_50%_100%,rgba(7,43,34,0.78),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,22,17,0.24),rgba(6,22,17,0.18)_22%,rgba(6,22,17,0.36)_40%,rgba(6,22,17,0.6)_60%)]" />
         <div
           aria-hidden
           className="absolute left-[8%] top-[16%] h-44 w-44 rounded-full bg-[rgba(169,204,171,0.18)] blur-[90px] transition-transform duration-300 ease-out md:h-72 md:w-72"
@@ -91,52 +93,74 @@ export function Hero({
       </div>
 
       <div className="relative mx-auto flex h-full w-full max-w-[94rem] items-end pb-[clamp(2.25rem,5vh,4.75rem)]">
-        <div className="grid w-full gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(16rem,0.52fr)] md:items-end">
+        <div className="grid w-full gap-8 md:grid-cols-[minmax(0,1fr)_minmax(16rem,0.46fr)] md:items-end md:gap-12">
           <div
-            className="max-w-[48rem] rounded-[1.25rem] border border-[rgba(221,232,223,0.16)] bg-[linear-gradient(180deg,rgba(8,24,20,0.18),rgba(8,24,20,0.44))] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.26)] backdrop-blur-[10px] transition-transform duration-300 ease-out md:p-9"
+            className="max-w-[44rem] transition-transform duration-300 ease-out"
             style={{ transform: copyTransform }}
           >
-            <p className="font-sans text-[0.72rem] uppercase tracking-[0.24em] text-[rgba(232,238,232,0.72)]">
-              {eyebrow}
-            </p>
-            <h1 className="mt-4 max-w-[11ch] font-serif text-[clamp(3.5rem,8vw,7.5rem)] leading-[0.9] tracking-[-0.03em] text-balance">
+
+            <h1 className="mt-4 max-w-[11ch] font-script text-[clamp(3.5rem,8vw,7.5rem)] leading-[0.9] tracking-[0.4rem] text-balance text-yellow-50">
               {title}
             </h1>
-            <p className="mt-5 max-w-[25ch] font-serif text-[clamp(1.1rem,2.7vw,1.6rem)] leading-tight text-[rgba(232,238,232,0.88)]">
+            <p className="font-sans text-[1.1rem] uppercase tracking-[0.24em] text-yellow-50">
+                         {eyebrow}
+                       </p>
+            {/*<p className="mt-5 max-w-[25ch] font-serif text-[clamp(1.1rem,2.7vw,1.6rem)] leading-tight text-[rgba(232,238,232,0.88)]">
               {lead}
             </p>
-            <p className="mt-5 max-w-[56ch] font-sans text-[clamp(0.98rem,1.75vw,1.08rem)] leading-[1.8] text-[rgba(215,224,217,0.78)]">
+            <div className="mt-6 h-px w-20 bg-[rgba(232,238,232,0.28)]" />
+            <p className="mt-6 max-w-[56ch] font-sans text-[clamp(0.98rem,1.75vw,1.08rem)] leading-[1.8] text-[rgba(215,224,217,0.78)]">
               {description}
-            </p>
+            </p>*/}
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-28 flex flex-wrap gap-3">
               <Link
                 href="/historie"
-                className="inline-flex min-h-11 items-center justify-center border border-[rgba(236,242,236,0.45)] bg-[rgba(239,244,238,0.92)] px-6 py-3 font-sans text-[0.75rem] font-medium uppercase tracking-[0.18em] text-[var(--color-forest-900)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[rgba(246,249,245,1)]"
+                className="inline-flex min-h-11 items-center justify-center border border-[rgba(236,242,236,0.46)] bg-[rgba(239,244,238,0.94)] px-6 py-3 font-sans text-[0.75rem] font-medium uppercase tracking-[0.18em] text-[var(--color-forest-900)] transition-colors duration-200 hover:bg-[rgba(246,249,245,1)]"
                 style={{ color: "var(--color-forest-900)" }}
               >
                 {ctaPrimary}
               </Link>
               <Link
                 href="/kontakt"
-                className="inline-flex min-h-11 items-center justify-center border border-[rgba(210,223,213,0.28)] bg-[rgba(8,24,20,0.16)] px-6 py-3 font-sans text-[0.75rem] uppercase tracking-[0.18em] text-[rgba(232,238,232,0.92)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-[rgba(229,236,228,0.46)] hover:bg-[rgba(8,24,20,0.28)]"
+                className="inline-flex min-h-11 items-center justify-center border border-[rgba(210,223,213,0.3)] bg-[rgba(8,24,20,0.12)] px-6 py-3 font-sans text-[0.75rem] uppercase tracking-[0.18em] text-[rgba(232,238,232,0.92)] transition-colors duration-200 hover:border-[rgba(229,236,228,0.5)] hover:bg-[rgba(8,24,20,0.24)]"
               >
                 {ctaSecondary}
               </Link>
             </div>
           </div>
 
-          <div className="hidden self-end justify-self-end md:block">
-            <div className="border-l border-[rgba(224,233,225,0.24)] pl-5 text-right">
-              <p className="font-sans text-[0.68rem] uppercase tracking-[0.28em] text-[rgba(223,232,224,0.52)]">
-                {scrollPrompt}
-              </p>
-              <p className="mt-3 max-w-[18ch] font-serif text-[1.25rem] leading-[1.25] text-[rgba(236,241,236,0.84)]">
-                {sideLeft}{" "}
-                <span className="text-[rgba(198,216,204,0.66)]">/</span>{" "}
-                {sideRight}
-              </p>
-            </div>
+          <div className="max-w-[18rem] md:justify-self-end">
+            {nextEvent ? (
+              <Link
+                href={nextEvent.href}
+                className="group block border-t border-[rgba(224,233,225,0.24)] pt-4 transition-colors duration-200 hover:border-[rgba(236,241,236,0.42)] md:text-right"
+              >
+                <p className="font-sans text-[0.68rem] uppercase tracking-[0.28em] text-[rgba(223,232,224,0.52)] transition-colors duration-200 group-hover:text-[rgba(236,241,236,0.72)]">
+                  {nextEvent.label}
+                </p>
+                <p className="mt-3 max-w-[18ch] font-serif text-[1.25rem] leading-[1.25] text-[rgba(236,241,236,0.84)] transition-colors duration-200 group-hover:text-[rgba(246,249,244,0.98)]">
+                  {nextEvent.title}
+                </p>
+                <p className="mt-2 font-sans text-[0.82rem] uppercase tracking-[0.18em] text-[rgba(198,216,204,0.66)] transition-colors duration-200 group-hover:text-[rgba(221,232,223,0.84)]">
+                  {nextEvent.date}
+                </p>
+                <p className="mt-4 font-sans text-[0.72rem] uppercase tracking-[0.2em] text-[rgba(223,232,224,0.8)] transition-colors duration-200 group-hover:text-[rgba(242,246,241,0.96)]">
+                  {nextEvent.cta}
+                </p>
+              </Link>
+            ) : (
+              <div className="border-t border-[rgba(224,233,225,0.24)] pt-4 md:text-right">
+                <p className="font-sans text-[0.68rem] uppercase tracking-[0.28em] text-[rgba(223,232,224,0.52)]">
+                  {scrollPrompt}
+                </p>
+                <p className="mt-3 max-w-[18ch] font-serif text-[1.25rem] leading-[1.25] text-[rgba(236,241,236,0.84)]">
+                  {sideLeft}{" "}
+                  <span className="text-[rgba(198,216,204,0.66)]">/</span>{" "}
+                  {sideRight}
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>

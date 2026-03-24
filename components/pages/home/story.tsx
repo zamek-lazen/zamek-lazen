@@ -34,15 +34,13 @@ export function Story({
           <p className="mb-[0.85rem] font-sans text-[0.72rem] uppercase tracking-[0.16em] text-[rgba(201,218,208,0.64)]">
             {eyebrow}
           </p>
-          <h2 className="max-w-[10ch] font-serif text-[clamp(2.6rem,8vw,5.5rem)] leading-[0.92] tracking-[-0.01em] text-balance text-[rgba(241,245,239,0.97)]">
+          <h2 className="font-serif text-[clamp(2.6rem,8vw,5.5rem)] leading-[1.15] tracking-[-0.01em] text-balance text-[rgba(241,245,239,0.97)]">
             {title}
           </h2>
           <p className="mt-[1.3rem] max-w-[34ch] font-serif text-[clamp(1.06rem,2.9vw,1.52rem)] leading-[1.28] text-[rgba(220,230,224,0.84)]">
             {lead}
           </p>
-          <p className="mt-4 max-w-[58ch] font-sans text-[clamp(0.95rem,1.9vw,1.08rem)] leading-[1.78] text-[rgba(191,210,200,0.76)]">
-            {description}
-          </p>
+
 
           <div className="mt-[1.8rem] flex flex-wrap gap-[0.9rem]">
             <Link
