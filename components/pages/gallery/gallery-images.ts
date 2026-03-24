@@ -59,13 +59,6 @@ export const galleryImages: GalleryImageDefinition[] = [
     size: "medium",
   },
   {
-    src: "/images/flora/magnolia-bud-branch-closeup.webp",
-    altKey: "imageMagnoliaBudBranchCloseup",
-    width: 2816,
-    height: 2112,
-    size: "medium",
-  },
-  {
     src: "/images/estate/castle-front-winter-garden.webp",
     altKey: "imageCastleFrontWinterGarden",
     width: 2048,

@@ -17,18 +17,6 @@ type GalleryMasonryProps = {
   };
 };
 
-const sizeClasses: Record<GalleryImageDefinition["size"], string> = {
-  tall: "row-span-28 md:row-span-32",
-  medium: "row-span-20 md:row-span-22",
-  wide: "row-span-22 md:row-span-24 xl:col-span-2",
-};
-
-const imageSizes: Record<GalleryImageDefinition["size"], string> = {
-  tall: "(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw",
-  medium: "(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw",
-  wide: "(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 66vw",
-};
-
 export function GalleryMasonry({ images, ui }: GalleryMasonryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const activeImage = activeIndex === null ? null : images[activeIndex];
@@ -60,23 +48,26 @@ export function GalleryMasonry({ images, ui }: GalleryMasonryProps) {
 
   return (
     <>
-      <div className="grid auto-rows-[12px] grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="columns-1 gap-4 md:columns-2 xl:columns-3">
         {images.map((image, index) => (
           <button
             key={image.src}
             type="button"
             onClick={() => setActiveIndex(index)}
-            className={`group relative block overflow-hidden rounded-[0.95rem] border border-[rgba(185,212,197,0.14)] bg-[rgba(7,24,19,0.36)] text-left transition-transform duration-300 hover:-translate-y-1 ${sizeClasses[image.size]}`}
+            className="group mb-4 inline-block w-full break-inside-avoid text-left transition-transform duration-300 hover:-translate-y-1"
             aria-label={`${ui.openImageLabel}: ${image.alt}`}
           >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              sizes={imageSizes[image.size]}
-              quality={90}
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            />
+            <span className="block overflow-hidden rounded-[0.95rem] border border-[rgba(185,212,197,0.14)] bg-[rgba(7,24,19,0.36)]">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
+                quality={90}
+                className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            </span>
           </button>
         ))}
       </div>
@@ -102,16 +93,15 @@ export function GalleryMasonry({ images, ui }: GalleryMasonryProps) {
             className="flex max-h-full w-full max-w-[92rem] flex-col gap-4"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden rounded-[1.4rem] border border-[rgba(221,232,223,0.16)] bg-[rgba(7,24,19,0.55)] p-3 shadow-[0_32px_100px_rgba(0,0,0,0.45)] md:p-6">
+            <div className="relative h-[min(78vh,calc(100dvh-11rem))] w-full overflow-hidden p-3 shadow-[0_32px_100px_rgba(0,0,0,0.45)] md:h-[min(82vh,calc(100dvh-12rem))] md:p-6">
               <Image
                 src={activeImage.src}
                 alt={activeImage.alt}
-                width={activeImage.width}
-                height={activeImage.height}
+                fill
                 sizes="100vw"
                 quality={95}
                 priority
-                className="h-auto max-h-[82vh] w-auto max-w-full object-contain"
+                className="object-contain"
               />
             </div>
 
