@@ -22,6 +22,10 @@ export const routing = defineRouting({
       cs: "/akce",
       de: "/veranstaltungen",
     },
+    "/akce/[slug]": {
+      cs: "/akce/[slug]",
+      de: "/veranstaltungen/[slug]",
+    },
     "/rod": {
       cs: "/rod",
       de: "/familie",
