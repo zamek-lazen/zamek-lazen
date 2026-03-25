@@ -58,7 +58,7 @@ export function Hero({
 
   return (
     <section
-      className='bg-background relative isolate h-dvh min-h-svh overflow-hidden px-[1.2rem] pt-[clamp(6.25rem,10vh,8.5rem)] text-mist-50 md:px-8 md:pt-[clamp(6.75rem,10vh,9rem)]'
+      className='bg-background relative isolate flex h-dvh min-h-0 min-h-svh flex-col overflow-hidden px-[1.2rem] pt-[clamp(6.25rem,10vh,8.5rem)] text-mist-50 lg:px-8 lg:pt-[clamp(6.75rem,10vh,9rem)]'
       onMouseMove={(event) => {
         if (prefersReducedMotion) {
           return
@@ -77,7 +77,7 @@ export function Hero({
           style={{ transform: imageTransform }}
         >
           <Image
-            src='/images/estate/castle-front-flower.webp'
+            src='/images/castle-front-flower.webp'
             alt=''
             fill
             priority
@@ -88,18 +88,18 @@ export function Hero({
         <div className='absolute inset-0 bg-[linear-gradient(180deg,rgba(6,22,17,0.02),rgba(6,22,17,0.08)_22%,rgba(6,22,17,0.14)_35%,rgba(6,22,17,0.68)_70%)]' />
         <div
           aria-hidden
-          className='absolute top-[16%] left-[8%] h-44 w-44 rounded-full bg-[rgba(169,204,171,0.18)] blur-[90px] transition-transform duration-300 ease-out md:h-72 md:w-72'
+          className='absolute top-[16%] left-[8%] h-44 w-44 rounded-full bg-[rgba(169,204,171,0.18)] blur-[90px] transition-transform duration-300 ease-out lg:h-72 lg:w-72'
           style={{ transform: glowTransform }}
         />
       </div>
 
-      <div className='relative mx-auto flex h-full w-full max-w-376 items-end pb-[clamp(2.25rem,5vh,4.75rem)]'>
-        <div className='grid w-full gap-8 md:grid-cols-[minmax(0,1fr)_minmax(16rem,0.46fr)] md:items-end md:gap-12'>
+      <div className='relative z-10 mx-auto flex min-h-0 w-full max-w-376 flex-1 flex-col px-0 pb-[clamp(2.25rem,5vh,4.75rem)]'>
+        <div className='flex min-h-0 min-w-0 flex-1 flex-col justify-end'>
           <div
             className='max-w-176 transition-transform duration-300 ease-out'
             style={{ transform: copyTransform }}
           >
-            <h1 className='editorial-title editorial-title-dark editorial-title-hero mt-4 max-w-[11ch]'>
+            <h1 className='editorial-title editorial-title-dark editorial-title-hero mt-4'>
               {title}
             </h1>
             <p className='editorial-eyebrow editorial-eyebrow-dark mt-4'>
@@ -121,28 +121,30 @@ export function Hero({
               </Link>
             </div>
           </div>
+        </div>
 
-          <div className='max-w-[18rem] md:justify-self-end'>
+        <div className='mt-7 shrink-0 text-left lg:pointer-events-none lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0 lg:flex lg:justify-end lg:px-8 lg:pb-[clamp(2.25rem,5vh,4.75rem)] lg:text-right'>
+          <div className='pointer-events-auto w-full max-w-[min(100%,18rem)] lg:max-w-[18rem]'>
             {nextEvent ?
               <Link
                 href={nextEvent.href}
-                className='group block pt-4 transition-colors duration-200 hover:border-[rgba(236,241,236,0.72)] md:text-right'
+                className='group block transition-colors duration-200 hover:border-[rgba(236,241,236,0.72)]'
               >
                 <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.75rem] transition-colors duration-200 group-hover:text-[rgba(255,253,242,0.9)]'>
                   {nextEvent.label}
                 </p>
-                <p className='editorial-card-title editorial-card-title-dark mt-3 max-w-[18ch] transition-colors duration-200 group-hover:text-[rgba(255,253,242,0.98)]'>
+                <p className='editorial-card-title editorial-card-title-dark mt-3 max-w-[18ch] transition-colors duration-200 group-hover:text-[rgba(255,253,242,0.98)] lg:ml-auto'>
                   {nextEvent.title}
                 </p>
                 <p className='editorial-eyebrow editorial-eyebrow-dark mt-2 text-[0.72rem] opacity-80 transition-colors duration-200 group-hover:text-[rgba(255,253,242,0.84)]'>
                   {nextEvent.date}
                 </p>
               </Link>
-            : <div className='border-t border-[rgba(224,233,225,0.24)] pt-4 md:text-right'>
+            : <div className='border-t border-[rgba(224,233,225,0.24)] pt-4'>
                 <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.72rem] opacity-70'>
                   {scrollPrompt}
                 </p>
-                <p className='editorial-card-title editorial-card-title-dark mt-3 max-w-[22ch]'>
+                <p className='editorial-card-title editorial-card-title-dark mt-3 max-w-[22ch] lg:ml-auto'>
                   {sideLeft}{' '}
                   <span className='text-[rgba(198,216,204,0.66)]'>/</span>{' '}
                   {sideRight}
@@ -151,14 +153,6 @@ export function Hero({
             }
           </div>
         </div>
-      </div>
-
-      <div className='pointer-events-none absolute bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 text-[rgba(229,235,230,0.68)] md:hidden'>
-        <span className='h-px w-10 bg-[rgba(229,235,230,0.28)]' />
-        <span className='editorial-eyebrow editorial-eyebrow-dark text-[0.72rem]'>
-          {scrollPrompt}
-        </span>
-        <span className='h-px w-10 bg-[rgba(229,235,230,0.28)]' />
       </div>
     </section>
   )

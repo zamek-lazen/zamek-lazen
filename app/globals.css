@@ -191,7 +191,7 @@ a {
 
   /* Hlavní nadpisy: Arizonia (--font-script-family z next/font na <html>; název + fallback pro @font-face) */
   .editorial-title {
-    @apply text-[clamp(2rem,3.6vw,3.25rem)] leading-[1.06] tracking-[0.02em] text-balance;
+    @apply text-[clamp(2rem,3.6vw,3.25rem)] leading-[1.06] tracking-[0.02em];
     font-family:
       var(--font-script-family), 'Arizonia', 'Arizonia Fallback', cursive;
     font-weight: 400;
@@ -206,7 +206,7 @@ a {
   }
 
   .editorial-title-hero {
-    @apply text-[clamp(5.15rem,6.5vw,8.85rem)] leading-[1.05] tracking-[0.02em];
+    @apply text-[7rem] xl:text-[8rem] leading-[1.05] tracking-[0.02em];
   }
 
   /* Podnadpisy (sekce v kartách, CMS): Bodoni Moda */

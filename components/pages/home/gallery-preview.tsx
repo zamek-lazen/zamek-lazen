@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { galleryImages } from '@/components/pages/gallery/gallery-images'
 import { Link } from '@/i18n/navigation'
 
 type GalleryPreviewProps = {
@@ -14,6 +15,8 @@ export function GalleryPreview({
   eyebrow,
   title
 }: GalleryPreviewProps) {
+  const [primaryImage, secondaryImage, tertiaryImage] = galleryImages
+
   return (
     <section className='editorial-surface-dark px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
       <div className='mx-auto w-full max-w-376'>
@@ -39,7 +42,7 @@ export function GalleryPreview({
           <div className='grid gap-3 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]'>
             <div className='group relative min-h-100 overflow-hidden rounded-2xl border border-[rgba(254,252,232,0.12)]'>
               <Image
-                src='/images/estate/castle-front-summer-path.webp'
+                src={primaryImage.src}
                 alt=''
                 fill
                 sizes='(max-width: 1024px) 100vw, 54vw'
@@ -49,7 +52,7 @@ export function GalleryPreview({
             <div className='grid gap-3'>
               <div className='group relative min-h-48 overflow-hidden rounded-[0.9rem] border border-[rgba(254,252,232,0.12)]'>
                 <Image
-                  src='/images/estate/castle-park-lawn.webp'
+                  src={secondaryImage.src}
                   alt=''
                   fill
                   sizes='(max-width: 1024px) 100vw, 28vw'
@@ -58,7 +61,7 @@ export function GalleryPreview({
               </div>
               <div className='group relative min-h-48 overflow-hidden rounded-[0.9rem] border border-[rgba(254,252,232,0.12)]'>
                 <Image
-                  src='/images/flora/magnolia-bloom-closeup.webp'
+                  src={tertiaryImage.src}
                   alt=''
                   fill
                   sizes='(max-width: 1024px) 100vw, 28vw'

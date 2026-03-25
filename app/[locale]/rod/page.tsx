@@ -3,11 +3,12 @@ import { PageHero } from '@/components/shared/page-hero'
 
 export default async function FamilyPage() {
   const t = await getTranslations('FamilyPage')
+  const nav = await getTranslations('Nav')
 
   return (
     <div className='-mt-28 md:-mt-32'>
       <PageHero
-        eyebrow='Rod'
+        eyebrow={nav('family')}
         title={t('title')}
         lead={t('lead')}
       />
