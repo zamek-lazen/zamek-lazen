@@ -84,16 +84,16 @@ export default async function WeddingsPage() {
         lead={t('lead')}
       />
 
-      <section className='bg-[linear-gradient(180deg,#f4efe4,#ece4d8)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-forest-900) md:px-8'>
+      <section className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
         <div className='mx-auto w-full max-w-376'>
           <div className=''>
-            <p className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(19,52,45,0.48)] uppercase'>
+            <p className='editorial-eyebrow editorial-eyebrow-light'>
               {t('whyEyebrow')}
             </p>
-            <h2 className='mt-4 font-serif text-[clamp(2.4rem,5vw,4.8rem)] leading-[0.96] tracking-[-0.025em] text-balance'>
+            <h2 className='editorial-title editorial-title-light mt-4'>
               {t('whyTitle')}
             </h2>
-            <p className='mt-5 font-sans text-[1rem] leading-[1.85] text-[rgba(19,52,45,0.74)]'>
+            <p className='editorial-body editorial-body-light mt-5 max-w-[60ch]'>
               {t('whyLead')}
             </p>
           </div>
@@ -102,12 +102,12 @@ export default async function WeddingsPage() {
             {reasons.map((reason) => (
               <article
                 key={reason.title}
-                className='rounded-2xl border border-[rgba(19,52,45,0.08)] bg-[rgba(255,252,247,0.72)] p-6'
+                className='editorial-card rounded-2xl p-6'
               >
-                <h3 className='max-w-[14ch] font-serif text-[1.65rem] leading-[1.08] text-[rgba(19,52,45,0.94)]'>
+                <h3 className='editorial-card-title editorial-card-title-light max-w-[14ch]'>
                   {reason.title}
                 </h3>
-                <p className='mt-4 font-sans text-[0.98rem] leading-[1.8] text-[rgba(19,52,45,0.72)]'>
+                <p className='editorial-body editorial-body-light mt-4 text-[0.98rem]'>
                   {reason.body}
                 </p>
               </article>
@@ -116,16 +116,16 @@ export default async function WeddingsPage() {
         </div>
       </section>
 
-      <section className='bg-[linear-gradient(180deg,rgba(8,27,22,1),rgba(6,22,17,1))] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-mist-100) md:px-8'>
+      <section className='editorial-surface-dark px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
         <div className='mx-auto grid w-full max-w-376 gap-10 lg:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] lg:items-start'>
           <div className='max-w-140'>
-            <p className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(184,201,191,0.58)] uppercase'>
+            <p className='editorial-eyebrow editorial-eyebrow-dark'>
               {t('processEyebrow')}
             </p>
-            <h2 className='mt-4 max-w-[10ch] font-serif text-[clamp(2.4rem,5vw,4.7rem)] leading-[0.95] tracking-[-0.025em] text-balance text-[rgba(241,245,239,0.97)]'>
+            <h2 className='editorial-title editorial-title-dark mt-4'>
               {t('processTitle')}
             </h2>
-            <p className='mt-5 max-w-[58ch] font-sans text-[1rem] leading-[1.85] text-[rgba(203,218,209,0.78)]'>
+            <p className='editorial-body editorial-body-dark mt-5 max-w-[58ch]'>
               {t('processLead')}
             </p>
           </div>
@@ -134,16 +134,16 @@ export default async function WeddingsPage() {
             {steps.map((step, index) => (
               <article
                 key={step.title}
-                className='grid gap-4 rounded-2xl border border-[rgba(185,212,197,0.12)] bg-[rgba(242,246,241,0.04)] p-5 md:grid-cols-[auto_minmax(0,1fr)] md:items-start md:gap-5 md:p-6'
+                className='editorial-card-dark grid gap-4 rounded-2xl p-5 md:grid-cols-[auto_minmax(0,1fr)] md:items-start md:gap-5 md:p-6'
               >
-                <span className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(184,201,191,0.56)] uppercase'>
+                <span className='editorial-eyebrow editorial-eyebrow-dark text-[0.75rem]'>
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <div>
-                  <h3 className='font-serif text-[1.55rem] leading-[1.1] text-[rgba(241,245,239,0.96)]'>
+                  <h3 className='editorial-card-title editorial-card-title-dark text-[2rem]'>
                     {step.title}
                   </h3>
-                  <p className='mt-3 max-w-[56ch] font-sans text-[0.98rem] leading-[1.8] text-[rgba(203,218,209,0.76)]'>
+                  <p className='editorial-body editorial-body-dark mt-3 max-w-[56ch] text-[0.98rem]'>
                     {step.body}
                   </p>
                 </div>
@@ -153,16 +153,16 @@ export default async function WeddingsPage() {
         </div>
       </section>
 
-      <section className='bg-[linear-gradient(180deg,#f5f1e8,#ede4d7)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-forest-900) md:px-8'>
+      <section className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
         <div className='mx-auto w-full max-w-376'>
           <div className=''>
-            <p className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(19,52,45,0.48)] uppercase'>
+            <p className='editorial-eyebrow editorial-eyebrow-light'>
               {t('venueEyebrow')}
             </p>
-            <h2 className='mt-4 font-serif text-[clamp(2.4rem,5vw,4.6rem)] leading-[0.96] tracking-[-0.025em] text-balance'>
+            <h2 className='editorial-title editorial-title-light mt-4'>
               {t('venueTitle')}
             </h2>
-            <p className='mt-5 max-w-[60ch] font-sans text-[1rem] leading-[1.85] text-[rgba(19,52,45,0.74)]'>
+            <p className='editorial-body editorial-body-light mt-5 max-w-[60ch]'>
               {t('venueLead')}
             </p>
           </div>
@@ -171,12 +171,12 @@ export default async function WeddingsPage() {
             {venues.map((venue) => (
               <article
                 key={venue.title}
-                className='rounded-2xl border border-[rgba(19,52,45,0.08)] bg-[rgba(255,252,247,0.78)] p-6 md:p-7'
+                className='editorial-card rounded-2xl p-6 md:p-7'
               >
-                <h3 className='font-serif text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.04] text-[rgba(19,52,45,0.94)]'>
+                <h3 className='editorial-card-title editorial-card-title-light text-[clamp(2rem,3vw,2.8rem)]'>
                   {venue.title}
                 </h3>
-                <p className='mt-4 font-sans text-[0.98rem] leading-[1.8] text-[rgba(19,52,45,0.72)]'>
+                <p className='editorial-body editorial-body-light mt-4 text-[0.98rem]'>
                   {venue.body}
                 </p>
               </article>
@@ -185,16 +185,16 @@ export default async function WeddingsPage() {
         </div>
       </section>
 
-      <section className='border-t border-[rgba(185,212,197,0.12)] bg-[linear-gradient(180deg,rgba(13,49,41,0.98),rgba(6,22,17,1))] px-[1.2rem] py-[clamp(4rem,8vw,6rem)] text-(--color-mist-100) md:px-8'>
+      <section className='editorial-surface-dark border-t border-[rgba(185,212,197,0.12)] px-[1.2rem] py-[clamp(4rem,8vw,6rem)] md:px-8'>
         <div className='mx-auto grid w-full max-w-376 gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end'>
           <div className='max-w-xl'>
-            <p className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(184,201,191,0.58)] uppercase'>
+            <p className='editorial-eyebrow editorial-eyebrow-dark'>
               {t('finalEyebrow')}
             </p>
-            <h2 className='mt-4 max-w-[10ch] font-serif text-[clamp(2.4rem,5vw,4.8rem)] leading-[0.95] tracking-[-0.025em] text-balance text-[rgba(241,245,239,0.97)]'>
+            <h2 className='editorial-title editorial-title-dark mt-4 max-w-[10ch]'>
               {t('finalTitle')}
             </h2>
-            <p className='mt-5 max-w-[56ch] font-sans text-[1rem] leading-[1.85] text-[rgba(203,218,209,0.78)]'>
+            <p className='editorial-body editorial-body-dark mt-5 max-w-[56ch]'>
               {t('finalBody')}
             </p>
           </div>
@@ -204,15 +204,15 @@ export default async function WeddingsPage() {
               <a
                 key={contact.value}
                 href={contact.href}
-                className='block rounded-2xl border border-[rgba(185,212,197,0.16)] bg-[rgba(242,246,241,0.05)] p-6 transition-colors duration-200 hover:border-[rgba(221,231,223,0.34)] hover:bg-[rgba(242,246,241,0.08)]'
+                className='editorial-card-dark block rounded-2xl p-6 transition-colors duration-200 hover:border-[rgba(255,253,242,0.28)] hover:bg-[rgba(254,252,232,0.08)]'
               >
-                <p className='font-sans text-[0.68rem] tracking-[0.2em] text-[rgba(184,201,191,0.62)] uppercase'>
+                <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.75rem]'>
                   {contact.label}
                 </p>
-                <p className='mt-3 font-serif text-[clamp(1.55rem,2.8vw,2.25rem)] leading-[1.08] wrap-break-word text-[rgba(241,245,239,0.97)]'>
+                <p className='editorial-card-title editorial-card-title-dark mt-3 text-[clamp(1.9rem,2.8vw,2.6rem)] wrap-break-word'>
                   {contact.value}
                 </p>
-                <span className='mt-6 inline-flex border-b border-[rgba(221,231,223,0.32)] pb-1 font-sans text-[0.75rem] tracking-[0.16em] text-[rgba(229,236,230,0.82)] uppercase'>
+                <span className='editorial-eyebrow editorial-eyebrow-dark mt-6 inline-flex border-b border-[rgba(255,253,242,0.32)] pb-1 text-[0.76rem]'>
                   {contact.action}
                 </span>
               </a>

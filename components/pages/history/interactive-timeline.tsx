@@ -21,19 +21,8 @@ type HistoryChapter = {
   year: string
 }
 
-type HistoryClosing = {
-  body: string
-  detail: string
-  id: string
-  images: readonly [HistoryImage, HistoryImage]
-  label: string
-  title: string
-  year?: string
-}
-
 type HistoryInteractiveTimelineProps = {
   chapters: readonly HistoryChapter[]
-  closing: HistoryClosing
   introLabel: string
   paragraphs: string[]
   timelineLabel: string
@@ -41,7 +30,6 @@ type HistoryInteractiveTimelineProps = {
 
 export function HistoryInteractiveTimeline({
   chapters,
-  closing,
   introLabel,
   paragraphs,
   timelineLabel
@@ -50,12 +38,8 @@ export function HistoryInteractiveTimeline({
   const layoutRef = useRef<HTMLDivElement | null>(null)
   const railRef = useRef<HTMLDivElement | null>(null)
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({})
-  const timelineItems = [...chapters, closing]
-
   useEffect(() => {
-    const items = [...chapters, closing]
-
-    if (items.length === 0) {
+    if (chapters.length === 0) {
       return undefined
     }
 
@@ -78,7 +62,7 @@ export function HistoryInteractiveTimeline({
       }
     )
 
-    for (const item of items) {
+    for (const item of chapters) {
       const node = sectionRefs.current[item.id]
 
       if (node) {
@@ -87,7 +71,7 @@ export function HistoryInteractiveTimeline({
     }
 
     return () => observer.disconnect()
-  }, [chapters, closing])
+  }, [chapters])
 
   useEffect(() => {
     let frameId = 0
@@ -151,7 +135,7 @@ export function HistoryInteractiveTimeline({
   }
 
   return (
-    <div className='bg-[linear-gradient(180deg,#f4efe4_0%,#ece4d8_26%,#ece7df_100%)] text-(--color-forest-900)'>
+    <div className='editorial-surface-light'>
       <section className='px-[1.2rem] py-[clamp(4rem,7vw,7rem)] md:px-8'>
         <div
           ref={layoutRef}
@@ -162,13 +146,13 @@ export function HistoryInteractiveTimeline({
               ref={railRef}
               className='lg:will-change-transform'
             >
-              <p className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(19,52,45,0.48)] uppercase'>
+              <p className='editorial-eyebrow editorial-eyebrow-light'>
                 {timelineLabel}
               </p>
 
               <div className='mt-8 border-l border-[rgba(19,52,45,0.14)] pl-3'>
                 <div className='flex gap-3 overflow-x-auto pb-2 lg:block lg:space-y-2 lg:overflow-visible'>
-                  {timelineItems.map((item) => {
+                  {chapters.map((item) => {
                     const isActive = item.id === activeId
 
                     return (
@@ -178,24 +162,24 @@ export function HistoryInteractiveTimeline({
                         onClick={() => scrollToChapter(item.id)}
                         className={`relative min-w-fit pl-4 text-left lg:block lg:w-full ${
                           isActive ?
-                            'text-(--color-forest-900)'
+                            'text-[var(--color-forest-900)]'
                           : 'text-[rgba(19,52,45,0.48)] hover:text-[rgba(19,52,45,0.78)]'
                         }`}
                       >
                         <span
                           className={`absolute top-[0.55rem] left-[-1.1rem] h-2.5 w-2.5 rounded-full border ${
                             isActive ?
-                              'border-(--color-forest-900) bg-(--color-forest-900)'
+                              'border-[var(--color-forest-900)] bg-[var(--color-forest-900)]'
                             : 'border-[rgba(19,52,45,0.24)] bg-[#ece4d8]'
                           }`}
                         />
                         {item.year ?
-                          <span className='font-sans text-[0.68rem] tracking-[0.22em] uppercase'>
+                          <span className='editorial-eyebrow editorial-eyebrow-light text-[0.72rem]'>
                             {item.year}
                           </span>
                         : null}
-                        <span className='mt-1 block font-serif text-[1.15rem] leading-none tracking-[-0.02em]'>
-                          {'navLabel' in item ? item.navLabel : item.label}
+                        <span className='editorial-card-title editorial-card-title-light mt-1 block text-[1.6rem]'>
+                          {item.navLabel}
                         </span>
                       </button>
                     )
@@ -207,14 +191,14 @@ export function HistoryInteractiveTimeline({
 
           <div className='space-y-10 md:space-y-14'>
             <section className='border-b border-[rgba(19,52,45,0.12)] pb-10 md:pb-12'>
-              <p className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(19,52,45,0.48)] uppercase'>
+              <p className='editorial-eyebrow editorial-eyebrow-light'>
                 {introLabel}
               </p>
               <div className='mt-5 space-y-5'>
                 {paragraphs.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className='max-w-[64ch] font-sans text-[1rem] leading-[1.9] text-[rgba(19,52,45,0.74)]'
+                    className='editorial-body editorial-body-light max-w-[64ch]'
                   >
                     {paragraph}
                   </p>
@@ -231,19 +215,19 @@ export function HistoryInteractiveTimeline({
                 }}
                 className='scroll-mt-28 border-b border-[rgba(19,52,45,0.12)] pb-10 md:pb-14'
               >
-                <p className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(19,52,45,0.48)] uppercase'>
+                <p className='editorial-eyebrow editorial-eyebrow-light'>
                   {chapter.year}
                 </p>
-                <h2 className='mt-3 font-serif text-[clamp(2.3rem,4.2vw,4.6rem)] leading-[1.1] tracking-[-0.04em] text-balance'>
+                <h2 className='editorial-title editorial-title-light mt-3'>
                   {chapter.title}
                 </h2>
-                <p className='mt-5 max-w-[64ch] font-sans text-[1rem] leading-[1.9] text-[rgba(19,52,45,0.74)]'>
+                <p className='editorial-body editorial-body-light mt-5 max-w-[64ch]'>
                   {chapter.body}
                 </p>
-                <p className='mt-4 max-w-[58ch] font-serif text-[1.15rem] leading-[1.55] text-[rgba(19,52,45,0.88)]'>
+                <p className='editorial-card-title editorial-card-title-light mt-4 max-w-[58ch] text-[1.9rem]'>
                   {chapter.note}
                 </p>
-                <p className='mt-3 max-w-[58ch] font-sans text-[0.94rem] leading-[1.75] text-[rgba(19,52,45,0.56)]'>
+                <p className='editorial-body editorial-body-light mt-3 max-w-[58ch] text-[0.94rem] opacity-85'>
                   {chapter.detail}
                 </p>
 
@@ -269,7 +253,7 @@ export function HistoryInteractiveTimeline({
                           }}
                         />
                       </div>
-                      <figcaption className='font-sans text-[0.82rem] leading-normal text-[rgba(19,52,45,0.54)]'>
+                      <figcaption className='editorial-body editorial-body-light text-[0.82rem] leading-normal opacity-80'>
                         {image.caption}
                       </figcaption>
                     </figure>
@@ -277,56 +261,6 @@ export function HistoryInteractiveTimeline({
                 </div>
               </article>
             ))}
-
-            <section
-              id={closing.id}
-              ref={(node) => {
-                sectionRefs.current[closing.id] = node
-              }}
-              className='pb-2'
-            >
-              <p className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(19,52,45,0.48)] uppercase'>
-                {closing.label}
-              </p>
-              <h2 className='mt-3 font-serif text-[clamp(2.2rem,4vw,4rem)] leading-[1.1] tracking-[-0.04em] text-balance'>
-                {closing.title}
-              </h2>
-              <p className='mt-5 max-w-[64ch] font-sans text-[1rem] leading-[1.9] text-[rgba(19,52,45,0.74)]'>
-                {closing.body}
-              </p>
-              <p className='mt-4 font-serif text-[1.15rem] leading-[1.55] text-[rgba(19,52,45,0.88)]'>
-                {closing.detail}
-              </p>
-
-              <div className='mt-8 grid gap-4 md:grid-cols-2'>
-                {closing.images.map((image, imageIndex) => (
-                  <figure
-                    key={image.src}
-                    className='space-y-3'
-                  >
-                    <div
-                      className={`relative overflow-hidden rounded-[1.2rem] bg-[rgba(19,52,45,0.08)] ${
-                        imageIndex === 0 ? 'aspect-[1.18]' : 'aspect-[0.9]'
-                      }`}
-                    >
-                      <Image
-                        src={image.src}
-                        alt={image.alt}
-                        fill
-                        sizes='(max-width: 767px) 100vw, 50vw'
-                        className='object-cover'
-                        style={{
-                          objectPosition: image.objectPosition ?? '50% 50%'
-                        }}
-                      />
-                    </div>
-                    <figcaption className='font-sans text-[0.82rem] leading-normal text-[rgba(19,52,45,0.54)]'>
-                      {image.caption}
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
-            </section>
           </div>
         </div>
       </section>

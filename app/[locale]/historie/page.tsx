@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 import { PageHero } from '@/components/shared/page-hero'
-import { HistoryInteractiveTimeline } from '@/components/pages/history'
+import { HistoryInteractiveTimeline } from '@/components/pages/history/interactive-timeline'
 
 export default async function HistoryPage() {
   const t = await getTranslations('HistoryPage')
@@ -100,30 +100,31 @@ export default async function HistoryPage() {
           objectPosition: '50% 45%'
         }
       ] as const
+    },
+    {
+      id: 'timeline-dnes',
+      navLabel: t('chapter5Nav'),
+      year: t('chapter5Year'),
+      title: t('chapter5Title'),
+      body: t('chapter5Body'),
+      note: t('chapter5Note'),
+      detail: t('chapter5Detail'),
+      images: [
+        {
+          src: '/images/estate/castle-front-summer-path.webp',
+          alt: imageT('imageCastleFrontSummerPath'),
+          caption: imageT('imageCastleFrontSummerPath'),
+          objectPosition: '50% 56%'
+        },
+        {
+          src: '/images/estate/castle-front-park.webp',
+          alt: imageT('imageCastleFrontPark'),
+          caption: imageT('imageCastleFrontPark'),
+          objectPosition: '50% 54%'
+        }
+      ] as const
     }
   ]
-
-  const closing = {
-    id: 'timeline-dnes',
-    label: t('closingLabel'),
-    title: t('closingTitle'),
-    body: t('closingBody'),
-    detail: t('closingDetail'),
-    images: [
-      {
-        src: '/images/estate/castle-front-summer-path.webp',
-        alt: imageT('imageCastleFrontSummerPath'),
-        caption: imageT('imageCastleFrontSummerPath'),
-        objectPosition: '50% 56%'
-      },
-      {
-        src: '/images/estate/castle-front-park.webp',
-        alt: imageT('imageCastleFrontPark'),
-        caption: imageT('imageCastleFrontPark'),
-        objectPosition: '50% 54%'
-      }
-    ] as const
-  }
 
   return (
     <div className='-mt-28 md:-mt-32'>
@@ -134,7 +135,6 @@ export default async function HistoryPage() {
       />
       <HistoryInteractiveTimeline
         chapters={chapters}
-        closing={closing}
         introLabel={t('introLabel')}
         paragraphs={paragraphs}
         timelineLabel={t('timelineLabel')}

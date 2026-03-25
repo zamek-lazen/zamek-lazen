@@ -120,10 +120,10 @@ export function HomeIntroLoader() {
       } ${prefersReducedMotion ? 'is-reduced-motion' : ''}`}
     >
       <div className='home-intro-loader__content'>
-        <p className='font-serif text-[clamp(1.7rem,3vw,2.5rem)] leading-none tracking-[0.28em] text-[rgba(242,246,241,0.94)] uppercase'>
+        <p className='editorial-title editorial-title-dark text-[clamp(3rem,4vw,4.4rem)]'>
           Zámek Lázeň
         </p>
-        <p className='mt-3 font-sans text-[0.62rem] tracking-[0.46em] text-[rgba(184,201,191,0.72)] uppercase'>
+        <p className='editorial-eyebrow editorial-eyebrow-dark mt-3 text-[0.72rem] tracking-[0.36em]'>
           Chudenice
         </p>
       </div>

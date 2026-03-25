@@ -22,21 +22,21 @@ export async function Footer() {
   const email = tContact('email')
 
   return (
-    <footer className='w-full border-t border-[rgba(185,212,197,0.12)] bg-[linear-gradient(180deg,rgba(8,27,22,0.98),rgba(6,22,17,1))] text-mist-100'>
+    <footer className='editorial-surface-dark w-full border-t border-[rgba(185,212,197,0.12)]'>
       <div className='mx-auto grid w-full max-w-376 gap-10 px-[1.2rem] py-[clamp(3.5rem,8vw,5.5rem)] md:px-8 lg:grid-cols-[minmax(0,1.18fr)_minmax(22rem,0.92fr)] lg:gap-14'>
         <div className='space-y-10'>
           <div className='max-w-160'>
-            <h2 className='max-w-[11ch] font-serif text-[clamp(2.4rem,5vw,4.6rem)] leading-[0.96] tracking-[-0.03em] text-balance text-[rgba(242,246,241,0.97)]'>
+            <h2 className='editorial-title editorial-title-dark max-w-[30ch]'>
               {tFooter('headline')}
             </h2>
-            <p className='mt-5 max-w-[58ch] font-sans text-[0.98rem] leading-[1.85] text-[rgba(221,231,223,0.76)]'>
+            <p className='editorial-body editorial-body-dark mt-5 max-w-[58ch] text-[0.98rem]'>
               {tFooter('body')}
             </p>
           </div>
 
           <div className='grid gap-8 md:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)] md:gap-10'>
             <div>
-              <p className='font-sans text-[0.66rem] tracking-[0.22em] text-[rgba(184,201,191,0.58)] uppercase'>
+              <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.74rem]'>
                 {tFooter('linksLabel')}
               </p>
               <nav className='mt-4 grid gap-3 text-[0.85rem] tracking-[0.14em] text-mist-200 uppercase md:text-[0.78rem]'>
@@ -53,21 +53,21 @@ export async function Footer() {
             </div>
 
             <div>
-              <p className='font-sans text-[0.66rem] tracking-[0.22em] text-[rgba(184,201,191,0.58)] uppercase'>
+              <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.74rem]'>
                 {tFooter('contactLabel')}
               </p>
               <div className='mt-4 space-y-5'>
                 <div>
-                  <p className='font-serif text-[1.45rem] leading-[1.1] text-[rgba(242,246,241,0.96)]'>
+                  <p className='editorial-card-title editorial-card-title-dark text-[2rem]'>
                     {tContact('company')}
                   </p>
                 </div>
 
                 <div>
-                  <p className='font-sans text-[0.62rem] tracking-[0.2em] text-[rgba(184,201,191,0.56)] uppercase'>
+                  <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.7rem]'>
                     {tContact('phoneLabel')}
                   </p>
-                  <div className='mt-2 space-y-2 font-sans text-[0.95rem] leading-[1.6] text-[rgba(221,231,223,0.82)]'>
+                  <div className='editorial-body editorial-body-dark mt-2 space-y-2 text-[0.95rem] leading-[1.6]'>
                     {phoneItems.map((phone) => {
                       const href = toTelHref(phone)
 
@@ -89,12 +89,12 @@ export async function Footer() {
                 </div>
 
                 <div>
-                  <p className='font-sans text-[0.62rem] tracking-[0.2em] text-[rgba(184,201,191,0.56)] uppercase'>
+                  <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.7rem]'>
                     {tContact('emailLabel')}
                   </p>
                   <a
                     href={`mailto:${email}`}
-                    className='mt-2 inline-flex font-serif text-[1.2rem] leading-[1.3] text-[rgba(242,246,241,0.96)] transition hover:opacity-75'
+                    className='editorial-body editorial-body-dark mt-2 inline-flex'
                   >
                     {email}
                   </a>
@@ -105,7 +105,7 @@ export async function Footer() {
         </div>
 
         <div className='space-y-4 lg:pt-2'>
-          <p className='font-sans text-[0.66rem] tracking-[0.22em] text-[rgba(184,201,191,0.58)] uppercase'>
+          <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.74rem]'>
             {tFooter('mapLabel')}
           </p>
           <div className='overflow-hidden rounded-2xl border border-[rgba(185,212,197,0.16)] bg-[rgba(13,49,41,0.44)] p-2 shadow-[0_24px_80px_rgba(0,0,0,0.18)]'>
@@ -120,10 +120,10 @@ export async function Footer() {
             </div>
           </div>
           <div>
-            <p className='font-sans text-[0.62rem] tracking-[0.2em] text-[rgba(184,201,191,0.56)] uppercase'>
+            <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.7rem]'>
               {tContact('addressLabel')}
             </p>
-            <p className='mt-2 max-w-[28ch] font-sans text-[0.95rem] leading-[1.7] text-[rgba(221,231,223,0.82)]'>
+            <p className='editorial-body editorial-body-dark mt-2 max-w-[28ch] text-[0.95rem] leading-[1.7]'>
               {tContact('address')}
             </p>
           </div>

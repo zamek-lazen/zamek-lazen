@@ -57,7 +57,7 @@ export function GalleryMasonry({ images, ui }: GalleryMasonryProps) {
             className='group mb-4 inline-block w-full break-inside-avoid text-left transition-transform duration-300 hover:-translate-y-1'
             aria-label={`${ui.openImageLabel}: ${image.alt}`}
           >
-            <span className='block overflow-hidden rounded-[0.95rem] border border-[rgba(185,212,197,0.14)] bg-[rgba(7,24,19,0.36)]'>
+            <span className='block overflow-hidden rounded-[0.95rem] border border-[rgba(254,252,232,0.16)] bg-[rgba(254,252,232,0.04)]'>
               <Image
                 src={image.src}
                 alt={image.alt}
@@ -83,7 +83,7 @@ export function GalleryMasonry({ images, ui }: GalleryMasonryProps) {
           <button
             type='button'
             onClick={() => setActiveIndex(null)}
-            className='absolute top-4 right-4 z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(221,232,223,0.24)] bg-[rgba(7,24,19,0.72)] text-[1.4rem] leading-none text-mist-50 transition-colors duration-200 hover:bg-[rgba(11,39,31,0.9)] md:top-6 md:right-6'
+            className='absolute top-4 right-4 z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(255,253,242,0.24)] bg-[rgba(7,24,19,0.72)] text-[1.4rem] leading-none text-[var(--color-paper-50)] transition-colors duration-200 hover:bg-[rgba(11,39,31,0.9)] md:top-6 md:right-6'
             aria-label={ui.closeImageLabel}
           >
             <span aria-hidden>×</span>
@@ -105,7 +105,7 @@ export function GalleryMasonry({ images, ui }: GalleryMasonryProps) {
               />
             </div>
 
-            <p className='text-center font-sans text-[0.92rem] leading-[1.7] text-[rgba(221,232,223,0.82)]'>
+            <p className='editorial-body editorial-body-dark text-center text-[0.92rem]'>
               {activeImage.alt}
             </p>
           </div>

@@ -18,25 +18,25 @@ export function WeddingsPreview({
   title
 }: WeddingsPreviewProps) {
   return (
-    <section className='bg-[linear-gradient(180deg,#f7f2e8,#efe7da)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-forest-900) md:px-8'>
+    <section className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
       <div className='mx-auto grid w-full max-w-376 gap-10 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-start'>
         <div className='max-w-136'>
-          <p className='font-sans text-[0.72rem] tracking-[0.2em] text-[rgba(19,52,45,0.56)] uppercase'>
+          <p className='editorial-eyebrow editorial-eyebrow-light'>
             {eyebrow}
           </p>
-          <h2 className='mt-4 max-w-[10ch] font-serif text-[clamp(2.4rem,5vw,4.6rem)] leading-[0.96] tracking-[-0.025em] text-balance'>
+          <h2 className='editorial-title editorial-title-light mt-4 max-w-[10ch]'>
             {title}
           </h2>
-          <p className='mt-5 max-w-[30ch] font-serif text-[clamp(1.08rem,2vw,1.42rem)] leading-[1.32] text-[rgba(19,52,45,0.84)]'>
+          <p className='editorial-lead editorial-lead-light mt-5 max-w-[30ch]'>
             {lead}
           </p>
-          <p className='mt-5 max-w-[56ch] font-sans text-[1rem] leading-[1.85] text-[rgba(19,52,45,0.74)]'>
+          <p className='editorial-body editorial-body-light mt-5 max-w-[56ch]'>
             {body}
           </p>
 
           <Link
             href='/svatby'
-            className='mt-8 inline-flex min-h-11 items-center justify-center border border-[rgba(19,52,45,0.16)] bg-[rgba(255,255,255,0.48)] px-6 py-3 font-sans text-[0.75rem] tracking-[0.18em] uppercase transition-colors duration-200 hover:bg-white'
+            className='editorial-button editorial-button-primary mt-8'
           >
             {cta}
           </Link>
@@ -49,10 +49,10 @@ export function WeddingsPreview({
                 key={step}
                 className='grid gap-2 border-b border-[rgba(19,52,45,0.08)] pb-4'
               >
-                <span className='font-sans text-[0.68rem] tracking-[0.22em] text-[rgba(19,52,45,0.46)] uppercase'>
+                <span className='editorial-eyebrow editorial-eyebrow-light text-[0.75rem]'>
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <span className='font-serif text-[1.2rem] leading-[1.2] text-[rgba(19,52,45,0.92)]'>
+                <span className='editorial-card-title editorial-card-title-light text-[1.85rem]'>
                   {step}
                 </span>
               </li>

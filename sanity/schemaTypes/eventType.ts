@@ -1,6 +1,45 @@
 import { CalendarIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
+function isValidStartTime(value: string) {
+  return /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(value)
+}
+
+function isValidYouTubeUrl(value: string) {
+  let url: URL
+
+  try {
+    url = new URL(value)
+  } catch {
+    return false
+  }
+
+  const hostname = url.hostname.toLowerCase()
+
+  if (hostname === 'youtu.be' || hostname === 'www.youtu.be') {
+    return /^[A-Za-z0-9_-]{11}$/.test(url.pathname.replace('/', ''))
+  }
+
+  if (
+    hostname === 'youtube.com' ||
+    hostname === 'www.youtube.com' ||
+    hostname === 'm.youtube.com' ||
+    hostname === 'youtube-nocookie.com' ||
+    hostname === 'www.youtube-nocookie.com'
+  ) {
+    if (url.pathname.startsWith('/watch')) {
+      return /^[A-Za-z0-9_-]{11}$/.test(url.searchParams.get('v') ?? '')
+    }
+
+    const segments = url.pathname.split('/').filter(Boolean)
+    const videoId = segments.at(-1)
+
+    return videoId ? /^[A-Za-z0-9_-]{11}$/.test(videoId) : false
+  }
+
+  return false
+}
+
 export const eventType = defineType({
   name: 'event',
   title: 'Akce',
@@ -23,6 +62,20 @@ export const eventType = defineType({
       validation: (rule) => rule.required()
     }),
     defineField({
+      name: 'startTime',
+      title: 'Začátek',
+      type: 'string',
+      description: 'Volitelný čas začátku ve formátu HH:mm.',
+      validation: (rule) =>
+        rule.custom((value) => {
+          if (typeof value !== 'string' || value.trim().length === 0) {
+            return true
+          }
+
+          return isValidStartTime(value) ? true : 'Použijte formát HH:mm.'
+        })
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -37,6 +90,29 @@ export const eventType = defineType({
       title: 'Popis',
       type: 'localizedText',
       validation: (rule) => rule.required()
+    }),
+    defineField({
+      name: 'recap',
+      title: 'Recap po akci',
+      type: 'localizedBlockContent',
+      description:
+        'Krátké shrnutí proběhlé akce. Zobrazí se hlavně u minulých termínů.'
+    }),
+    defineField({
+      name: 'youtubeUrl',
+      title: 'YouTube video',
+      type: 'url',
+      description: 'Volitelný odkaz na recap nebo záznam akce z YouTube.',
+      validation: (rule) =>
+        rule.custom((value) => {
+          if (typeof value !== 'string' || value.trim().length === 0) {
+            return true
+          }
+
+          return isValidYouTubeUrl(value) ?
+              true
+            : 'Zadejte platný YouTube odkaz.'
+        })
     }),
     defineField({
       name: 'image',
@@ -66,11 +142,12 @@ export const eventType = defineType({
   preview: {
     select: {
       date: 'date',
+      startTime: 'startTime',
       titleCs: 'title.cs',
       titleDe: 'title.de',
       media: 'image'
     },
-    prepare({ date, media, titleCs, titleDe }) {
+    prepare({ date, media, startTime, titleCs, titleDe }) {
       const formattedDate =
         date ?
           new Intl.DateTimeFormat('cs-CZ', {
@@ -80,9 +157,11 @@ export const eventType = defineType({
           }).format(new Date(`${date}T00:00:00`))
         : 'Bez data'
 
+      const subtitle = startTime ? `${formattedDate} • ${startTime}` : formattedDate
+
       return {
         title: titleCs ?? titleDe ?? 'Bez názvu',
-        subtitle: titleDe ? `${formattedDate} • DE: ${titleDe}` : formattedDate,
+        subtitle: titleDe ? `${subtitle} • DE: ${titleDe}` : subtitle,
         media
       }
     }

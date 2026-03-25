@@ -17,7 +17,8 @@ const titleFont = Bodoni_Moda({
 })
 
 const scriptFont = Arizonia({
-  variable: '--font-script',
+  variable: '--font-script-family',
+  subsets: ['latin', 'latin-ext'],
   weight: ['400']
 })
 

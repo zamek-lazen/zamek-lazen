@@ -7,21 +7,15 @@ type PageHeroProps = {
 
 export function PageHero({ eyebrow, lead, title, topContent }: PageHeroProps) {
   return (
-    <section className='bg-[linear-gradient(180deg,rgba(10,37,31,0.98),rgba(15,54,46,0.98))] px-[1.2rem] pt-28 pb-16 text-(--color-mist-100) md:px-8'>
+    <section className='editorial-surface-dark px-[1.2rem] pt-28 pb-16 md:px-8'>
       <div className='mx-auto w-full max-w-376'>
         {topContent ?
           <div className='mb-5'>{topContent}</div>
         : eyebrow ?
-          <p className='font-sans text-[0.72rem] tracking-[0.2em] text-[rgba(201,218,208,0.64)] uppercase'>
-            {eyebrow}
-          </p>
+          <p className='editorial-eyebrow editorial-eyebrow-dark'>{eyebrow}</p>
         : null}
-        <h1 className='mt-4 font-serif text-[clamp(2.8rem,6vw,5.5rem)] leading-[1.15] tracking-[-0.025em] text-balance text-[rgba(241,245,239,0.96)]'>
-          {title}
-        </h1>
-        <p className='mt-5 font-serif text-[clamp(1.08rem,2.3vw,1.5rem)] leading-[1.3] text-[rgba(220,230,224,0.84)]'>
-          {lead}
-        </p>
+        <h1 className='editorial-title editorial-title-dark mt-4'>{title}</h1>
+        <p className='editorial-lead editorial-lead-dark mt-5'>{lead}</p>
       </div>
     </section>
   )

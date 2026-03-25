@@ -1,3 +1,7 @@
+import type {
+  PortableTextBlock,
+  TypedObject
+} from '@portabletext/types'
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 export type HomepageSpotlightLink = {
@@ -35,6 +39,10 @@ export type LocalizedEvent = {
   title: string
   description: string
   date: string
+  startTime?: string
+  recap?: Array<PortableTextBlock | TypedObject>
+  youtubeUrl?: string
+  isPast: boolean
   image?: SanityImageSource
   smsticketEmbedCode?: string
 }
