@@ -10,157 +10,129 @@ export type GalleryImageDefinition = {
 
 export const galleryImages: GalleryImageDefinition[] = [
   {
-    src: '/images/estate/castle-front-flower.webp',
-    altKey: 'imageCastleFrontFlower',
-    width: 2048,
-    height: 1365,
+    src: '/images/gallery/1.webp',
+    altKey: 'image01',
+    width: 3264,
+    height: 2448,
+    size: 'medium'
+  },
+  {
+    src: '/images/gallery/2.webp',
+    altKey: 'image02',
+    width: 5315,
+    height: 3544,
+    size: 'wide'
+  },
+  {
+    src: '/images/gallery/3.webp',
+    altKey: 'image03',
+    width: 3543,
+    height: 5315,
     size: 'tall'
   },
   {
-    src: '/images/estate/castle-front-summer-path.webp',
-    altKey: 'imageCastleFrontSummerPath',
-    width: 1080,
-    height: 810,
+    src: '/images/gallery/4.webp',
+    altKey: 'image04',
+    width: 5315,
+    height: 3543,
     size: 'wide'
   },
   {
-    src: '/images/estate/castle-park-lawn.webp',
-    altKey: 'imageCastleParkLawn',
-    width: 2816,
-    height: 2112,
-    size: 'medium'
+    src: '/images/gallery/5.webp',
+    altKey: 'image05',
+    width: 5315,
+    height: 3543,
+    size: 'wide'
   },
   {
-    src: '/images/estate/castle-front-park.webp',
-    altKey: 'imageCastleFrontPark',
-    width: 1080,
-    height: 810,
-    size: 'medium'
+    src: '/images/gallery/6.webp',
+    altKey: 'image06',
+    width: 5315,
+    height: 3543,
+    size: 'wide'
   },
   {
-    src: '/images/flora/magnolia-bloom-closeup.webp',
-    altKey: 'imageMagnoliaBloomCloseup',
-    width: 2816,
-    height: 2112,
+    src: '/images/gallery/7.webp',
+    altKey: 'image07',
+    width: 5315,
+    height: 3543,
+    size: 'wide'
+  },
+  {
+    src: '/images/gallery/8.webp',
+    altKey: 'image08',
+    width: 6720,
+    height: 4480,
+    size: 'wide'
+  },
+  {
+    src: '/images/gallery/9.webp',
+    altKey: 'image09',
+    width: 5315,
+    height: 3544,
+    size: 'wide'
+  },
+  {
+    src: '/images/gallery/10.webp',
+    altKey: 'image10',
+    width: 3544,
+    height: 5315,
     size: 'tall'
   },
   {
-    src: '/images/estate/castle-lawn-trees-summer.webp',
-    altKey: 'imageCastleLawnTreesSummer',
-    width: 2816,
-    height: 2112,
+    src: '/images/gallery/11.webp',
+    altKey: 'image11',
+    width: 5315,
+    height: 3543,
     size: 'wide'
   },
   {
-    src: '/images/estate/castle-side-garden-summer.webp',
-    altKey: 'imageCastleSideGardenSummer',
-    width: 2816,
-    height: 2112,
-    size: 'medium'
-  },
-  {
-    src: '/images/estate/castle-front-winter-garden.webp',
-    altKey: 'imageCastleFrontWinterGarden',
-    width: 2048,
-    height: 1536,
+    src: '/images/gallery/12.webp',
+    altKey: 'image12',
+    width: 5315,
+    height: 3544,
     size: 'wide'
   },
   {
-    src: '/images/estate/castle-side-winter-park.webp',
-    altKey: 'imageCastleSideWinterPark',
-    width: 2816,
-    height: 2112,
+    src: '/images/gallery/13.webp',
+    altKey: 'image13',
+    width: 1600,
+    height: 1200,
     size: 'medium'
   },
   {
-    src: '/images/estate/castle-front-winter.webp',
-    altKey: 'imageCastleFrontWinter',
-    width: 2048,
-    height: 1536,
-    size: 'medium'
-  },
-  {
-    src: '/images/estate/castle-side-winter.webp',
-    altKey: 'imageCastleSideWinter',
-    width: 2048,
-    height: 1536,
-    size: 'medium'
-  },
-  {
-    src: '/images/estate/winter-park-tree.webp',
-    altKey: 'imageWinterParkTree',
-    width: 600,
-    height: 800,
+    src: '/images/gallery/14.webp',
+    altKey: 'image14',
+    width: 1200,
+    height: 1600,
     size: 'tall'
   },
   {
-    src: '/images/flora/magnolia-bud-closeup.webp',
-    altKey: 'imageMagnoliaBudCloseup',
-    width: 2816,
-    height: 2112,
+    src: '/images/gallery/15.webp',
+    altKey: 'image15',
+    width: 3264,
+    height: 2448,
     size: 'medium'
   },
   {
-    src: '/images/flora/magnolia-bud-detail.webp',
-    altKey: 'imageMagnoliaBudDetail',
-    width: 2816,
-    height: 2112,
+    src: '/images/gallery/16.webp',
+    altKey: 'image16',
+    width: 640,
+    height: 480,
     size: 'medium'
   },
   {
-    src: '/images/historical/lazen-estate-front-path-archive.webp',
-    altKey: 'imageArchiveFrontPath',
-    width: 1122,
-    height: 700,
-    size: 'wide'
-  },
-  {
-    src: '/images/historical/lazen-estate-main-facade-archive.webp',
-    altKey: 'imageArchiveMainFacade',
-    width: 2442,
-    height: 1658,
+    src: '/images/gallery/17.webp',
+    altKey: 'image17',
+    width: 1600,
+    height: 1200,
     size: 'medium'
   },
   {
-    src: '/images/historical/lazen-estate-frontage-archive.webp',
-    altKey: 'imageArchiveFrontage',
-    width: 1148,
-    height: 805,
-    size: 'medium'
-  },
-  {
-    src: '/images/historical/lazen-estate-illustration.webp',
-    altKey: 'imageArchiveIllustration',
-    width: 2244,
-    height: 1654,
-    size: 'wide'
-  },
-  {
-    src: '/images/historical/lazen-pioneer-center-archive.webp',
-    altKey: 'imageArchivePioneerCenter',
-    width: 1076,
-    height: 691,
-    size: 'medium'
-  },
-  {
-    src: '/images/historical/lazen-estate-park-view-archive.webp',
-    altKey: 'imageArchiveParkView',
-    width: 1709,
-    height: 1173,
-    size: 'medium'
-  },
-  {
-    src: '/images/historical/lazen-estate-side-facade-archive.webp',
-    altKey: 'imageArchiveSideFacade',
-    width: 1623,
-    height: 1061,
-    size: 'medium'
-  },
-  {
-    src: '/images/historical/lazen-estate-hillside-1927.webp',
-    altKey: 'imageArchiveHillside1927',
-    width: 1703,
-    height: 1140,
+    src: '/images/gallery/18.webp',
+    altKey: 'image18',
+    width: 640,
+    height: 480,
     size: 'wide'
   }
 ]
