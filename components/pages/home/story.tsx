@@ -17,7 +17,6 @@ type StoryProps = {
 export function Story({
   ctaContact,
   ctaHistory,
-  description,
   eyebrow,
   highlightsTitle,
   lead,

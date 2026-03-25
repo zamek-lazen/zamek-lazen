@@ -21,9 +21,7 @@ type HeroProps = {
 export function Hero({
   ctaPrimary,
   ctaSecondary,
-  description,
   eyebrow,
-  lead,
   scrollPrompt,
   sideLeft,
   sideRight,
