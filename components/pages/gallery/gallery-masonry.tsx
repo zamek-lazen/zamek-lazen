@@ -105,7 +105,7 @@ export function GalleryMasonry({ images, ui }: GalleryMasonryProps) {
               />
             </div>
 
-            <p className='editorial-body editorial-body-dark text-center text-[0.92rem]'>
+            <p className='editorial-body editorial-body-dark text-center'>
               {activeImage.alt}
             </p>
           </div>

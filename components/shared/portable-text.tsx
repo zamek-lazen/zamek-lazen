@@ -8,7 +8,7 @@ type PortableTextContentProps = {
 const components: PortableTextComponents = {
   block: {
     normal: ({ children }) => (
-      <p className='editorial-body editorial-body-light leading-[1.75]'>
+      <p className='editorial-body editorial-body-light'>
         {children}
       </p>
     ),
@@ -18,19 +18,19 @@ const components: PortableTextComponents = {
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className='mt-8 font-sans text-[1.0625rem] font-semibold tracking-[0.06em] text-[rgba(13,49,41,0.88)] uppercase first:mt-0'>
+      <h3 className='mt-8 font-sans text-[1.0625rem] font-semibold tracking-[0.06em] text-[rgba(13,49,41,0.93)] uppercase first:mt-0'>
         {children}
       </h3>
     ),
     blockquote: ({ children }) => (
-      <blockquote className='border-l border-[rgba(13,49,41,0.2)] pl-5 font-sans text-[1.125rem] leading-[1.58] text-[rgba(13,49,41,0.88)] italic'>
+      <blockquote className='border-l border-[rgba(13,49,41,0.2)] pl-5 font-sans text-[1.125rem] leading-[1.65] text-[rgba(13,49,41,0.93)] italic'>
         {children}
       </blockquote>
     )
   },
   list: {
     bullet: ({ children }) => (
-      <ul className='editorial-body editorial-body-light list-disc space-y-2 pl-6 text-[1rem] leading-[1.8]'>
+      <ul className='editorial-body editorial-body-light list-disc space-y-2 pl-6 leading-[1.78]'>
         {children}
       </ul>
     )

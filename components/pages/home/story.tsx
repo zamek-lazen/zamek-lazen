@@ -72,7 +72,7 @@ export function Story({
                 <strong className='editorial-card-title editorial-card-title-dark'>
                   {link.title}
                 </strong>
-                <p className='editorial-body editorial-body-dark m-0 text-[0.95rem]'>
+                <p className='editorial-body editorial-body-dark m-0'>
                   {link.description}
                 </p>
               </Link>

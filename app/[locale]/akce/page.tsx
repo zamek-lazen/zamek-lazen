@@ -28,7 +28,7 @@ export default async function EventsPage() {
             <h2 className='editorial-title editorial-title-light mt-4'>
               {t('upcomingTitle')}
             </h2>
-            <p className='editorial-body editorial-body-light mt-5 max-w-[54rem] text-[0.98rem]'>
+            <p className='editorial-body editorial-body-light mt-5 max-w-[54rem]'>
               {t('upcomingBody')}
             </p>
           </div>
@@ -125,7 +125,7 @@ export default async function EventsPage() {
                         <h3 className='editorial-card-title editorial-card-title-light mt-4'>
                           {event.title}
                         </h3>
-                        <p className='editorial-body editorial-body-light mt-5 whitespace-pre-line text-[0.98rem]'>
+                        <p className='editorial-body editorial-body-light mt-5 whitespace-pre-line'>
                           {event.description}
                         </p>
                         <span className='editorial-button editorial-button-outline mt-6 group-hover:border-[rgba(13,49,41,0.44)]'>
@@ -162,7 +162,7 @@ export default async function EventsPage() {
               <h2 className='editorial-title editorial-title-dark mt-4'>
                 {t('archiveTitle')}
               </h2>
-              <p className='editorial-body editorial-body-dark mt-5 max-w-[38rem] text-[0.98rem]'>
+              <p className='editorial-body editorial-body-dark mt-5 max-w-[38rem]'>
                 {t('archiveBody')}
               </p>
             </div>
@@ -208,7 +208,7 @@ export default async function EventsPage() {
                     <h3 className='editorial-card-title editorial-card-title-dark mt-4'>
                       {event.title}
                     </h3>
-                    <p className='editorial-body editorial-body-dark mt-5 whitespace-pre-line text-[0.98rem]'>
+                    <p className='editorial-body editorial-body-dark mt-5 whitespace-pre-line'>
                       {event.description}
                     </p>
                     <span className='editorial-button editorial-button-secondary mt-6 group-hover:border-[rgba(254,252,232,0.48)]'>

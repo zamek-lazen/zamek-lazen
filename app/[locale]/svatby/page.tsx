@@ -131,7 +131,7 @@ export default async function WeddingsPage() {
                     <h3 className='editorial-card-title editorial-card-title-light max-w-[14ch]'>
                       {reason.title}
                     </h3>
-                    <p className='editorial-body editorial-body-light mt-4 text-[0.98rem]'>
+                    <p className='editorial-body editorial-body-light mt-4'>
                       {reason.body}
                     </p>
                   </article>
@@ -182,7 +182,7 @@ export default async function WeddingsPage() {
                   <h3 className='editorial-card-title editorial-card-title-dark'>
                     {step.title}
                   </h3>
-                  <p className='editorial-body editorial-body-dark mt-3 max-w-[56ch] text-[0.98rem]'>
+                  <p className='editorial-body editorial-body-dark mt-3 max-w-[56ch]'>
                     {step.body}
                   </p>
                 </div>
@@ -216,7 +216,7 @@ export default async function WeddingsPage() {
                 <h3 className='editorial-card-title editorial-card-title-light'>
                   {venue.title}
                 </h3>
-                <p className='editorial-body editorial-body-light mt-4 text-[0.98rem]'>
+                <p className='editorial-body editorial-body-light mt-4'>
                   {venue.body}
                 </p>
               </article>

@@ -30,7 +30,7 @@ export async function Footer() {
             <h2 className='editorial-title editorial-title-dark max-w-[30ch]'>
               {tFooter('headline')}
             </h2>
-            <p className='editorial-body editorial-body-dark mt-5 max-w-[58ch] text-[0.98rem]'>
+            <p className='editorial-body editorial-body-dark mt-5 max-w-[58ch]'>
               {tFooter('body')}
             </p>
           </div>
@@ -68,7 +68,7 @@ export async function Footer() {
                   <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.7rem]'>
                     {tContact('phoneLabel')}
                   </p>
-                  <div className='editorial-body editorial-body-dark mt-2 space-y-2 text-[0.95rem] leading-[1.6]'>
+                  <div className='editorial-body editorial-body-dark mt-2 space-y-2'>
                     {phoneItems.map((phone) => {
                       const href = toTelHref(phone)
 
@@ -124,7 +124,7 @@ export async function Footer() {
             <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.7rem]'>
               {tContact('addressLabel')}
             </p>
-            <p className='editorial-body editorial-body-dark mt-2 max-w-[28ch] text-[0.95rem] leading-[1.7]'>
+            <p className='editorial-body editorial-body-dark mt-2 max-w-[28ch]'>
               {tContact('address')}
             </p>
           </div>
@@ -134,7 +134,7 @@ export async function Footer() {
       <div className='border-t border-[rgba(185,212,197,0.12)]'>
         <div className='mx-auto flex w-full max-w-376 flex-col gap-4 px-[1.2rem] py-5 md:px-8 lg:flex-row lg:items-center lg:justify-between lg:gap-8'>
           <div className='flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-5'>
-            <p className='inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-4 py-3 font-sans text-[0.96rem] leading-[1.1] tracking-[-0.02em] text-mist-300'>
+            <p className='inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-4 py-3 font-sans text-[1rem] leading-[1.45] tracking-[-0.02em] text-mist-200'>
               <span>
                 &copy; {new Date().getFullYear()} {tFooter('copyright')}
               </span>

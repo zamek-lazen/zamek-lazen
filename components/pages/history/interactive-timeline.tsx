@@ -227,7 +227,7 @@ export function HistoryInteractiveTimeline({
                 <p className='editorial-note editorial-note-light mt-4 max-w-[58ch]'>
                   {chapter.note}
                 </p>
-                <p className='editorial-body editorial-body-light mt-3 max-w-[58ch] text-[0.9375rem]'>
+                <p className='editorial-body editorial-body-light mt-3 max-w-[58ch]'>
                   {chapter.detail}
                 </p>
 
@@ -253,7 +253,7 @@ export function HistoryInteractiveTimeline({
                           }}
                         />
                       </div>
-                      <figcaption className='editorial-body editorial-body-light text-[0.875rem] leading-normal'>
+                      <figcaption className='editorial-body editorial-body-light text-[0.9375rem] leading-[1.55]'>
                         {image.caption}
                       </figcaption>
                     </figure>

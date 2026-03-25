@@ -116,7 +116,7 @@ export default async function EventDetailPage({
                   {t('recapTitle')}
                 </h2>
               </div>
-              <p className='editorial-body editorial-body-light max-w-[38rem] text-[0.98rem]'>
+              <p className='editorial-body editorial-body-light max-w-[38rem]'>
                 {t('recapBody')}
               </p>
             </div>

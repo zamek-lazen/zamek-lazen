@@ -253,27 +253,27 @@ a {
   }
 
   .editorial-lead-light {
-    @apply text-[rgba(13,49,41,0.9)];
+    @apply text-[rgba(13,49,41,0.93)];
   }
 
   .editorial-lead-dark {
-    @apply text-[rgba(254,252,232,0.92)];
+    @apply text-[rgba(254,252,232,0.95)];
   }
 
   .editorial-body {
-    @apply font-sans text-[1.0625rem] leading-[1.72];
+    @apply font-sans text-[1.125rem] leading-[1.78];
   }
 
   .editorial-body-light {
-    @apply text-[rgba(13,49,41,0.88)];
+    @apply text-[rgba(13,49,41,0.93)];
   }
 
   .editorial-body-dark {
-    @apply text-[rgba(254,252,232,0.9)];
+    @apply text-[rgba(254,252,232,0.94)];
   }
 
   .editorial-body-subtle-dark {
-    @apply font-sans text-[0.9375rem] leading-[1.55] text-[rgba(254,252,232,0.78)];
+    @apply font-sans text-[1.0625rem] leading-[1.72] text-[rgba(254,252,232,0.86)];
   }
 
   .editorial-button {
