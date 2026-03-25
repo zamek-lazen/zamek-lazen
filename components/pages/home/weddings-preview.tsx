@@ -29,9 +29,6 @@ export function WeddingsPreview({
           <p className='editorial-lead editorial-lead-dark mt-5 max-w-[30ch]'>
             {lead}
           </p>
-          <p className='editorial-body editorial-body-dark mt-5 max-w-[56ch]'>
-            {body}
-          </p>
 
           <Link
             href='/svatby'

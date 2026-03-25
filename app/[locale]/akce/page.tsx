@@ -66,7 +66,7 @@ export default async function EventsPage() {
                     <p className='editorial-body editorial-body-light mt-6 max-w-[60ch] whitespace-pre-line'>
                       {featuredEvent.description}
                     </p>
-                    <span className='editorial-button editorial-button-outline mt-8 group-hover:border-[rgba(13,49,41,0.44)]'>
+                    <span className='editorial-button editorial-button-outline mt-8 group-hover:border-[rgba(13,49,41,0.2)] group-hover:bg-[var(--color-mist-200)]'>
                       {t('detailCta')}
                     </span>
                   </div>
@@ -128,7 +128,7 @@ export default async function EventsPage() {
                         <p className='editorial-body editorial-body-light mt-5 whitespace-pre-line'>
                           {event.description}
                         </p>
-                        <span className='editorial-button editorial-button-outline mt-6 group-hover:border-[rgba(13,49,41,0.44)]'>
+                        <span className='editorial-button editorial-button-outline mt-6 group-hover:border-[rgba(13,49,41,0.2)] group-hover:bg-[var(--color-mist-200)]'>
                           {t('detailCta')}
                         </span>
                       </div>

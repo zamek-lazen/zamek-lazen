@@ -46,7 +46,7 @@ export function HistoryFamilyPreview({
             </p>
             <Link
               href='/historie'
-              className='editorial-button editorial-button-outline mt-8'
+              className='editorial-button editorial-button-forest mt-8'
             >
               {historyCta}
             </Link>
@@ -76,7 +76,7 @@ export function HistoryFamilyPreview({
             </p>
             <Link
               href='/rod'
-              className='editorial-button editorial-button-outline mt-8'
+              className='editorial-button editorial-button-forest mt-8'
             >
               {familyCta}
             </Link>

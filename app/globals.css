@@ -299,8 +299,19 @@ a {
     @apply border-[rgba(254,252,232,0.36)] bg-[rgba(8,24,20,0.18)] text-[rgba(254,252,232,0.94)] hover:border-[rgba(254,252,232,0.56)] hover:bg-[rgba(8,24,20,0.28)];
   }
 
-  .editorial-button-outline {
-    @apply border-[rgba(13,49,41,0.22)] bg-transparent text-[rgba(13,49,41,0.84)] hover:border-[rgba(13,49,41,0.44)] hover:bg-[rgba(13,49,41,0.04)];
+  /* Světlá výplň na mist / světlých sekcích (nahrazuje „bílé“ primary + průhledný outline) */
+  .editorial-button-outline,
+  .editorial-button-forest {
+    border-color: var(--color-border-soft);
+    background-color: var(--color-mist-100);
+    color: var(--color-forest-900) !important;
+    -webkit-text-fill-color: var(--color-forest-900);
+  }
+
+  .editorial-button-outline:hover,
+  .editorial-button-forest:hover {
+    background-color: var(--color-mist-200);
+    border-color: rgba(13, 49, 41, 0.2);
   }
 
   .editorial-card {

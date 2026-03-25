@@ -35,7 +35,7 @@ export function EstatePreview({
 
           <Link
             href='/historie'
-            className='editorial-button editorial-button-primary mt-8'
+            className='editorial-button editorial-button-outline mt-8'
           >
             {cta}
           </Link>
