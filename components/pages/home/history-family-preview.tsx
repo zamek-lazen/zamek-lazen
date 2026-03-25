@@ -1,22 +1,30 @@
+import Image from 'next/image'
+
 import { Link } from '@/i18n/navigation'
 
 type HistoryFamilyPreviewProps = {
   eyebrow: string
+  historyEyebrow: string
   historyTitle: string
   historyBody: string
   historyCta: string
+  familyEyebrow: string
   familyTitle: string
   familyBody: string
   familyCta: string
+  familyCrestAlt: string
 }
 
 export function HistoryFamilyPreview({
   eyebrow,
   familyBody,
+  familyCrestAlt,
   familyCta,
+  familyEyebrow,
   familyTitle,
   historyBody,
   historyCta,
+  historyEyebrow,
   historyTitle
 }: HistoryFamilyPreviewProps) {
   return (
@@ -28,7 +36,7 @@ export function HistoryFamilyPreview({
         <div className='mt-6 grid gap-5 lg:grid-cols-2'>
           <article className='editorial-card rounded-[1.25rem] p-7 md:p-9'>
             <span className='editorial-eyebrow editorial-eyebrow-light text-[0.75rem]'>
-              Historie
+              {historyEyebrow}
             </span>
             <h2 className='editorial-title editorial-title-light mt-4 max-w-[20ch]'>
               {historyTitle}
@@ -45,12 +53,24 @@ export function HistoryFamilyPreview({
           </article>
 
           <article className='editorial-card rounded-[1.25rem] bg-[linear-gradient(180deg,rgba(185,212,197,0.18),transparent)] p-7 md:p-9'>
-            <span className='editorial-eyebrow editorial-eyebrow-light text-[0.75rem]'>
-              Rod Czerninů
-            </span>
-            <h2 className='editorial-title editorial-title-light mt-4 max-w-[20ch]'>
-              {familyTitle}
-            </h2>
+            <div className='flex items-start gap-5 md:gap-6'>
+              <div className='min-w-0 flex-1'>
+                <span className='editorial-eyebrow editorial-eyebrow-light text-[0.75rem]'>
+                  {familyEyebrow}
+                </span>
+                <h2 className='editorial-title editorial-title-light mt-4 max-w-[20ch]'>
+                  {familyTitle}
+                </h2>
+              </div>
+              <Image
+                src='/images/erb.webp'
+                alt={familyCrestAlt}
+                width={96}
+                height={96}
+                className='h-16 w-16 shrink-0 object-contain opacity-95 md:h-[5.25rem] md:w-[5.25rem]'
+                sizes='(max-width: 768px) 64px, 84px'
+              />
+            </div>
             <p className='editorial-body editorial-body-light mt-5 max-w-[56ch]'>
               {familyBody}
             </p>
