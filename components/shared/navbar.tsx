@@ -105,7 +105,7 @@ function MobileNavOverlay({
             ref={closeBtnRef}
             type='button'
             onClick={onClose}
-            className='border-border-soft inline-flex h-10 w-10 items-center justify-center rounded-full border bg-black/20 text-mist-100 transition hover:border-mist-300 hover:text-mist-50 motion-reduce:transition-none'
+            className='inline-flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(185,212,197,0.2)] bg-black/20 text-mist-100 transition hover:border-[rgba(185,212,197,0.34)] hover:text-mist-50 motion-reduce:transition-none'
             aria-label={labelClose}
           >
             <MenuGlyph open />
@@ -141,7 +141,7 @@ function MobileNavOverlay({
             href={localeHref}
             locale={nextLocale}
             onClick={onClose}
-            className='border-border-soft flex items-center gap-2 rounded-full border bg-black/15 px-3 py-2 text-[0.62rem] tracking-[0.18em] text-mist-200 backdrop-blur-sm transition hover:border-mist-300 hover:text-mist-50 motion-reduce:transition-none'
+            className='flex items-center gap-2 rounded-full border border-[rgba(185,212,197,0.2)] bg-black/15 px-3 py-2 text-[0.62rem] tracking-[0.18em] text-mist-200 backdrop-blur-sm transition hover:border-[rgba(185,212,197,0.34)] hover:text-mist-50 motion-reduce:transition-none'
           >
             <span className={locale === 'cs' ? 'text-mist-50' : 'opacity-60'}>
               CS
@@ -264,10 +264,10 @@ export function Navbar() {
               <Link
                 href={localeHref}
                 locale={nextLocale}
-                className={`flex items-center gap-2 rounded-full border px-3 py-1 text-[0.58rem] tracking-[0.16em] text-mist-200 transition lg:text-[0.65rem] lg:tracking-[0.2em] ${
+                className={`flex items-center gap-2 rounded-full border border-[rgba(185,212,197,0.2)] px-3 py-1 text-[0.58rem] tracking-[0.16em] text-mist-200 backdrop-blur-sm transition lg:text-[0.65rem] lg:tracking-[0.2em] ${
                   isFloatingOverHero ?
-                    'border-[rgba(255,255,255,0.18)] bg-[rgba(4,17,13,0.16)] backdrop-blur-sm hover:border-mist-300 hover:text-mist-50'
-                  : 'border-border-soft bg-black/15 backdrop-blur-sm hover:border-mist-300 hover:text-mist-50'
+                    'bg-[rgba(4,17,13,0.2)] hover:border-[rgba(185,212,197,0.34)] hover:text-mist-50'
+                  : 'bg-black/15 hover:border-[rgba(185,212,197,0.34)] hover:text-mist-50'
                 }`}
               >
                 <span
@@ -285,7 +285,7 @@ export function Navbar() {
               <button
                 ref={menuBtnRef}
                 type='button'
-                className='border-border-soft inline-flex h-10 w-10 items-center justify-center rounded-full border bg-black/15 text-mist-100 backdrop-blur-sm transition hover:border-mist-300 hover:text-mist-50 motion-reduce:transition-none xl:hidden'
+                className='inline-flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(185,212,197,0.2)] bg-black/15 text-mist-100 backdrop-blur-sm transition hover:border-[rgba(185,212,197,0.34)] hover:text-mist-50 motion-reduce:transition-none xl:hidden'
                 aria-expanded={isMenuOpen}
                 aria-controls='mobile-nav-dialog'
                 onClick={() => (isMenuOpen ? closeMenu() : openMenu())}
