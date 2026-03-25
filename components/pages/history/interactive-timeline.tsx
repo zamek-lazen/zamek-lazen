@@ -141,7 +141,7 @@ export function HistoryInteractiveTimeline({
           ref={layoutRef}
           className='mx-auto w-full max-w-376 lg:grid lg:grid-cols-[17rem_minmax(0,1fr)] lg:items-start lg:gap-14'
         >
-          <aside className='mb-10 lg:mb-0 lg:self-start'>
+          <aside className='hidden lg:block lg:self-start'>
             <div
               ref={railRef}
               className='lg:will-change-transform'
