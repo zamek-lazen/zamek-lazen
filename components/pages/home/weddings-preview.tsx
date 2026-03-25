@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 
 type WeddingsPreviewProps = {
@@ -5,28 +6,26 @@ type WeddingsPreviewProps = {
   title: string
   lead: string
   body: string
-  steps: [string, string, string, string]
   cta: string
+  imageAlt1: string
+  imageAlt2: string
 }
 
 export function WeddingsPreview({
   body,
   cta,
   eyebrow,
+  imageAlt1,
+  imageAlt2,
   lead,
-  steps,
   title
 }: WeddingsPreviewProps) {
   return (
     <section className='editorial-surface-dark px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
-      <div className='mx-auto grid w-full max-w-376 gap-10 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-start'>
+      <div className='mx-auto grid w-full max-w-376 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-16'>
         <div className='max-w-136'>
-          <p className='editorial-eyebrow editorial-eyebrow-dark'>
-            {eyebrow}
-          </p>
-          <h2 className='editorial-title editorial-title-dark mt-4 max-w-[10ch]'>
-            {title}
-          </h2>
+          <p className='editorial-eyebrow editorial-eyebrow-dark'>{eyebrow}</p>
+          <h2 className='editorial-title editorial-title-dark mt-4'>{title}</h2>
           <p className='editorial-lead editorial-lead-dark mt-5 max-w-[30ch]'>
             {lead}
           </p>
@@ -42,22 +41,29 @@ export function WeddingsPreview({
           </Link>
         </div>
 
-        <div className='grid gap-5'>
-          <ol className='mt-8 grid gap-x-8 gap-y-4 border-t border-[rgba(178,201,190,0.22)] pt-5'>
-            {steps.map((step, index) => (
-              <li
-                key={step}
-                className='grid gap-2 border-b border-[rgba(178,201,190,0.16)] pb-4'
-              >
-                <span className='editorial-eyebrow editorial-eyebrow-dark text-[0.75rem]'>
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <span className='editorial-card-title editorial-card-title-dark'>
-                  {step}
-                </span>
-              </li>
-            ))}
-          </ol>
+        <div className='grid grid-cols-[1fr_0.85fr] gap-3 sm:gap-4 lg:gap-5'>
+          <div className='translate-y-4 sm:translate-y-6 lg:translate-y-8'>
+            <div className='relative aspect-[3/4] overflow-hidden rounded-xl shadow-[0_24px_64px_rgba(0,0,0,0.3)]'>
+              <Image
+                src='/images/wedding/1.webp'
+                alt={imageAlt1}
+                fill
+                sizes='(max-width: 1024px) 45vw, 22vw'
+                className='object-cover'
+              />
+            </div>
+          </div>
+          <div className='-translate-y-4 sm:-translate-y-6 lg:-translate-y-8'>
+            <div className='relative aspect-[3/4] overflow-hidden rounded-xl shadow-[0_24px_64px_rgba(0,0,0,0.3)]'>
+              <Image
+                src='/images/wedding/2.webp'
+                alt={imageAlt2}
+                fill
+                sizes='(max-width: 1024px) 40vw, 20vw'
+                className='object-cover'
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

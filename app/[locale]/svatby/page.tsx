@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 import { PageHero } from '@/components/shared/page-hero'
 
@@ -5,6 +6,8 @@ function toTelHref(value: string) {
   const phone = value.match(/\+?[\d\s]+$/)?.[0]?.replace(/\s+/g, '') ?? ''
   return phone ? `tel:${phone}` : null
 }
+
+const YOUTUBE_VIDEO_ID = 'Auv5dDb28gk'
 
 export default async function WeddingsPage() {
   const [t, tContact] = await Promise.all([
@@ -84,38 +87,74 @@ export default async function WeddingsPage() {
         lead={t('lead')}
       />
 
-      <section className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
+      {/* Video atmosphere section */}
+      <section className='editorial-surface-dark border-t border-[rgba(185,212,197,0.08)] px-[1.2rem] py-[clamp(3rem,6vw,5rem)] md:px-8'>
         <div className='mx-auto w-full max-w-376'>
-          <div className=''>
-            <p className='editorial-eyebrow editorial-eyebrow-light'>
-              {t('whyEyebrow')}
+          <div className='mx-auto max-w-[52rem]'>
+            <p className='editorial-eyebrow editorial-eyebrow-dark mb-6 text-center'>
+              {t('videoEyebrow')}
             </p>
-            <h2 className='editorial-title editorial-title-light mt-4'>
-              {t('whyTitle')}
-            </h2>
-            <p className='editorial-body editorial-body-light mt-5 max-w-[60ch]'>
-              {t('whyLead')}
-            </p>
-          </div>
-
-          <div className='mt-10 grid gap-4 md:grid-cols-3'>
-            {reasons.map((reason) => (
-              <article
-                key={reason.title}
-                className='editorial-card rounded-2xl p-6'
-              >
-                <h3 className='editorial-card-title editorial-card-title-light max-w-[14ch]'>
-                  {reason.title}
-                </h3>
-                <p className='editorial-body editorial-body-light mt-4 text-[0.98rem]'>
-                  {reason.body}
-                </p>
-              </article>
-            ))}
+            <div className='relative aspect-video w-full overflow-hidden rounded-xl shadow-[0_32px_80px_rgba(0,0,0,0.35)]'>
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?rel=0&modestbranding=1&color=white&autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}`}
+                title={t('videoTitle')}
+                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                allowFullScreen
+                className='absolute inset-0 h-full w-full border-0'
+              />
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Why here */}
+      <section className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
+        <div className='mx-auto w-full max-w-376'>
+          <div className='grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.7fr)] lg:gap-16'>
+            <div>
+              <p className='editorial-eyebrow editorial-eyebrow-light'>
+                {t('whyEyebrow')}
+              </p>
+              <h2 className='editorial-title editorial-title-light mt-4'>
+                {t('whyTitle')}
+              </h2>
+              <p className='editorial-body editorial-body-light mt-5 max-w-[60ch]'>
+                {t('whyLead')}
+              </p>
+
+              <div className='mt-10 grid gap-4'>
+                {reasons.map((reason) => (
+                  <article
+                    key={reason.title}
+                    className='editorial-card rounded-2xl p-6'
+                  >
+                    <h3 className='editorial-card-title editorial-card-title-light max-w-[14ch]'>
+                      {reason.title}
+                    </h3>
+                    <p className='editorial-body editorial-body-light mt-4 text-[0.98rem]'>
+                      {reason.body}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div className='hidden lg:block'>
+              <div className='relative aspect-[3/4] overflow-hidden rounded-xl shadow-[0_24px_64px_rgba(15,33,28,0.14)]'>
+                <Image
+                  src='/images/wedding/1.webp'
+                  alt={t('whyImageAlt')}
+                  fill
+                  sizes='30vw'
+                  className='object-cover'
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
       <section className='editorial-surface-dark px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
         <div className='mx-auto grid w-full max-w-376 gap-10 lg:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] lg:items-start'>
           <div className='max-w-140'>
@@ -153,9 +192,10 @@ export default async function WeddingsPage() {
         </div>
       </section>
 
+      {/* Venues with photos */}
       <section className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
         <div className='mx-auto w-full max-w-376'>
-          <div className=''>
+          <div>
             <p className='editorial-eyebrow editorial-eyebrow-light'>
               {t('venueEyebrow')}
             </p>
@@ -185,6 +225,29 @@ export default async function WeddingsPage() {
         </div>
       </section>
 
+      {/* Inspiration strip */}
+      <section className='editorial-surface-dark border-t border-[rgba(185,212,197,0.08)] px-[1.2rem] py-[clamp(3rem,6vw,5rem)] md:px-8'>
+        <div className='mx-auto w-full max-w-376'>
+          <div className='grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4'>
+            {[1, 2, 3, 4].map((n) => (
+              <div
+                key={n}
+                className='relative aspect-[3/4] overflow-hidden rounded-lg shadow-[0_16px_48px_rgba(0,0,0,0.25)]'
+              >
+                <Image
+                  src={`/images/wedding/${n}.webp`}
+                  alt={t('inspirationImageAlt', { number: n })}
+                  fill
+                  sizes='(max-width: 640px) 50vw, 25vw'
+                  className='object-cover'
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA + contact */}
       <section className='editorial-surface-dark border-t border-[rgba(185,212,197,0.12)] px-[1.2rem] py-[clamp(4rem,8vw,6.5rem)] md:px-8'>
         <div className='mx-auto w-full max-w-376'>
           <div className='mx-auto max-w-[40rem] text-center lg:mx-0 lg:max-w-[44rem] lg:text-left'>

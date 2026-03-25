@@ -142,12 +142,15 @@ export default async function HomePage() {
 
       <HistoryFamilyPreview
         eyebrow={t('historyFamilyEyebrow')}
+        historyEyebrow={nav('history')}
         historyTitle={t('historyPreviewTitle')}
         historyBody={t('historyPreviewBody')}
         historyCta={t('historyPreviewCta')}
+        familyEyebrow={nav('family')}
         familyTitle={t('familyPreviewTitle')}
         familyBody={t('familyPreviewBody')}
         familyCta={t('familyPreviewCta')}
+        familyCrestAlt={t('familyPreviewCrestAlt')}
       />
 
       <WeddingsPreview
@@ -155,13 +158,9 @@ export default async function HomePage() {
         title={t('weddingsTitle')}
         lead={t('weddingsLead')}
         body={t('weddingsBody')}
-        steps={[
-          t('weddingsStepOne'),
-          t('weddingsStepTwo'),
-          t('weddingsStepThree'),
-          t('weddingsStepFour')
-        ]}
         cta={t('weddingsCta')}
+        imageAlt1={t('weddingsImageAlt1')}
+        imageAlt2={t('weddingsImageAlt2')}
       />
 
       <EventsPreview
