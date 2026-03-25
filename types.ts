@@ -54,3 +54,8 @@ export type HeroUpcomingEvent = {
   href: EventDetailHref
   cta: string
 }
+
+export type SiteContactPerson = {
+  name: string
+  phone: string
+}

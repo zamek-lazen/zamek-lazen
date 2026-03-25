@@ -1,31 +1,29 @@
 import Image from 'next/image'
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import { PageHero } from '@/components/shared/page-hero'
-
-function toTelHref(value: string) {
-  const phone = value.match(/\+?[\d\s]+$/)?.[0]?.replace(/\s+/g, '') ?? ''
-  return phone ? `tel:${phone}` : null
-}
+import { toTelHref } from '@/lib/tel-href'
+import { getSiteContactPeople } from '@/sanity/lib/site-settings'
 
 const YOUTUBE_VIDEO_ID = 'Auv5dDb28gk'
 
 export default async function WeddingsPage() {
+  const locale = (await getLocale()) as 'cs' | 'de'
+
   const [t, tContact] = await Promise.all([
     getTranslations('WeddingsPage'),
     getTranslations('ContactPage')
   ])
 
-  const phone = tContact('phonePouza')
-  const phoneHref = toTelHref(phone)
+  const contactPeople = await getSiteContactPeople(locale)
   const email = tContact('email')
 
   const contacts = [
-    {
-      label: tContact('phoneLabel'),
-      value: phone,
-      href: phoneHref ?? '#',
+    ...contactPeople.map((person) => ({
+      label: person.name,
+      value: person.phone,
+      href: toTelHref(person.phone) ?? '#',
       action: t('callCta')
-    },
+    })),
     {
       label: tContact('emailLabel'),
       value: email,
@@ -265,7 +263,7 @@ export default async function WeddingsPage() {
           <div className='mt-12 grid gap-5 sm:grid-cols-2 lg:mt-14 lg:gap-6'>
             {contacts.map((contact) => (
               <a
-                key={contact.value}
+                key={`${contact.label}-${contact.value}`}
                 href={contact.href}
                 className='editorial-card-dark group flex flex-col rounded-2xl p-7 transition-[transform,box-shadow,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-[rgba(255,253,242,0.28)] hover:bg-[rgba(254,252,232,0.08)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.2)] md:p-8'
               >

@@ -1,25 +1,24 @@
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import { FacebookLink } from '@/components/shared/facebook-link'
-import { Link } from '@/i18n/navigation'
 import { FooterLocaleSwitch } from '@/components/shared/footer-locale-switch'
 import { navItems } from '@/components/shared/nav-items'
+import { SiteContactPeopleBlock } from '@/components/shared/site-contact-people'
+import { Link } from '@/i18n/navigation'
+import { getSiteContactPeople } from '@/sanity/lib/site-settings'
 
 const MAP_EMBED_SRC =
   'https://maps.google.com/maps?width=600&height=400&hl=en&q=Z%C3%A1mek%20L%C3%A1ze%C5%88%20sv.%20Wolfganga%20339%2001%20Chudenice-Klatovy%201&t=&z=15&ie=UTF8&iwloc=B&output=embed'
 
-function toTelHref(value: string) {
-  const phone = value.match(/\+?[\d\s]+$/)?.[0]?.replace(/\s+/g, '') ?? ''
-  return phone ? `tel:${phone}` : null
-}
-
 export async function Footer() {
+  const locale = (await getLocale()) as 'cs' | 'de'
+
   const [tFooter, tNav, tContact] = await Promise.all([
     getTranslations('Footer'),
     getTranslations('Nav'),
     getTranslations('ContactPage')
   ])
 
-  const phoneItems = [tContact('phonePouza'), tContact('phoneTrdlicova')]
+  const contactPeople = await getSiteContactPeople(locale)
   const email = tContact('email')
 
   return (
@@ -68,24 +67,11 @@ export async function Footer() {
                   <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.7rem]'>
                     {tContact('phoneLabel')}
                   </p>
-                  <div className='editorial-body editorial-body-dark mt-2 space-y-2'>
-                    {phoneItems.map((phone) => {
-                      const href = toTelHref(phone)
-
-                      if (!href) {
-                        return <p key={phone}>{phone}</p>
-                      }
-
-                      return (
-                        <a
-                          key={phone}
-                          href={href}
-                          className='block transition hover:text-mist-50'
-                        >
-                          {phone}
-                        </a>
-                      )
-                    })}
+                  <div className='mt-2'>
+                    <SiteContactPeopleBlock
+                      people={contactPeople}
+                      variant='dark'
+                    />
                   </div>
                 </div>
 
@@ -145,7 +131,7 @@ export async function Footer() {
                 href='https://www.baudys.dev'
                 target='_blank'
                 rel='noreferrer'
-                className='underline decoration-[rgba(185,212,197,0.35)] underline-offset-[0.18em] transition hover:decoration-[rgba(185,212,197,0.65)]'
+                className='font-bold underline transition'
               >
                 Daniel Anthony Baudyš
               </a>
@@ -153,9 +139,7 @@ export async function Footer() {
           </div>
 
           <div className='flex items-center justify-start gap-4 lg:justify-end'>
-            <FacebookLink
-              className='inline-flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(185,212,197,0.18)] text-mist-300 transition hover:border-[rgba(221,231,223,0.42)] hover:text-mist-50'
-            />
+            <FacebookLink className='inline-flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(185,212,197,0.18)] text-mist-300 transition hover:border-[rgba(221,231,223,0.42)] hover:text-mist-50' />
             <FooterLocaleSwitch />
           </div>
         </div>
