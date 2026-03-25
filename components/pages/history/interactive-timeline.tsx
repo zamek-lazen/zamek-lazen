@@ -1,7 +1,10 @@
 'use client'
 
 import Image from 'next/image'
+import { motion, useReducedMotion } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
+import { REVEAL_EASE } from '@/components/motion/constants'
+import { RevealStagger } from '@/components/motion'
 
 type HistoryImage = {
   alt: string
@@ -34,6 +37,7 @@ export function HistoryInteractiveTimeline({
   paragraphs,
   timelineLabel
 }: HistoryInteractiveTimelineProps) {
+  const reduceMotion = useReducedMotion() ?? false
   const [activeId, setActiveId] = useState(chapters[0]?.id ?? '')
   const layoutRef = useRef<HTMLDivElement | null>(null)
   const railRef = useRef<HTMLDivElement | null>(null)
@@ -194,7 +198,7 @@ export function HistoryInteractiveTimeline({
               <p className='editorial-eyebrow editorial-eyebrow-light'>
                 {introLabel}
               </p>
-              <div className='mt-5 space-y-5'>
+              <RevealStagger className='mt-5 flex flex-col gap-5'>
                 {paragraphs.map((paragraph) => (
                   <p
                     key={paragraph}
@@ -203,17 +207,21 @@ export function HistoryInteractiveTimeline({
                     {paragraph}
                   </p>
                 ))}
-              </div>
+              </RevealStagger>
             </section>
 
             {chapters.map((chapter) => (
-              <article
+              <motion.article
                 key={chapter.id}
+                className='scroll-mt-28 border-b border-[rgba(19,52,45,0.12)] pb-10 md:pb-14'
                 id={chapter.id}
+                initial={reduceMotion ? false : { opacity: 0, y: 22 }}
                 ref={(node) => {
                   sectionRefs.current[chapter.id] = node
                 }}
-                className='scroll-mt-28 border-b border-[rgba(19,52,45,0.12)] pb-10 md:pb-14'
+                transition={{ duration: reduceMotion ? 0.01 : 0.72, ease: REVEAL_EASE }}
+                viewport={{ once: true, margin: '-72px 0px -14% 0px', amount: 0.1 }}
+                whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               >
                 <p className='editorial-eyebrow editorial-eyebrow-light'>
                   {chapter.year}
@@ -259,7 +267,7 @@ export function HistoryInteractiveTimeline({
                     </figure>
                   ))}
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>

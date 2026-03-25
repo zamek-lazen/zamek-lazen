@@ -1,6 +1,7 @@
 import { ArrowLeftIcon } from '@sanity/icons'
 import { getLocale, getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
+import { RevealOnScroll } from '@/components/motion'
 import { PortableTextContent } from '@/components/shared/portable-text'
 import { PageHero } from '@/components/shared/page-hero'
 import { SmsTicketEmbed } from '@/components/shared/smsticket-embed'
@@ -55,7 +56,10 @@ export default async function EventDetailPage({
         }
       />
 
-      <section className='editorial-surface-dark px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
+      <RevealOnScroll
+        as='section'
+        className='editorial-surface-dark px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'
+      >
         <div className='mx-auto grid w-full max-w-376 gap-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)]'>
           <div className='editorial-card-dark rounded-[1.25rem] p-7 md:p-8'>
             <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.75rem]'>
@@ -102,10 +106,13 @@ export default async function EventDetailPage({
             </div>
           }
         </div>
-      </section>
+      </RevealOnScroll>
 
       {(hasRecap || hasYouTubeEmbed) && event.isPast ?
-        <section className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
+        <RevealOnScroll
+          as='section'
+          className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'
+        >
           <div className='mx-auto flex w-full max-w-376 flex-col gap-6'>
             <div className='grid gap-5 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-end'>
               <div>
@@ -147,7 +154,7 @@ export default async function EventDetailPage({
               </div>
             : null}
           </div>
-        </section>
+        </RevealOnScroll>
       : null}
     </div>
   )

@@ -1,7 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { motion, useReducedMotion } from 'motion/react'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import { REVEAL_DURATION, REVEAL_EASE } from '@/components/motion/constants'
 import type { GalleryImageDefinition } from '@/components/pages/gallery/gallery-images'
 
 type GalleryMasonryImage = Omit<GalleryImageDefinition, 'altKey'> & {
@@ -18,6 +20,7 @@ type GalleryMasonryProps = {
 }
 
 export function GalleryMasonry({ images, ui }: GalleryMasonryProps) {
+  const reduceMotion = useReducedMotion() ?? false
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const activeImage = activeIndex === null ? null : images[activeIndex]
 
@@ -50,12 +53,20 @@ export function GalleryMasonry({ images, ui }: GalleryMasonryProps) {
     <>
       <div className='columns-1 gap-4 md:columns-2 xl:columns-3'>
         {images.map((image, index) => (
-          <button
+          <motion.button
             key={image.src}
-            type='button'
-            onClick={() => setActiveIndex(index)}
-            className='group mb-4 inline-block w-full break-inside-avoid text-left transition-transform duration-300 hover:-translate-y-1'
             aria-label={`${ui.openImageLabel}: ${image.alt}`}
+            className='group mb-4 inline-block w-full break-inside-avoid text-left transition-transform duration-300'
+            initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+            transition={{
+              duration: reduceMotion ? 0.01 : REVEAL_DURATION * 0.88,
+              delay: reduceMotion ? 0 : Math.min(index * 0.05, 0.35),
+              ease: REVEAL_EASE
+            }}
+            type='button'
+            viewport={{ once: true, amount: 0.12, margin: '-32px 0px' }}
+            whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+            onClick={() => setActiveIndex(index)}
           >
             <span className='block overflow-hidden rounded-[0.95rem] border border-[rgba(13,49,41,0.08)] bg-[rgba(255,255,255,0.5)] shadow-[0_8px_24px_rgba(15,33,28,0.06)]'>
               <Image
@@ -68,7 +79,7 @@ export function GalleryMasonry({ images, ui }: GalleryMasonryProps) {
                 className='h-auto w-full transition-transform duration-500 group-hover:scale-[1.03]'
               />
             </span>
-          </button>
+          </motion.button>
         ))}
       </div>
 

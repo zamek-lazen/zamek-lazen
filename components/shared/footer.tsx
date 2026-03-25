@@ -1,4 +1,5 @@
 import { getLocale, getTranslations } from 'next-intl/server'
+import { RevealOnScroll } from '@/components/motion'
 import { FacebookLink } from '@/components/shared/facebook-link'
 import { FooterLocaleSwitch } from '@/components/shared/footer-locale-switch'
 import { navItems } from '@/components/shared/nav-items'
@@ -23,7 +24,7 @@ export async function Footer() {
 
   return (
     <footer className='editorial-surface-dark w-full border-t border-[rgba(185,212,197,0.12)]'>
-      <div className='mx-auto grid w-full max-w-376 gap-10 px-[1.2rem] py-[clamp(3.5rem,8vw,5.5rem)] md:px-8 lg:grid-cols-[minmax(0,1.18fr)_minmax(22rem,0.92fr)] lg:gap-14'>
+      <RevealOnScroll className='mx-auto grid w-full max-w-376 gap-10 px-[1.2rem] py-[clamp(3.5rem,8vw,5.5rem)] md:px-8 lg:grid-cols-[minmax(0,1.18fr)_minmax(22rem,0.92fr)] lg:gap-14'>
         <div className='space-y-10'>
           <div className='max-w-160'>
             <h2 className='editorial-title editorial-title-dark max-w-[30ch]'>
@@ -115,7 +116,7 @@ export async function Footer() {
             </p>
           </div>
         </div>
-      </div>
+      </RevealOnScroll>
 
       <div className='border-t border-[rgba(185,212,197,0.12)]'>
         <div className='mx-auto flex w-full max-w-376 flex-col gap-4 px-[1.2rem] py-5 md:px-8 lg:flex-row lg:items-center lg:justify-between lg:gap-8'>

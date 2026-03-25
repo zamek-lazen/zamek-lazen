@@ -1,3 +1,4 @@
+import { RevealStagger } from '@/components/motion'
 import { Link } from '@/i18n/navigation'
 import type { HomepageCopy, HomepageSpotlightLink } from '@/types'
 
@@ -59,7 +60,7 @@ export function Story({
           <p className='editorial-eyebrow editorial-eyebrow-dark mb-[0.85rem]'>
             {highlightsTitle}
           </p>
-          <div className='mt-[0.2rem] grid border-t border-[rgba(178,201,190,0.22)]'>
+          <RevealStagger className='mt-[0.2rem] grid border-t border-[rgba(178,201,190,0.22)]'>
             {spotlightLinks.map((link, index) => (
               <Link
                 key={link.href}
@@ -77,7 +78,7 @@ export function Story({
                 </p>
               </Link>
             ))}
-          </div>
+          </RevealStagger>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server'
+import { RevealOnScroll } from '@/components/motion'
 import { PageHero } from '@/components/shared/page-hero'
 
 export default async function FamilyPage() {
@@ -13,7 +14,10 @@ export default async function FamilyPage() {
         lead={t('lead')}
       />
 
-      <section className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
+      <RevealOnScroll
+        as='section'
+        className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'
+      >
         <div className='mx-auto grid w-full max-w-376 gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]'>
           <div>
             <p className='editorial-body editorial-body-light max-w-[60ch]'>
@@ -39,7 +43,7 @@ export default async function FamilyPage() {
             </p>
           </aside>
         </div>
-      </section>
+      </RevealOnScroll>
     </div>
   )
 }

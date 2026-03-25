@@ -1,6 +1,7 @@
 import { getLocale, getTranslations } from 'next-intl/server'
 import Script from 'next/script'
 import type { HomepageEventPreview, HomepageSpotlightLink } from '@/types'
+import { RevealOnScroll } from '@/components/motion'
 import {
   EventsPreview,
   GalleryPreview,
@@ -129,54 +130,64 @@ export default async function HomePage() {
         }
       />
 
-      <Story
-        eyebrow={t('storyEyebrow')}
-        title={t('storyTitle')}
-        lead={t('storyLead')}
-        description={t('storyDescription')}
-        highlightsTitle={t('storyHighlightsTitle')}
-        ctaHistory={t('storyCtaHistory')}
-        ctaContact={t('storyCtaContact')}
-        spotlightLinks={spotlightLinks}
-      />
+      <RevealOnScroll>
+        <Story
+          eyebrow={t('storyEyebrow')}
+          title={t('storyTitle')}
+          lead={t('storyLead')}
+          description={t('storyDescription')}
+          highlightsTitle={t('storyHighlightsTitle')}
+          ctaHistory={t('storyCtaHistory')}
+          ctaContact={t('storyCtaContact')}
+          spotlightLinks={spotlightLinks}
+        />
+      </RevealOnScroll>
 
-      <HistoryFamilyPreview
-        eyebrow={t('historyFamilyEyebrow')}
-        historyEyebrow={nav('history')}
-        historyTitle={t('historyPreviewTitle')}
-        historyBody={t('historyPreviewBody')}
-        historyCta={t('historyPreviewCta')}
-        familyEyebrow={nav('family')}
-        familyTitle={t('familyPreviewTitle')}
-        familyBody={t('familyPreviewBody')}
-        familyCta={t('familyPreviewCta')}
-        familyCrestAlt={t('familyPreviewCrestAlt')}
-      />
+      <RevealOnScroll>
+        <HistoryFamilyPreview
+          eyebrow={t('historyFamilyEyebrow')}
+          historyEyebrow={nav('history')}
+          historyTitle={t('historyPreviewTitle')}
+          historyBody={t('historyPreviewBody')}
+          historyCta={t('historyPreviewCta')}
+          familyEyebrow={nav('family')}
+          familyTitle={t('familyPreviewTitle')}
+          familyBody={t('familyPreviewBody')}
+          familyCta={t('familyPreviewCta')}
+          familyCrestAlt={t('familyPreviewCrestAlt')}
+        />
+      </RevealOnScroll>
 
-      <WeddingsPreview
-        eyebrow={t('weddingsEyebrow')}
-        title={t('weddingsTitle')}
-        lead={t('weddingsLead')}
-        body={t('weddingsBody')}
-        cta={t('weddingsCta')}
-        imageAlt1={t('weddingsImageAlt1')}
-        imageAlt2={t('weddingsImageAlt2')}
-      />
+      <RevealOnScroll>
+        <WeddingsPreview
+          eyebrow={t('weddingsEyebrow')}
+          title={t('weddingsTitle')}
+          lead={t('weddingsLead')}
+          body={t('weddingsBody')}
+          cta={t('weddingsCta')}
+          imageAlt1={t('weddingsImageAlt1')}
+          imageAlt2={t('weddingsImageAlt2')}
+        />
+      </RevealOnScroll>
 
-      <EventsPreview
-        eyebrow={t('eventsEyebrow')}
-        title={t('eventsTitle')}
-        body={t('eventsBody')}
-        cta={t('eventsCta')}
-        events={eventPreviews}
-      />
+      <RevealOnScroll>
+        <EventsPreview
+          eyebrow={t('eventsEyebrow')}
+          title={t('eventsTitle')}
+          body={t('eventsBody')}
+          cta={t('eventsCta')}
+          events={eventPreviews}
+        />
+      </RevealOnScroll>
 
-      <GalleryPreview
-        eyebrow={t('galleryEyebrow')}
-        title={t('galleryTitle')}
-        body={t('galleryBody')}
-        cta={t('galleryCta')}
-      />
+      <RevealOnScroll>
+        <GalleryPreview
+          eyebrow={t('galleryEyebrow')}
+          title={t('galleryTitle')}
+          body={t('galleryBody')}
+          cta={t('galleryCta')}
+        />
+      </RevealOnScroll>
     </div>
   )
 }

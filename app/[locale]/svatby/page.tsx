@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { getLocale, getTranslations } from 'next-intl/server'
+import { RevealOnScroll, RevealStagger } from '@/components/motion'
 import { PageHero } from '@/components/shared/page-hero'
 import { toTelHref } from '@/lib/tel-href'
 import { getSiteContactPeople } from '@/sanity/lib/site-settings'
@@ -86,7 +87,10 @@ export default async function WeddingsPage() {
       />
 
       {/* Video atmosphere section */}
-      <section className='editorial-surface-dark border-t border-[rgba(185,212,197,0.08)] px-[1.2rem] py-[clamp(3rem,6vw,5rem)] md:px-8'>
+      <RevealOnScroll
+        as='section'
+        className='editorial-surface-dark border-t border-[rgba(185,212,197,0.08)] px-[1.2rem] py-[clamp(3rem,6vw,5rem)] md:px-8'
+      >
         <div className='mx-auto w-full max-w-376'>
           <div className='mx-auto max-w-[52rem]'>
             <p className='editorial-eyebrow editorial-eyebrow-dark mb-6 text-center'>
@@ -103,10 +107,13 @@ export default async function WeddingsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealOnScroll>
 
       {/* Why here */}
-      <section className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
+      <RevealOnScroll
+        as='section'
+        className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'
+      >
         <div className='mx-auto w-full max-w-376'>
           <div className='grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.7fr)] lg:gap-16'>
             <div>
@@ -120,7 +127,7 @@ export default async function WeddingsPage() {
                 {t('whyLead')}
               </p>
 
-              <div className='mt-10 grid gap-4'>
+              <RevealStagger className='mt-10 grid gap-4'>
                 {reasons.map((reason) => (
                   <article
                     key={reason.title}
@@ -134,7 +141,7 @@ export default async function WeddingsPage() {
                     </p>
                   </article>
                 ))}
-              </div>
+              </RevealStagger>
             </div>
 
             <div className='hidden lg:block'>
@@ -150,10 +157,13 @@ export default async function WeddingsPage() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealOnScroll>
 
       {/* Process */}
-      <section className='editorial-surface-dark px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
+      <RevealOnScroll
+        as='section'
+        className='editorial-surface-dark px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'
+      >
         <div className='mx-auto grid w-full max-w-376 gap-10 lg:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] lg:items-start'>
           <div className='max-w-140'>
             <p className='editorial-eyebrow editorial-eyebrow-dark'>
@@ -167,7 +177,7 @@ export default async function WeddingsPage() {
             </p>
           </div>
 
-          <div className='grid gap-4'>
+          <RevealStagger className='grid gap-4'>
             {steps.map((step, index) => (
               <article
                 key={step.title}
@@ -186,12 +196,15 @@ export default async function WeddingsPage() {
                 </div>
               </article>
             ))}
-          </div>
+          </RevealStagger>
         </div>
-      </section>
+      </RevealOnScroll>
 
       {/* Venues with photos */}
-      <section className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
+      <RevealOnScroll
+        as='section'
+        className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'
+      >
         <div className='mx-auto w-full max-w-376'>
           <div>
             <p className='editorial-eyebrow editorial-eyebrow-light'>
@@ -205,7 +218,7 @@ export default async function WeddingsPage() {
             </p>
           </div>
 
-          <div className='mt-10 grid gap-4 md:grid-cols-2'>
+          <RevealStagger className='mt-10 grid gap-4 md:grid-cols-2'>
             {venues.map((venue) => (
               <article
                 key={venue.title}
@@ -219,14 +232,17 @@ export default async function WeddingsPage() {
                 </p>
               </article>
             ))}
-          </div>
+          </RevealStagger>
         </div>
-      </section>
+      </RevealOnScroll>
 
       {/* Inspiration strip */}
-      <section className='editorial-surface-dark border-t border-[rgba(185,212,197,0.08)] px-[1.2rem] py-[clamp(3rem,6vw,5rem)] md:px-8'>
+      <RevealOnScroll
+        as='section'
+        className='editorial-surface-dark border-t border-[rgba(185,212,197,0.08)] px-[1.2rem] py-[clamp(3rem,6vw,5rem)] md:px-8'
+      >
         <div className='mx-auto w-full max-w-376'>
-          <div className='grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4'>
+          <RevealStagger className='grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4'>
             {[1, 2, 3, 4].map((n) => (
               <div
                 key={n}
@@ -241,12 +257,15 @@ export default async function WeddingsPage() {
                 />
               </div>
             ))}
-          </div>
+          </RevealStagger>
         </div>
-      </section>
+      </RevealOnScroll>
 
       {/* Final CTA + contact */}
-      <section className='editorial-surface-dark border-t border-[rgba(185,212,197,0.12)] px-[1.2rem] py-[clamp(4rem,8vw,6.5rem)] md:px-8'>
+      <RevealOnScroll
+        as='section'
+        className='editorial-surface-dark border-t border-[rgba(185,212,197,0.12)] px-[1.2rem] py-[clamp(4rem,8vw,6.5rem)] md:px-8'
+      >
         <div className='mx-auto w-full max-w-376'>
           <div className='mx-auto max-w-[40rem] text-center lg:mx-0 lg:max-w-[44rem] lg:text-left'>
             <p className='editorial-eyebrow editorial-eyebrow-dark'>
@@ -260,7 +279,7 @@ export default async function WeddingsPage() {
             </p>
           </div>
 
-          <div className='mt-12 grid gap-5 sm:grid-cols-2 lg:mt-14 lg:gap-6'>
+          <RevealStagger className='mt-12 grid gap-5 sm:grid-cols-2 lg:mt-14 lg:gap-6'>
             {contacts.map((contact) => (
               <a
                 key={`${contact.label}-${contact.value}`}
@@ -278,9 +297,9 @@ export default async function WeddingsPage() {
                 </span>
               </a>
             ))}
-          </div>
+          </RevealStagger>
         </div>
-      </section>
+      </RevealOnScroll>
     </div>
   )
 }

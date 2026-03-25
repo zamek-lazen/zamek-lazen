@@ -111,16 +111,16 @@ export default async function HistoryPage() {
       detail: t('chapter5Detail'),
       images: [
         {
-          src: '/images/estate/castle-front-summer-path.webp',
+          src: '/images/castle-front-flower.webp',
           alt: imageT('imageCastleFrontSummerPath'),
           caption: imageT('imageCastleFrontSummerPath'),
-          objectPosition: '50% 56%'
+          objectPosition: '50% 48%'
         },
         {
-          src: '/images/estate/castle-front-park.webp',
+          src: '/images/gallery/8.webp',
           alt: imageT('imageCastleFrontPark'),
           caption: imageT('imageCastleFrontPark'),
-          objectPosition: '50% 54%'
+          objectPosition: '50% 50%'
         }
       ] as const
     }

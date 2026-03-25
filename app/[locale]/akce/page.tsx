@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { getLocale, getTranslations } from 'next-intl/server'
+import { RevealOnScroll, RevealStagger } from '@/components/motion'
 import { PageHero } from '@/components/shared/page-hero'
 import { Link } from '@/i18n/navigation'
 import { formatEventDateTime, getEventsByStatus } from '@/sanity/lib/events'
@@ -19,7 +20,10 @@ export default async function EventsPage() {
         lead={t('lead')}
       />
 
-      <section className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
+      <RevealOnScroll
+        as='section'
+        className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'
+      >
         <div className='mx-auto flex w-full max-w-376 flex-col gap-8'>
           <div className='max-w-[42rem]'>
             <p className='editorial-eyebrow editorial-eyebrow-light text-[0.76rem]'>
@@ -40,7 +44,7 @@ export default async function EventsPage() {
                   pathname: '/akce/[slug]',
                   params: { slug: featuredEvent.slug }
                 }}
-                className='editorial-card group overflow-hidden rounded-[1.35rem] transition-transform duration-200 hover:-translate-y-1'
+                className='editorial-card group block h-full w-full overflow-hidden rounded-[1.35rem] transition-transform duration-200'
               >
                 <div
                   className={
@@ -89,7 +93,7 @@ export default async function EventsPage() {
               </Link>
 
               {otherEvents.length > 0 ?
-                <div className='grid gap-5 lg:grid-cols-2'>
+                <RevealStagger className='grid gap-5 lg:grid-cols-2'>
                   {otherEvents.map((event) => (
                     <Link
                       key={event.id}
@@ -97,7 +101,7 @@ export default async function EventsPage() {
                         pathname: '/akce/[slug]',
                         params: { slug: event.slug }
                       }}
-                      className='editorial-card group overflow-hidden rounded-[1.2rem] transition-transform duration-200 hover:-translate-y-1'
+                      className='editorial-card group block h-full w-full overflow-hidden rounded-[1.2rem] transition-transform duration-200'
                     >
                       {event.image ?
                         <div className='relative h-56'>
@@ -134,7 +138,7 @@ export default async function EventsPage() {
                       </div>
                     </Link>
                   ))}
-                </div>
+                </RevealStagger>
               : null}
             </>
           : <div className='editorial-card rounded-[1.25rem] p-8'>
@@ -150,10 +154,13 @@ export default async function EventsPage() {
             </div>
           }
         </div>
-      </section>
+      </RevealOnScroll>
 
       {pastEvents.length > 0 ?
-        <section className='editorial-surface-dark px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
+        <RevealOnScroll
+          as='section'
+          className='editorial-surface-dark px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'
+        >
           <div className='mx-auto flex w-full max-w-376 flex-col gap-6'>
             <div className='max-w-[42rem]'>
               <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.76rem]'>
@@ -167,7 +174,7 @@ export default async function EventsPage() {
               </p>
             </div>
 
-            <div className='grid gap-5 lg:grid-cols-2'>
+            <RevealStagger className='grid gap-5 lg:grid-cols-2'>
               {pastEvents.map((event) => (
                 <Link
                   key={event.id}
@@ -175,15 +182,12 @@ export default async function EventsPage() {
                     pathname: '/akce/[slug]',
                     params: { slug: event.slug }
                   }}
-                  className='editorial-card-dark group overflow-hidden rounded-[1.2rem] transition-transform duration-200 hover:-translate-y-1 hover:border-[rgba(254,252,232,0.28)]'
+                  className='editorial-card-dark group block h-full w-full overflow-hidden rounded-[1.2rem] transition-transform duration-200 hover:border-[rgba(254,252,232,0.28)]'
                 >
                   {event.image ?
                     <div className='relative h-56'>
                       <Image
-                        src={urlFor(event.image)
-                          .width(1200)
-                          .height(800)
-                          .url()}
+                        src={urlFor(event.image).width(1200).height(800).url()}
                         alt={event.title}
                         fill
                         sizes='(max-width: 1024px) 100vw, 50vw'
@@ -217,9 +221,9 @@ export default async function EventsPage() {
                   </div>
                 </Link>
               ))}
-            </div>
+            </RevealStagger>
           </div>
-        </section>
+        </RevealOnScroll>
       : null}
     </div>
   )

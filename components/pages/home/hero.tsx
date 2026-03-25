@@ -1,7 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { motion, useReducedMotion } from 'motion/react'
 import Image from 'next/image'
+import { useState } from 'react'
+import { REVEAL_EASE } from '@/components/motion/constants'
 import { Link } from '@/i18n/navigation'
 import type { HeroUpcomingEvent } from '@/types'
 
@@ -29,19 +31,9 @@ export function Hero({
   nextEvent
 }: HeroProps) {
   const [pointer, setPointer] = useState({ x: 0, y: 0 })
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+  const reduceMotion = useReducedMotion() ?? false
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const updateMotionPreference = () =>
-      setPrefersReducedMotion(mediaQuery.matches)
-
-    updateMotionPreference()
-    mediaQuery.addEventListener('change', updateMotionPreference)
-
-    return () =>
-      mediaQuery.removeEventListener('change', updateMotionPreference)
-  }, [])
+  const prefersReducedMotion = reduceMotion
 
   const imageTransform =
     prefersReducedMotion ? 'scale(1.02)' : (
@@ -55,6 +47,31 @@ export function Hero({
     prefersReducedMotion ?
       'translate3d(0, 0, 0)'
     : `translate3d(${pointer.x * 22}px, ${pointer.y * 18}px, 0)`
+
+  const copyContainerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: prefersReducedMotion ? 0 : 0.1,
+        delayChildren: prefersReducedMotion ? 0 : 0.2
+      }
+    }
+  }
+
+  const copyItemVariants = {
+    hidden: {
+      opacity: prefersReducedMotion ? 1 : 0,
+      y: prefersReducedMotion ? 0 : 14
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: prefersReducedMotion ? 0.01 : 0.58,
+        ease: REVEAL_EASE
+      }
+    }
+  }
 
   return (
     <section
@@ -95,18 +112,30 @@ export function Hero({
 
       <div className='relative z-10 mx-auto flex min-h-0 w-full max-w-376 flex-1 flex-col px-0 pb-[clamp(2.25rem,5vh,4.75rem)]'>
         <div className='flex min-h-0 min-w-0 flex-1 flex-col justify-end'>
-          <div
+          <motion.div
+            animate='visible'
             className='max-w-176 transition-transform duration-300 ease-out'
+            initial='hidden'
             style={{ transform: copyTransform }}
+            variants={copyContainerVariants}
           >
-            <h1 className='editorial-title editorial-title-dark editorial-title-hero mt-4'>
+            <motion.h1
+              className='editorial-title editorial-title-dark editorial-title-hero mt-4'
+              variants={copyItemVariants}
+            >
               {title}
-            </h1>
-            <p className='editorial-eyebrow editorial-eyebrow-dark mt-4'>
+            </motion.h1>
+            <motion.p
+              className='editorial-eyebrow editorial-eyebrow-dark mt-4'
+              variants={copyItemVariants}
+            >
               {eyebrow}
-            </p>
+            </motion.p>
 
-            <div className='mt-28 flex flex-wrap gap-3'>
+            <motion.div
+              className='mt-28 flex flex-wrap gap-3'
+              variants={copyItemVariants}
+            >
               <Link
                 href='/historie'
                 className='editorial-button editorial-button-primary'
@@ -119,11 +148,20 @@ export function Hero({
               >
                 {ctaSecondary}
               </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
-        <div className='mt-7 shrink-0 text-left lg:pointer-events-none lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0 lg:flex lg:justify-end lg:px-8 lg:pb-[clamp(2.25rem,5vh,4.75rem)] lg:text-right'>
+        <motion.div
+          animate={{ opacity: 1, y: 0 }}
+          className='mt-7 shrink-0 text-left lg:pointer-events-none lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0 lg:flex lg:justify-end lg:px-8 lg:pb-[clamp(2.25rem,5vh,4.75rem)] lg:text-right'
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+          transition={{
+            duration: prefersReducedMotion ? 0.01 : 0.62,
+            delay: prefersReducedMotion ? 0 : 0.68,
+            ease: REVEAL_EASE
+          }}
+        >
           <div className='pointer-events-auto w-full max-w-[min(100%,18rem)] lg:max-w-[18rem]'>
             {nextEvent ?
               <Link
@@ -152,7 +190,7 @@ export function Hero({
               </div>
             }
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
