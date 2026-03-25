@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Bodoni_Moda, Arizonia, Cormorant_Garamond } from 'next/font/google'
 import { getLocale } from 'next-intl/server'
 import { Analytics } from '@vercel/analytics/next'
+import { OG_IMAGE_PATH, SITE_URL } from '@/lib/seo/constants'
 import './globals.css'
 
 /** Cormorant Garamond — běžný text (UI, odstavce, navigace) */
@@ -26,12 +27,43 @@ const scriptFont = Arizonia({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'Zámek Lázeň',
-  description: 'Webová prezentace Zámku Lázeň v Chudenicích',
+  description:
+    'Zámek Lázeň v Chudenicích: historie rodu Czerninů, svatby, kulturní akce, galerie a kontakt.',
+  applicationName: 'Zámek Lázeň',
   icons: {
-    icon: '/images/branding/castle-crest.png',
-    shortcut: '/images/branding/castle-crest.png',
-    apple: '/images/branding/castle-crest.png'
+    icon: '/images/erb.png',
+    shortcut: '/images/erb.png',
+    apple: '/images/erb.png'
+  },
+  openGraph: {
+    type: 'website',
+    title: 'Zámek Lázeň',
+    description:
+      'Zámek Lázeň v Chudenicích: historie rodu Czerninů, svatby, kulturní akce, galerie a kontakt.',
+    url: SITE_URL,
+    siteName: 'Zámek Lázeň',
+    locale: 'cs_CZ',
+    images: [
+      {
+        url: OG_IMAGE_PATH,
+        width: 1200,
+        height: 630,
+        alt: 'Zámek Lázeň'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zámek Lázeň',
+    description:
+      'Zámek Lázeň v Chudenicích: historie rodu Czerninů, svatby, kulturní akce, galerie a kontakt.',
+    images: [OG_IMAGE_PATH]
+  },
+  robots: {
+    index: true,
+    follow: true
   }
 }
 

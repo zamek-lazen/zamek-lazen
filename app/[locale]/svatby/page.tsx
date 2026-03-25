@@ -1,22 +1,72 @@
 import Image from 'next/image'
-import { getLocale, getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
+import { JsonLd } from '@/components/shared/json-ld'
 import { RevealOnScroll, RevealStagger } from '@/components/motion'
 import { PageHero } from '@/components/shared/page-hero'
 import { toTelHref } from '@/lib/tel-href'
+import type { AppLocale } from '@/lib/seo/constants'
+import { buildPageMetadata, getStaticPageUrl } from '@/lib/seo/metadata'
+import {
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+  createJsonLdId
+} from '@/lib/seo/schema'
 import { getSiteContactPeople } from '@/sanity/lib/site-settings'
 
 const YOUTUBE_VIDEO_ID = 'Auv5dDb28gk'
 
-export default async function WeddingsPage() {
-  const locale = (await getLocale()) as 'cs' | 'de'
+type WeddingsPageProps = {
+  params: Promise<{
+    locale: AppLocale
+  }>
+}
+
+export async function generateMetadata({
+  params
+}: WeddingsPageProps): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'WeddingsPage' })
+
+  return buildPageMetadata({
+    locale,
+    page: 'weddings',
+    title: t('title'),
+    description: `${t('lead')} ${t('whyLead')}`
+  })
+}
+
+export default async function WeddingsPage({
+  params
+}: WeddingsPageProps) {
+  const { locale } = await params
 
   const [t, tContact] = await Promise.all([
-    getTranslations('WeddingsPage'),
-    getTranslations('ContactPage')
+    getTranslations({ locale, namespace: 'WeddingsPage' }),
+    getTranslations({ locale, namespace: 'ContactPage' })
   ])
 
   const contactPeople = await getSiteContactPeople(locale)
   const email = tContact('email')
+  const pageUrl = getStaticPageUrl(locale, 'weddings')
+  const pageSchema = [
+    buildWebPageSchema({
+      locale,
+      name: t('title'),
+      description: `${t('lead')} ${t('whyLead')}`,
+      url: pageUrl
+    }),
+    buildBreadcrumbSchema([
+      {
+        name: locale === 'de' ? 'Start' : 'Úvod',
+        url: getStaticPageUrl(locale, 'home')
+      },
+      {
+        name: t('title'),
+        url: pageUrl
+      }
+    ])
+  ]
 
   const contacts = [
     ...contactPeople.map((person) => ({
@@ -79,12 +129,17 @@ export default async function WeddingsPage() {
   ]
 
   return (
-    <div className='-mt-28 md:-mt-32'>
-      <PageHero
-        eyebrow={t('eyebrow')}
-        title={t('title')}
-        lead={t('lead')}
+    <>
+      <JsonLd
+        id={createJsonLdId(`weddings-${locale}`)}
+        data={pageSchema}
       />
+      <div className='-mt-28 md:-mt-32'>
+        <PageHero
+          eyebrow={t('eyebrow')}
+          title={t('title')}
+          lead={t('lead')}
+        />
 
       {/* Video atmosphere section */}
       <RevealOnScroll
@@ -300,6 +355,7 @@ export default async function WeddingsPage() {
           </RevealStagger>
         </div>
       </RevealOnScroll>
-    </div>
+      </div>
+    </>
   )
 }

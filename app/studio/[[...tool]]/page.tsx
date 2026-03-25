@@ -7,12 +7,33 @@
  * https://github.com/sanity-io/next-sanity
  */
 
+import type { Metadata } from 'next'
 import { NextStudio } from 'next-sanity/studio'
+import {
+  metadata as studioMetadata,
+  viewport
+} from 'next-sanity/studio'
 import config from '../../../sanity.config'
 
 export const dynamic = 'force-static'
 
-export { metadata, viewport } from 'next-sanity/studio'
+export const metadata: Metadata = {
+  ...studioMetadata,
+  title: 'Sanity Studio | Zámek Lázeň',
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+      'max-image-preview': 'none',
+      'max-snippet': -1,
+      'max-video-preview': -1
+    }
+  }
+}
+
+export { viewport }
 
 export default function StudioPage() {
   return <NextStudio config={config} />

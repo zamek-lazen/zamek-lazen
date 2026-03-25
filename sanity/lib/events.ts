@@ -18,6 +18,11 @@ type RawEvent = {
   youtubeUrl?: string
 }
 
+type EventSitemapEntry = {
+  date: string
+  slug: string
+}
+
 const EVENT_PROJECTION = `
   _id,
   date,
@@ -41,6 +46,14 @@ const ALL_EVENTS_QUERY = groq`
 const EVENT_BY_SLUG_QUERY = groq`
   *[_type == "event" && slug.current == $slug][0] {
     ${EVENT_PROJECTION}
+  }
+`
+
+const EVENT_SITEMAP_QUERY = groq`
+  *[_type == "event" && defined(date) && defined(slug.current)]
+  | order(date asc) {
+    date,
+    "slug": slug.current
   }
 `
 
@@ -192,6 +205,14 @@ export async function getEventBySlug(
   )
 
   return event ? mapEvent(event) : null
+}
+
+export async function getEventSitemapEntries(): Promise<EventSitemapEntry[]> {
+  return client.fetch<EventSitemapEntry[]>(
+    EVENT_SITEMAP_QUERY,
+    {},
+    { next: { revalidate: 60 } }
+  )
 }
 
 export function formatEventDate(date: string, locale: Locale) {

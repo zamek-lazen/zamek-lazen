@@ -5,14 +5,12 @@ type WeddingsPreviewProps = {
   eyebrow: string
   title: string
   lead: string
-  body: string
   cta: string
   imageAlt1: string
   imageAlt2: string
 }
 
 export function WeddingsPreview({
-  body,
   cta,
   eyebrow,
   imageAlt1,

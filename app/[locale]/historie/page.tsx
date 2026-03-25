@@ -1,12 +1,66 @@
+import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
+import { JsonLd } from '@/components/shared/json-ld'
 import { PageHero } from '@/components/shared/page-hero'
 import { HistoryInteractiveTimeline } from '@/components/pages/history/interactive-timeline'
+import type { AppLocale } from '@/lib/seo/constants'
+import { buildPageMetadata, getStaticPageUrl } from '@/lib/seo/metadata'
+import {
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+  createJsonLdId
+} from '@/lib/seo/schema'
 
-export default async function HistoryPage() {
-  const t = await getTranslations('HistoryPage')
-  const imageT = await getTranslations('GalleryPage.images')
+type HistoryPageProps = {
+  params: Promise<{
+    locale: AppLocale
+  }>
+}
+
+export async function generateMetadata({
+  params
+}: HistoryPageProps): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'HistoryPage' })
+
+  return buildPageMetadata({
+    locale,
+    page: 'history',
+    title: t('title'),
+    description: t('lead')
+  })
+}
+
+export default async function HistoryPage({
+  params
+}: HistoryPageProps) {
+  const { locale } = await params
+  const [imageT, nav, t] = await Promise.all([
+    getTranslations({ locale, namespace: 'GalleryPage.images' }),
+    getTranslations({ locale, namespace: 'Nav' }),
+    getTranslations({ locale, namespace: 'HistoryPage' })
+  ])
 
   const paragraphs = [t('p1'), t('p2'), t('p3')]
+  const pageUrl = getStaticPageUrl(locale, 'history')
+  const pageSchema = [
+    buildWebPageSchema({
+      locale,
+      name: t('title'),
+      description: t('lead'),
+      url: pageUrl
+    }),
+    buildBreadcrumbSchema([
+      {
+        name: nav('home'),
+        url: getStaticPageUrl(locale, 'home')
+      },
+      {
+        name: t('title'),
+        url: pageUrl
+      }
+    ])
+  ]
 
   const chapters = [
     {
@@ -127,18 +181,24 @@ export default async function HistoryPage() {
   ]
 
   return (
-    <div className='-mt-28 md:-mt-32'>
-      <PageHero
-        eyebrow={t('introLabel')}
-        title={t('title')}
-        lead={t('lead')}
+    <>
+      <JsonLd
+        id={createJsonLdId(`history-${locale}`)}
+        data={pageSchema}
       />
-      <HistoryInteractiveTimeline
-        chapters={chapters}
-        introLabel={t('introLabel')}
-        paragraphs={paragraphs}
-        timelineLabel={t('timelineLabel')}
-      />
-    </div>
+      <div className='-mt-28 md:-mt-32'>
+        <PageHero
+          eyebrow={t('introLabel')}
+          title={t('title')}
+          lead={t('lead')}
+        />
+        <HistoryInteractiveTimeline
+          chapters={chapters}
+          introLabel={t('introLabel')}
+          paragraphs={paragraphs}
+          timelineLabel={t('timelineLabel')}
+        />
+      </div>
+    </>
   )
 }

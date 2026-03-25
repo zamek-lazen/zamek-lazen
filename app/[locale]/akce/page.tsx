@@ -1,24 +1,79 @@
 import Image from 'next/image'
-import { getLocale, getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
+import { JsonLd } from '@/components/shared/json-ld'
 import { RevealOnScroll, RevealStagger } from '@/components/motion'
 import { PageHero } from '@/components/shared/page-hero'
 import { Link } from '@/i18n/navigation'
+import type { AppLocale } from '@/lib/seo/constants'
+import { buildPageMetadata, getStaticPageUrl } from '@/lib/seo/metadata'
+import {
+  buildBreadcrumbSchema,
+  buildWebPageSchema,
+  createJsonLdId
+} from '@/lib/seo/schema'
 import { formatEventDateTime, getEventsByStatus } from '@/sanity/lib/events'
 import { urlFor } from '@/sanity/lib/image'
 
-export default async function EventsPage() {
-  const locale = (await getLocale()) as 'cs' | 'de'
-  const t = await getTranslations('EventsPage')
+type EventsPageProps = {
+  params: Promise<{
+    locale: AppLocale
+  }>
+}
+
+export async function generateMetadata({
+  params
+}: EventsPageProps): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'EventsPage' })
+
+  return buildPageMetadata({
+    locale,
+    page: 'events',
+    title: t('title'),
+    description: t('lead')
+  })
+}
+
+export default async function EventsPage({
+  params
+}: EventsPageProps) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'EventsPage' })
   const { pastEvents, upcomingEvents } = await getEventsByStatus(locale)
   const [featuredEvent, ...otherEvents] = upcomingEvents
+  const pageUrl = getStaticPageUrl(locale, 'events')
+  const pageSchema = [
+    buildWebPageSchema({
+      locale,
+      name: t('title'),
+      description: t('lead'),
+      url: pageUrl
+    }),
+    buildBreadcrumbSchema([
+      {
+        name: locale === 'de' ? 'Start' : 'Úvod',
+        url: getStaticPageUrl(locale, 'home')
+      },
+      {
+        name: t('title'),
+        url: pageUrl
+      }
+    ])
+  ]
 
   return (
-    <div className='-mt-28 md:-mt-32'>
-      <PageHero
-        eyebrow={t('eyebrow')}
-        title={t('title')}
-        lead={t('lead')}
+    <>
+      <JsonLd
+        id={createJsonLdId(`events-${locale}`)}
+        data={pageSchema}
       />
+      <div className='-mt-28 md:-mt-32'>
+        <PageHero
+          eyebrow={t('eyebrow')}
+          title={t('title')}
+          lead={t('lead')}
+        />
 
       <RevealOnScroll
         as='section'
@@ -225,6 +280,7 @@ export default async function EventsPage() {
           </div>
         </RevealOnScroll>
       : null}
-    </div>
+      </div>
+    </>
   )
 }

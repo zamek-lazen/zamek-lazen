@@ -1,30 +1,76 @@
 import { ArrowLeftIcon } from '@sanity/icons'
-import { getLocale, getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
+import { JsonLd } from '@/components/shared/json-ld'
 import { RevealOnScroll } from '@/components/motion'
 import { PortableTextContent } from '@/components/shared/portable-text'
 import { PageHero } from '@/components/shared/page-hero'
 import { SmsTicketEmbed } from '@/components/shared/smsticket-embed'
 import { YouTubeEmbed } from '@/components/shared/youtube-embed'
 import { Link } from '@/i18n/navigation'
+import type { AppLocale } from '@/lib/seo/constants'
+import { buildEventMetadata, getEventDetailUrl, getStaticPageUrl } from '@/lib/seo/metadata'
+import {
+  buildBreadcrumbSchema,
+  buildEventSchema,
+  buildWebPageSchema,
+  createJsonLdId
+} from '@/lib/seo/schema'
 import {
   formatEventDateTime,
   getEventBySlug,
   parseSmsTicketEmbedCode,
   parseYouTubeEmbedUrl
 } from '@/sanity/lib/events'
+import { urlFor } from '@/sanity/lib/image'
 
 type EventDetailPageProps = {
   params: Promise<{
+    locale: AppLocale
     slug: string
   }>
+}
+
+function getEventStartDate(date: string, startTime?: string) {
+  return startTime ? `${date}T${startTime}:00` : date
+}
+
+export async function generateMetadata({
+  params
+}: EventDetailPageProps): Promise<Metadata> {
+  const { locale, slug } = await params
+  const event = await getEventBySlug(locale, slug)
+
+  if (!event) {
+    const t = await getTranslations({ locale, namespace: 'EventsPage' })
+
+    return buildEventMetadata({
+      locale,
+      slug,
+      title: t('title'),
+      description: t('lead')
+    })
+  }
+
+  const imageUrl =
+    event.image ?
+      urlFor(event.image).width(1600).height(900).fit('crop').url()
+    : undefined
+
+  return buildEventMetadata({
+    locale,
+    slug,
+    title: event.title,
+    description: event.description,
+    imageUrl
+  })
 }
 
 export default async function EventDetailPage({
   params
 }: EventDetailPageProps) {
-  const { slug } = await params
-  const locale = (await getLocale()) as 'cs' | 'de'
+  const { locale, slug } = await params
   const t = await getTranslations('EventDetailPage')
   const event = await getEventBySlug(locale, slug)
 
@@ -38,23 +84,64 @@ export default async function EventDetailPage({
   )
   const hasYouTubeEmbed = Boolean(parseYouTubeEmbedUrl(event.youtubeUrl))
   const hasRecap = Boolean(event.recap && event.recap.length > 0)
+  const pageUrl = getEventDetailUrl(locale, slug)
+  const imageUrl =
+    event.image ?
+      urlFor(event.image).width(1600).height(900).fit('crop').url()
+    : undefined
+  const pageSchema = [
+    buildWebPageSchema({
+      locale,
+      name: event.title,
+      description: event.description,
+      url: pageUrl
+    }),
+    buildBreadcrumbSchema([
+      {
+        name: locale === 'de' ? 'Start' : 'Úvod',
+        url: getStaticPageUrl(locale, 'home')
+      },
+      {
+        name: locale === 'de' ? 'Veranstaltungen' : 'Akce',
+        url: getStaticPageUrl(locale, 'events')
+      },
+      {
+        name: event.title,
+        url: pageUrl
+      }
+    ]),
+    buildEventSchema({
+      locale,
+      name: event.title,
+      description: event.description,
+      url: pageUrl,
+      startDate: getEventStartDate(event.date, event.startTime),
+      isPast: event.isPast,
+      imageUrl
+    })
+  ]
 
   return (
-    <div className='-mt-28 md:-mt-32'>
-      <PageHero
-        eyebrow={event.isPast ? t('pastEyebrow') : t('eyebrow')}
-        title={event.title}
-        lead={eventDate}
-        topContent={
-          <Link
-            href='/akce'
-            className='editorial-eyebrow editorial-eyebrow-dark inline-flex min-h-10 items-center justify-center transition duration-200 hover:translate-x-[0.5%]'
-          >
-            <ArrowLeftIcon className='size-7 pr-2' />
-            {t('backCta')}
-          </Link>
-        }
+    <>
+      <JsonLd
+        id={createJsonLdId(`event-${locale}-${slug}`)}
+        data={pageSchema}
       />
+      <div className='-mt-28 md:-mt-32'>
+        <PageHero
+          eyebrow={event.isPast ? t('pastEyebrow') : t('eyebrow')}
+          title={event.title}
+          lead={eventDate}
+          topContent={
+            <Link
+              href='/akce'
+              className='editorial-eyebrow editorial-eyebrow-dark inline-flex min-h-10 items-center justify-center transition duration-200 hover:translate-x-[0.5%]'
+            >
+              <ArrowLeftIcon className='size-7 pr-2' />
+              {t('backCta')}
+            </Link>
+          }
+        />
 
       <RevealOnScroll
         as='section'
@@ -156,6 +243,7 @@ export default async function EventDetailPage({
           </div>
         </RevealOnScroll>
       : null}
-    </div>
+      </div>
+    </>
   )
 }

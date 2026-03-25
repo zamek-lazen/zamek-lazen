@@ -1,6 +1,8 @@
+import type { Metadata } from 'next'
 import { getLocale, getTranslations } from 'next-intl/server'
 import Script from 'next/script'
 import type { HomepageEventPreview, HomepageSpotlightLink } from '@/types'
+import { JsonLd } from '@/components/shared/json-ld'
 import { RevealOnScroll } from '@/components/motion'
 import {
   EventsPreview,
@@ -12,10 +14,39 @@ import {
   WeddingsPreview
 } from '@/components/pages/home'
 import {
+  buildPageMetadata,
+  getStaticPageUrl
+} from '@/lib/seo/metadata'
+import {
+  buildWebPageSchema,
+  createJsonLdId
+} from '@/lib/seo/schema'
+import {
   formatEventDate,
   getNearestEvent,
   getUpcomingEvents
 } from '@/sanity/lib/events'
+import type { AppLocale } from '@/lib/seo/constants'
+
+type HomePageProps = {
+  params: Promise<{
+    locale: AppLocale
+  }>
+}
+
+export async function generateMetadata({
+  params
+}: HomePageProps): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'HomePage' })
+
+  return buildPageMetadata({
+    locale,
+    page: 'home',
+    title: t('heroTitle'),
+    description: `${t('heroLead')} ${t('heroDescription')}`
+  })
+}
 
 export default async function HomePage() {
   const locale = (await getLocale()) as 'cs' | 'de'
@@ -82,13 +113,26 @@ export default async function HomePage() {
         }
       ]
 
+  const pageDescription = `${t('heroLead')} ${t('heroDescription')}`
+  const pageSchema = buildWebPageSchema({
+    locale,
+    name: t('heroTitle'),
+    description: pageDescription,
+    url: getStaticPageUrl(locale, 'home')
+  })
+
   return (
-    <div className='-mt-28 md:-mt-32'>
-      <Script
-        id='home-intro-bootstrap'
-        strategy='beforeInteractive'
-      >
-        {`(() => {
+    <>
+      <JsonLd
+        id={createJsonLdId(`home-${locale}`)}
+        data={pageSchema}
+      />
+      <div className='-mt-28 md:-mt-32'>
+        <Script
+          id='home-intro-bootstrap'
+          strategy='beforeInteractive'
+        >
+          {`(() => {
   try {
     const seen = window.sessionStorage.getItem("zamek-home-intro-seen") === "1";
     if (!seen || document.getElementById("home-intro-repeat-style")) return;
@@ -100,94 +144,94 @@ export default async function HomePage() {
     // Ignore storage access issues and allow the intro to play.
   }
 })();`}
-      </Script>
+        </Script>
 
-      <HomeIntroLoader crestAlt={t('familyPreviewCrestAlt')} />
+        <HomeIntroLoader crestAlt={t('familyPreviewCrestAlt')} />
 
-      <Hero
-        eyebrow={t('heroEyebrow')}
-        title={t('heroTitle')}
-        lead={t('heroLead')}
-        description={t('heroDescription')}
-        ctaPrimary={t('heroPrimaryCta')}
-        ctaSecondary={t('heroSecondaryCta')}
-        scrollPrompt={t('scrollPrompt')}
-        sideLeft={t('sideLeft')}
-        sideRight={t('sideRight')}
-        nextEvent={
-          nearestEvent ?
-            {
-              cta: t('heroUpcomingCta'),
-              date: formatEventDate(nearestEvent.date, locale),
-              href: {
-                pathname: '/akce/[slug]',
-                params: { slug: nearestEvent.slug }
-              },
-              label: t('heroUpcomingLabel'),
-              title: nearestEvent.title
-            }
-          : null
-        }
-      />
-
-      <RevealOnScroll>
-        <Story
-          eyebrow={t('storyEyebrow')}
-          title={t('storyTitle')}
-          lead={t('storyLead')}
-          description={t('storyDescription')}
-          highlightsTitle={t('storyHighlightsTitle')}
-          ctaHistory={t('storyCtaHistory')}
-          ctaContact={t('storyCtaContact')}
-          spotlightLinks={spotlightLinks}
+        <Hero
+          eyebrow={t('heroEyebrow')}
+          title={t('heroTitle')}
+          lead={t('heroLead')}
+          description={t('heroDescription')}
+          ctaPrimary={t('heroPrimaryCta')}
+          ctaSecondary={t('heroSecondaryCta')}
+          scrollPrompt={t('scrollPrompt')}
+          sideLeft={t('sideLeft')}
+          sideRight={t('sideRight')}
+          nextEvent={
+            nearestEvent ?
+              {
+                cta: t('heroUpcomingCta'),
+                date: formatEventDate(nearestEvent.date, locale),
+                href: {
+                  pathname: '/akce/[slug]',
+                  params: { slug: nearestEvent.slug }
+                },
+                label: t('heroUpcomingLabel'),
+                title: nearestEvent.title
+              }
+            : null
+          }
         />
-      </RevealOnScroll>
 
-      <RevealOnScroll>
-        <HistoryFamilyPreview
-          eyebrow={t('historyFamilyEyebrow')}
-          historyEyebrow={nav('history')}
-          historyTitle={t('historyPreviewTitle')}
-          historyBody={t('historyPreviewBody')}
-          historyCta={t('historyPreviewCta')}
-          familyEyebrow={nav('family')}
-          familyTitle={t('familyPreviewTitle')}
-          familyBody={t('familyPreviewBody')}
-          familyCta={t('familyPreviewCta')}
-          familyCrestAlt={t('familyPreviewCrestAlt')}
-        />
-      </RevealOnScroll>
+        <RevealOnScroll>
+          <Story
+            eyebrow={t('storyEyebrow')}
+            title={t('storyTitle')}
+            lead={t('storyLead')}
+            description={t('storyDescription')}
+            highlightsTitle={t('storyHighlightsTitle')}
+            ctaHistory={t('storyCtaHistory')}
+            ctaContact={t('storyCtaContact')}
+            spotlightLinks={spotlightLinks}
+          />
+        </RevealOnScroll>
 
-      <RevealOnScroll>
+        <RevealOnScroll>
+          <HistoryFamilyPreview
+            eyebrow={t('historyFamilyEyebrow')}
+            historyEyebrow={nav('history')}
+            historyTitle={t('historyPreviewTitle')}
+            historyBody={t('historyPreviewBody')}
+            historyCta={t('historyPreviewCta')}
+            familyEyebrow={nav('family')}
+            familyTitle={t('familyPreviewTitle')}
+            familyBody={t('familyPreviewBody')}
+            familyCta={t('familyPreviewCta')}
+            familyCrestAlt={t('familyPreviewCrestAlt')}
+          />
+        </RevealOnScroll>
+
+        <RevealOnScroll>
         <WeddingsPreview
           eyebrow={t('weddingsEyebrow')}
           title={t('weddingsTitle')}
           lead={t('weddingsLead')}
-          body={t('weddingsBody')}
           cta={t('weddingsCta')}
           imageAlt1={t('weddingsImageAlt1')}
           imageAlt2={t('weddingsImageAlt2')}
-        />
-      </RevealOnScroll>
+          />
+        </RevealOnScroll>
 
-      <RevealOnScroll>
-        <EventsPreview
-          eyebrow={t('eventsEyebrow')}
-          title={t('eventsTitle')}
-          body={t('eventsBody')}
-          cta={t('eventsCta')}
-          events={eventPreviews}
-        />
-      </RevealOnScroll>
+        <RevealOnScroll>
+          <EventsPreview
+            eyebrow={t('eventsEyebrow')}
+            title={t('eventsTitle')}
+            body={t('eventsBody')}
+            cta={t('eventsCta')}
+            events={eventPreviews}
+          />
+        </RevealOnScroll>
 
-      <RevealOnScroll>
-        <GalleryPreview
-          eyebrow={t('galleryEyebrow')}
-          title={t('galleryTitle')}
-          body={t('galleryBody')}
-          cta={t('galleryCta')}
-        />
-      </RevealOnScroll>
-    </div>
+        <RevealOnScroll>
+          <GalleryPreview
+            eyebrow={t('galleryEyebrow')}
+            title={t('galleryTitle')}
+            body={t('galleryBody')}
+            cta={t('galleryCta')}
+          />
+        </RevealOnScroll>
+      </div>
+    </>
   )
 }
