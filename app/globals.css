@@ -252,7 +252,14 @@ a {
   }
 
   .editorial-button-primary {
-    @apply border-[rgba(13,49,41,0.16)] bg-[var(--color-paper-50)] text-[var(--color-forest-900)] hover:bg-[#fffdf2];
+    border-color: rgba(13, 49, 41, 0.16);
+    background-color: var(--color-paper-50);
+    color: var(--color-forest-900) !important;
+    -webkit-text-fill-color: var(--color-forest-900);
+  }
+
+  .editorial-button-primary:hover {
+    background-color: #fffdf2;
   }
 
   .editorial-button-secondary {
