@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Bodoni_Moda, Arizonia, Cormorant_Garamond } from 'next/font/google'
 import { getLocale } from 'next-intl/server'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const primaryFont = Cormorant_Garamond({
@@ -42,6 +43,8 @@ export default async function RootLayout({
       <body
         className={`${primaryFont.variable} ${titleFont.variable} ${scriptFont.variable} antialiased`}
       >
+        <Analytics />
+
         {children}
       </body>
     </html>

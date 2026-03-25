@@ -217,9 +217,9 @@ Use a small class map so the masonry rhythm is predictable and matches DOM order
 
 ```tsx
 const sizeClasses: Record<GalleryImageDefinition["size"], string> = {
-  tall: "min-h-[26rem] md:min-h-[32rem]",
-  medium: "min-h-[18rem] md:min-h-[22rem]",
-  wide: "min-h-[22rem] md:min-h-[26rem]",
+  tall: "min-h-104 md:min-h-128",
+  medium: "min-h-72 md:min-h-88",
+  wide: "min-h-88 md:min-h-104",
 };
 ```
 
@@ -310,7 +310,7 @@ Update the page structure to:
   <PageHero eyebrow={t("eyebrow")} title={t("title")} lead={t("lead")} />
 
   <section className="bg-[linear-gradient(180deg,#0c221d,#0f362e)] px-[1.2rem] py-[clamp(3rem,7vw,5.5rem)] md:px-8">
-    <div className="mx-auto w-full max-w-[94rem]">
+    <div className="mx-auto w-full max-w-376">
       <GalleryMasonry images={images} />
     </div>
   </section>

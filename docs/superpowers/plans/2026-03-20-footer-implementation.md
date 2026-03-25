@@ -221,7 +221,7 @@ Build the footer with these sections:
 
 ```tsx
 <footer className="border-t border-[rgba(185,212,197,0.12)] bg-[linear-gradient(180deg,rgba(8,27,22,0.98),rgba(6,22,17,1))]">
-  <div className="mx-auto grid w-full max-w-[94rem] gap-10 px-[1.2rem] py-[clamp(3.5rem,8vw,5.5rem)] md:px-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(22rem,0.9fr)]">
+  <div className="mx-auto grid w-full max-w-376 gap-10 px-[1.2rem] py-[clamp(3.5rem,8vw,5.5rem)] md:px-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(22rem,0.9fr)]">
     {/* left: headline, body, links, contact */}
     {/* right: map */}
   </div>
@@ -239,7 +239,7 @@ Implementation details to include:
 - quick links generated from `navItems`
 - email rendered as `mailto:`
 - both phone strings rendered as `tel:` links using `toTelHref`, with plain-text fallback if parsing fails
-- map wrapper and iframe with a stable responsive height such as `h-[18rem] md:h-[22rem]`
+- map wrapper and iframe with a stable responsive height such as `h-72 md:h-88`
 - map iframe with `title={tFooter("mapTitle")}`, `loading="lazy"`, `referrerPolicy="no-referrer-when-downgrade"`, and a restrained framed wrapper
 - visible address text retained even if the map fails to load
 - `legalLabel` and `privacyLabel` rendered as plain text placeholders in the utility row, or the entire legal block omitted if it feels too noisy during implementation
