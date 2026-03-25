@@ -32,7 +32,7 @@ export function Story({
           <p className='editorial-eyebrow editorial-eyebrow-dark mb-[0.85rem]'>
             {eyebrow}
           </p>
-          <h2 className='editorial-title editorial-title-dark max-w-[10ch]'>
+          <h2 className='editorial-title editorial-title-dark max-w-[30ch]'>
             {title}
           </h2>
           <p className='editorial-lead editorial-lead-dark mt-[1.3rem] max-w-[34ch]'>
@@ -69,7 +69,7 @@ export function Story({
                 <span className='editorial-eyebrow editorial-eyebrow-dark text-[0.72rem] opacity-60'>
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <strong className='editorial-card-title editorial-card-title-dark text-[clamp(1.4rem,2.5vw,2.1rem)]'>
+                <strong className='editorial-card-title editorial-card-title-dark'>
                   {link.title}
                 </strong>
                 <p className='editorial-body editorial-body-dark m-0 text-[0.95rem]'>

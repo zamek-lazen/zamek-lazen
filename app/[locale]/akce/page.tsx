@@ -25,7 +25,7 @@ export default async function EventsPage() {
             <p className='editorial-eyebrow editorial-eyebrow-light text-[0.76rem]'>
               {t('upcomingLabel')}
             </p>
-            <h2 className='editorial-title editorial-title-light mt-4 text-[clamp(2.4rem,4vw,4.2rem)]'>
+            <h2 className='editorial-title editorial-title-light mt-4'>
               {t('upcomingTitle')}
             </h2>
             <p className='editorial-body editorial-body-light mt-5 max-w-[54rem] text-[0.98rem]'>
@@ -60,7 +60,7 @@ export default async function EventsPage() {
                         featuredEvent.startTime
                       )}
                     </p>
-                    <h2 className='editorial-title editorial-title-light mt-4 max-w-[14ch] text-[clamp(2.6rem,4.4vw,4.4rem)]'>
+                    <h2 className='editorial-subheading editorial-subheading-light mt-4 max-w-[24ch]'>
                       {featuredEvent.title}
                     </h2>
                     <p className='editorial-body editorial-body-light mt-6 max-w-[60ch] whitespace-pre-line'>
@@ -122,7 +122,7 @@ export default async function EventsPage() {
                             event.startTime
                           )}
                         </p>
-                        <h3 className='editorial-card-title editorial-card-title-light mt-4 text-[clamp(2rem,2.8vw,2.8rem)]'>
+                        <h3 className='editorial-card-title editorial-card-title-light mt-4'>
                           {event.title}
                         </h3>
                         <p className='editorial-body editorial-body-light mt-5 whitespace-pre-line text-[0.98rem]'>
@@ -141,7 +141,7 @@ export default async function EventsPage() {
               <p className='editorial-eyebrow editorial-eyebrow-light'>
                 {t('emptyLabel')}
               </p>
-              <p className='editorial-title editorial-title-light mt-5 max-w-[24ch] text-[clamp(2.2rem,3vw,3rem)]'>
+              <p className='editorial-subheading editorial-subheading-light mt-5 max-w-[28ch]'>
                 {t('emptyTitle')}
               </p>
               <p className='editorial-body editorial-body-light mt-5 max-w-[58ch]'>
@@ -159,7 +159,7 @@ export default async function EventsPage() {
               <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.76rem]'>
                 {t('archiveLabel')}
               </p>
-              <h2 className='editorial-title editorial-title-dark mt-4 text-[clamp(2.4rem,4vw,4rem)]'>
+              <h2 className='editorial-title editorial-title-dark mt-4'>
                 {t('archiveTitle')}
               </h2>
               <p className='editorial-body editorial-body-dark mt-5 max-w-[38rem] text-[0.98rem]'>
@@ -205,7 +205,7 @@ export default async function EventsPage() {
                         {t('pastBadge')}
                       </span>
                     </div>
-                    <h3 className='editorial-card-title editorial-card-title-dark mt-4 text-[clamp(2rem,2.8vw,2.8rem)]'>
+                    <h3 className='editorial-card-title editorial-card-title-dark mt-4'>
                       {event.title}
                     </h3>
                     <p className='editorial-body editorial-body-dark mt-5 whitespace-pre-line text-[0.98rem]'>

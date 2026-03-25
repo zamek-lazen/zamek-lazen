@@ -59,17 +59,17 @@ export default async function EventDetailPage({
             <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.75rem]'>
               {event.isPast ? t('detailPastLabel') : t('detailLabel')}
             </p>
-            <h2 className='editorial-title editorial-title-dark mt-5 text-[clamp(2.1rem,3.4vw,3.1rem)]'>
+            <h2 className='editorial-subheading editorial-subheading-dark mt-5'>
               {event.isPast ? t('detailPastTitle') : t('detailTitle')}
             </h2>
             <p className='editorial-body editorial-body-dark mt-5 whitespace-pre-line'>
               {event.description}
             </p>
             {event.isPast ?
-              <p className='editorial-body editorial-body-dark mt-5 text-[0.95rem] text-[rgba(254,252,232,0.62)]'>
+              <p className='editorial-body-subtle-dark mt-5'>
                 {t('pastNotice')}
               </p>
-            : <p className='editorial-body editorial-body-dark mt-5 text-[0.95rem] text-[rgba(254,252,232,0.62)]'>
+            : <p className='editorial-body-subtle-dark mt-5'>
                 {t('detailBody')}
               </p>
             }
@@ -80,7 +80,7 @@ export default async function EventDetailPage({
               <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.75rem]'>
                 {t('ticketsLabel')}
               </p>
-              <h2 className='editorial-title editorial-title-dark mt-5 text-[clamp(2.1rem,3.4vw,3.1rem)]'>
+              <h2 className='editorial-subheading editorial-subheading-dark mt-5'>
                 {t('ticketsTitle')}
               </h2>
               <p className='editorial-body editorial-body-dark mt-5 max-w-[52ch]'>
@@ -97,7 +97,7 @@ export default async function EventDetailPage({
               <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.75rem]'>
                 {event.isPast ? t('pastLabel') : t('visitLabel')}
               </p>
-              <h2 className='editorial-title editorial-title-dark mt-5 text-[clamp(2.1rem,3.4vw,3.1rem)]'>
+              <h2 className='editorial-subheading editorial-subheading-dark mt-5'>
                 {event.isPast ? t('pastTitle') : t('visitTitle')}
               </h2>
               <p className='editorial-body editorial-body-dark mt-5 max-w-[52ch]'>
@@ -116,7 +116,7 @@ export default async function EventDetailPage({
                 <p className='editorial-eyebrow editorial-eyebrow-light text-[0.76rem]'>
                   {t('recapLabel')}
                 </p>
-                <h2 className='editorial-title editorial-title-light mt-4 text-[clamp(2.4rem,4vw,4rem)]'>
+                <h2 className='editorial-subheading editorial-subheading-light mt-4'>
                   {t('recapTitle')}
                 </h2>
               </div>
@@ -137,7 +137,7 @@ export default async function EventDetailPage({
                   <p className='editorial-eyebrow editorial-eyebrow-light text-[0.76rem]'>
                     {t('videoLabel')}
                   </p>
-                  <h3 className='editorial-card-title editorial-card-title-light mt-4 text-[clamp(2rem,3vw,3rem)]'>
+                  <h3 className='editorial-card-title editorial-card-title-light mt-4'>
                     {t('videoTitle')}
                   </h3>
                   <p className='editorial-body editorial-body-light mt-4 max-w-[44rem]'>

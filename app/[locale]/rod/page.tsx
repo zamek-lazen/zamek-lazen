@@ -30,7 +30,7 @@ export default async function FamilyPage() {
             <p className='editorial-eyebrow editorial-eyebrow-light'>
               {t('currentHeadLabel')}
             </p>
-            <h2 className='editorial-title editorial-title-light mt-4 max-w-[15ch] text-[clamp(2.4rem,4.2vw,3.6rem)]'>
+            <h2 className='editorial-title editorial-title-light mt-4 max-w-[18ch]'>
               {t('currentHeadTitle')}
             </h2>
             <p className='editorial-body editorial-body-light mt-5'>

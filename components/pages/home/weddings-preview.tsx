@@ -52,7 +52,7 @@ export function WeddingsPreview({
                 <span className='editorial-eyebrow editorial-eyebrow-dark text-[0.75rem]'>
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <span className='editorial-card-title editorial-card-title-dark text-[1.85rem]'>
+                <span className='editorial-card-title editorial-card-title-dark'>
                   {step}
                 </span>
               </li>

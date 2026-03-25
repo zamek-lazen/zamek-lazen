@@ -120,7 +120,7 @@ export function HomeIntroLoader() {
       } ${prefersReducedMotion ? 'is-reduced-motion' : ''}`}
     >
       <div className='home-intro-loader__content'>
-        <p className='editorial-title editorial-title-dark text-[clamp(3rem,4vw,4.4rem)]'>
+        <p className='editorial-title editorial-title-dark editorial-title-hero'>
           Zámek Lázeň
         </p>
         <p className='editorial-eyebrow editorial-eyebrow-dark mt-3 text-[0.72rem] tracking-[0.36em]'>

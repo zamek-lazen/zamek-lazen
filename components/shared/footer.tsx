@@ -58,7 +58,7 @@ export async function Footer() {
               </p>
               <div className='mt-4 space-y-5'>
                 <div>
-                  <p className='editorial-card-title editorial-card-title-dark text-[2rem]'>
+                  <p className='editorial-card-title editorial-card-title-dark'>
                     {tContact('company')}
                   </p>
                 </div>

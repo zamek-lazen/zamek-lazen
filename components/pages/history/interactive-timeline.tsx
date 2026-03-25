@@ -163,7 +163,7 @@ export function HistoryInteractiveTimeline({
                         className={`relative min-w-fit pl-4 text-left lg:block lg:w-full ${
                           isActive ?
                             'text-[var(--color-forest-900)]'
-                          : 'text-[rgba(19,52,45,0.48)] hover:text-[rgba(19,52,45,0.78)]'
+                          : 'text-[rgba(19,52,45,0.58)] hover:text-[rgba(13,49,41,0.88)]'
                         }`}
                       >
                         <span
@@ -174,11 +174,11 @@ export function HistoryInteractiveTimeline({
                           }`}
                         />
                         {item.year ?
-                          <span className='editorial-eyebrow editorial-eyebrow-light text-[0.72rem]'>
+                          <span className='font-sans text-[0.8125rem] font-bold tracking-[0.14em] text-[rgba(13,49,41,0.78)] uppercase'>
                             {item.year}
                           </span>
                         : null}
-                        <span className='editorial-card-title editorial-card-title-light mt-1 block text-[1.6rem]'>
+                        <span className='mt-1 block font-sans text-[0.9375rem] font-semibold leading-snug'>
                           {item.navLabel}
                         </span>
                       </button>
@@ -224,10 +224,10 @@ export function HistoryInteractiveTimeline({
                 <p className='editorial-body editorial-body-light mt-5 max-w-[64ch]'>
                   {chapter.body}
                 </p>
-                <p className='editorial-card-title editorial-card-title-light mt-4 max-w-[58ch] text-[1.9rem]'>
+                <p className='editorial-note editorial-note-light mt-4 max-w-[58ch]'>
                   {chapter.note}
                 </p>
-                <p className='editorial-body editorial-body-light mt-3 max-w-[58ch] text-[0.94rem] opacity-85'>
+                <p className='editorial-body editorial-body-light mt-3 max-w-[58ch] text-[0.9375rem]'>
                   {chapter.detail}
                 </p>
 
@@ -253,7 +253,7 @@ export function HistoryInteractiveTimeline({
                           }}
                         />
                       </div>
-                      <figcaption className='editorial-body editorial-body-light text-[0.82rem] leading-normal opacity-80'>
+                      <figcaption className='editorial-body editorial-body-light text-[0.875rem] leading-normal'>
                         {image.caption}
                       </figcaption>
                     </figure>

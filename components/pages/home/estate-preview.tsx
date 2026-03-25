@@ -65,7 +65,7 @@ export function EstatePreview({
               <p className='editorial-eyebrow editorial-eyebrow-light'>
                 1728 / 12 ha / 2009
               </p>
-              <p className='editorial-card-title editorial-card-title-light mt-4 text-[1.9rem]'>
+              <p className='editorial-note editorial-note-light mt-4'>
                 Krajina, architektura a klid tvoří charakter místa stejně silně
                 jako samotná budova.
               </p>

@@ -30,7 +30,7 @@ export function HistoryFamilyPreview({
             <span className='editorial-eyebrow editorial-eyebrow-light text-[0.75rem]'>
               Historie
             </span>
-            <h2 className='editorial-title editorial-title-light mt-4 max-w-[13ch] text-[clamp(2.4rem,4.6vw,4.2rem)]'>
+            <h2 className='editorial-title editorial-title-light mt-4 max-w-[20ch]'>
               {historyTitle}
             </h2>
             <p className='editorial-body editorial-body-light mt-5 max-w-[56ch]'>
@@ -48,7 +48,7 @@ export function HistoryFamilyPreview({
             <span className='editorial-eyebrow editorial-eyebrow-light text-[0.75rem]'>
               Rod Czerninů
             </span>
-            <h2 className='editorial-title editorial-title-light mt-4 max-w-[13ch] text-[clamp(2.4rem,4.6vw,4.2rem)]'>
+            <h2 className='editorial-title editorial-title-light mt-4 max-w-[20ch]'>
               {familyTitle}
             </h2>
             <p className='editorial-body editorial-body-light mt-5 max-w-[56ch]'>

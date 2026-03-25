@@ -4,18 +4,21 @@ import { getLocale } from 'next-intl/server'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
+/** Cormorant Garamond — běžný text (UI, odstavce, navigace) */
 const primaryFont = Cormorant_Garamond({
   variable: '--font-primary',
   subsets: ['latin'],
   weight: ['400', '500', '700']
 })
 
+/** Bodoni Moda — podnadpisy (.editorial-subheading, .editorial-card-title) */
 const titleFont = Bodoni_Moda({
   variable: '--font-title',
   subsets: ['latin'],
   weight: ['400', '500', '600']
 })
 
+/** Arizonia — hlavní nadpisy (.editorial-title) */
 const scriptFont = Arizonia({
   variable: '--font-script-family',
   subsets: ['latin', 'latin-ext'],
@@ -40,10 +43,11 @@ export default async function RootLayout({
   const locale = await getLocale()
 
   return (
-    <html lang={locale}>
-      <body
-        className={`${primaryFont.variable} ${titleFont.variable} ${scriptFont.variable} antialiased`}
-      >
+    <html
+      lang={locale}
+      className={`${primaryFont.variable} ${titleFont.variable} ${scriptFont.variable}`}
+    >
+      <body className='antialiased'>
         <Analytics />
 
         {children}

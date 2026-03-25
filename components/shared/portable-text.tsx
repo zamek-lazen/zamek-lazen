@@ -8,22 +8,22 @@ type PortableTextContentProps = {
 const components: PortableTextComponents = {
   block: {
     normal: ({ children }) => (
-      <p className='editorial-body editorial-body-light text-[1rem] leading-[1.9]'>
+      <p className='editorial-body editorial-body-light leading-[1.75]'>
         {children}
       </p>
     ),
     h2: ({ children }) => (
-      <h2 className='editorial-card-title editorial-card-title-light mt-10 text-[clamp(1.95rem,3vw,2.8rem)] first:mt-0'>
+      <h2 className='editorial-subheading editorial-subheading-light mt-10 first:mt-0'>
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className='mt-8 font-sans text-[1.05rem] font-semibold tracking-[0.08em] text-[rgba(13,49,41,0.82)] uppercase first:mt-0'>
+      <h3 className='mt-8 font-sans text-[1.0625rem] font-semibold tracking-[0.06em] text-[rgba(13,49,41,0.88)] uppercase first:mt-0'>
         {children}
       </h3>
     ),
     blockquote: ({ children }) => (
-      <blockquote className='border-l border-[rgba(13,49,41,0.18)] pl-5 font-serif text-[1.2rem] leading-[1.6] text-[rgba(13,49,41,0.82)] italic'>
+      <blockquote className='border-l border-[rgba(13,49,41,0.2)] pl-5 font-sans text-[1.125rem] leading-[1.58] text-[rgba(13,49,41,0.88)] italic'>
         {children}
       </blockquote>
     )

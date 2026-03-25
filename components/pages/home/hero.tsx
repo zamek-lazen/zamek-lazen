@@ -142,7 +142,7 @@ export function Hero({
                 <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.72rem] opacity-70'>
                   {scrollPrompt}
                 </p>
-                <p className='editorial-card-title editorial-card-title-dark mt-3 max-w-[18ch] text-[rgba(255,253,242,0.84)]'>
+                <p className='editorial-card-title editorial-card-title-dark mt-3 max-w-[22ch]'>
                   {sideLeft}{' '}
                   <span className='text-[rgba(198,216,204,0.66)]'>/</span>{' '}
                   {sideRight}
