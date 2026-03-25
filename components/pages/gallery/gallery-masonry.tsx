@@ -57,7 +57,7 @@ export function GalleryMasonry({ images, ui }: GalleryMasonryProps) {
             className='group mb-4 inline-block w-full break-inside-avoid text-left transition-transform duration-300 hover:-translate-y-1'
             aria-label={`${ui.openImageLabel}: ${image.alt}`}
           >
-            <span className='block overflow-hidden rounded-[0.95rem] border border-[rgba(254,252,232,0.16)] bg-[rgba(254,252,232,0.04)]'>
+            <span className='block overflow-hidden rounded-[0.95rem] border border-[rgba(13,49,41,0.08)] bg-[rgba(255,255,255,0.5)] shadow-[0_8px_24px_rgba(15,33,28,0.06)]'>
               <Image
                 src={image.src}
                 alt={image.alt}

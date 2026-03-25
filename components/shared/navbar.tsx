@@ -38,7 +38,7 @@ export function Navbar() {
   const headerClassName =
     isFloatingOverHero ?
       'border-transparent bg-transparent shadow-none'
-    : 'border-[rgba(185,212,197,0.14)] bg-[linear-gradient(180deg,rgba(6,22,17,0.94),rgba(6,22,17,0.82))] shadow-[0_18px_48px_rgba(0,0,0,0.22)] backdrop-blur-[14px]'
+    : 'border-[rgba(185,212,197,0.16)] bg-[linear-gradient(180deg,rgba(9,28,22,0.95),rgba(9,28,22,0.86))] shadow-[0_18px_48px_rgba(0,0,0,0.18)] backdrop-blur-[14px]'
   const localeHref:
     | StaticPathname
     | { pathname: '/akce/[slug]'; params: { slug: string } } =

@@ -144,7 +144,7 @@ export async function Footer() {
                 href='https://www.baudys.dev'
                 target='_blank'
                 rel='noreferrer'
-                className='underline decoration-[rgba(24,18,9,0.55)] underline-offset-[0.18em] transition hover:decoration-[rgba(24,18,9,0.9)]'
+                className='underline decoration-[rgba(185,212,197,0.35)] underline-offset-[0.18em] transition hover:decoration-[rgba(185,212,197,0.65)]'
               >
                 Daniel Anthony Baudyš
               </a>

@@ -171,10 +171,10 @@ a {
     background:
       radial-gradient(
         circle at 20% 8%,
-        rgba(68, 110, 85, 0.18),
-        transparent 30%
+        rgba(68, 110, 85, 0.22),
+        transparent 32%
       ),
-      linear-gradient(180deg, rgba(10, 37, 31, 0.98), rgba(6, 22, 17, 1));
+      linear-gradient(180deg, rgba(13, 43, 35, 0.97), rgba(9, 28, 22, 0.99));
   }
 
   .editorial-eyebrow {
@@ -182,11 +182,11 @@ a {
   }
 
   .editorial-eyebrow-light {
-    @apply text-[rgba(13,49,41,0.62)];
+    @apply text-[rgba(13,49,41,0.68)];
   }
 
   .editorial-eyebrow-dark {
-    @apply text-[rgba(254,252,232,0.76)];
+    @apply text-[rgba(254,252,232,0.82)];
   }
 
   .editorial-title {
@@ -224,11 +224,11 @@ a {
   }
 
   .editorial-lead-light {
-    @apply text-[rgba(13,49,41,0.84)];
+    @apply text-[rgba(13,49,41,0.86)];
   }
 
   .editorial-lead-dark {
-    @apply text-[rgba(254,252,232,0.82)];
+    @apply text-[rgba(254,252,232,0.88)];
   }
 
   .editorial-body {
@@ -236,11 +236,11 @@ a {
   }
 
   .editorial-body-light {
-    @apply text-[rgba(13,49,41,0.74)];
+    @apply text-[rgba(13,49,41,0.80)];
   }
 
   .editorial-body-dark {
-    @apply text-[rgba(254,252,232,0.74)];
+    @apply text-[rgba(254,252,232,0.84)];
   }
 
   .editorial-button {
@@ -263,7 +263,11 @@ a {
   }
 
   .editorial-button-secondary {
-    @apply border-[rgba(254,252,232,0.34)] bg-[rgba(8,24,20,0.18)] text-[rgba(254,252,232,0.92)] hover:border-[rgba(254,252,232,0.54)] hover:bg-[rgba(8,24,20,0.28)];
+    @apply border-[rgba(254,252,232,0.36)] bg-[rgba(8,24,20,0.18)] text-[rgba(254,252,232,0.94)] hover:border-[rgba(254,252,232,0.56)] hover:bg-[rgba(8,24,20,0.28)];
+  }
+
+  .editorial-button-outline {
+    @apply border-[rgba(13,49,41,0.22)] bg-transparent text-[rgba(13,49,41,0.84)] hover:border-[rgba(13,49,41,0.44)] hover:bg-[rgba(13,49,41,0.04)];
   }
 
   .editorial-card {
@@ -271,6 +275,6 @@ a {
   }
 
   .editorial-card-dark {
-    @apply border border-[rgba(254,252,232,0.16)] bg-[rgba(254,252,232,0.04)] shadow-[0_18px_48px_rgba(0,0,0,0.18)];
+    @apply border border-[rgba(254,252,232,0.18)] bg-[rgba(254,252,232,0.06)] shadow-[0_18px_48px_rgba(0,0,0,0.16)];
   }
 }

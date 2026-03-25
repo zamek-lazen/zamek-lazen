@@ -81,8 +81,6 @@ export default async function HomePage() {
         }
       ]
 
-  const featuredEvent = upcomingEvents[0]
-
   return (
     <div className='-mt-28 md:-mt-32'>
       <Script
@@ -170,13 +168,6 @@ export default async function HomePage() {
         eyebrow={t('eventsEyebrow')}
         title={t('eventsTitle')}
         body={t('eventsBody')}
-        featuredLabel={
-          featuredEvent ?
-            t('eventsFeaturedUpcomingLabel')
-          : t('eventsFeaturedLabel')
-        }
-        featuredTitle={featuredEvent?.title ?? t('eventsFeaturedTitle')}
-        featuredBody={featuredEvent?.description ?? t('eventsFeaturedBody')}
         cta={t('eventsCta')}
         events={eventPreviews}
       />

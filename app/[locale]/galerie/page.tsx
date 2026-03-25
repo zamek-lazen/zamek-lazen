@@ -18,7 +18,7 @@ export default async function GalleryPage() {
         lead={t('lead')}
       />
 
-      <section className='editorial-surface-dark px-[1.2rem] py-[clamp(3rem,7vw,5.5rem)] md:px-8'>
+      <section className='editorial-surface-light px-[1.2rem] py-[clamp(3rem,7vw,5.5rem)] md:px-8'>
         <div className='mx-auto w-full max-w-376'>
           <GalleryMasonry
             images={images}

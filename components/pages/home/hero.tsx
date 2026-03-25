@@ -85,7 +85,7 @@ export function Hero({
             className='object-cover object-[center_35%]'
           />
         </div>
-        <div className='absolute inset-0 bg-[linear-gradient(180deg,rgba(6,22,17,0.04),rgba(6,22,17,0.10)_22%,rgba(6,22,17,0.12)_30%,rgba(6,22,17,0.7)_70%)]' />
+        <div className='absolute inset-0 bg-[linear-gradient(180deg,rgba(6,22,17,0.02),rgba(6,22,17,0.08)_22%,rgba(6,22,17,0.14)_35%,rgba(6,22,17,0.68)_70%)]' />
         <div
           aria-hidden
           className='absolute top-[16%] left-[8%] h-44 w-44 rounded-full bg-[rgba(169,204,171,0.18)] blur-[90px] transition-transform duration-300 ease-out md:h-72 md:w-72'
