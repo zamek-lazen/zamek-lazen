@@ -208,19 +208,19 @@
   "EventsPage": {
     "eyebrow": "Veranstaltungen",
     "title": "Veranstaltungen und gesellschaftliche Events",
-    "lead": "Wir bereiten laufend kulturelle und gesellschaftliche Programmpunkte im Schloss vor.",
-    "upcomingLabel": "Kommendes Programm",
-    "upcomingTitle": "Die nächsten Termine",
-    "upcomingBody": "Das aktuelle Programm steht im oberen Teil der Seite. Zu jeder Veranstaltung erscheinen Datum und gegebenenfalls die Anfangszeit, damit der nächste Termin sofort erkennbar ist.",
-    "featuredLabel": "Nächste Veranstaltung",
+    "lead": "Kulturabende und festliche Begegnungen bringen Musik, Licht und Leben ins Schloss. Schauen Sie sich die geplanten Termine an und sichern Sie sich Eintritt oder Tickets über die Detailseite.",
+    "upcomingLabel": "Das kommt als Nächstes",
+    "upcomingTitle": "Wählen Sie Ihren Abend im Schloss",
+    "upcomingBody": "Zu jeder Veranstaltung sehen Sie Datum und Beginn, damit Sie Anreise und Abend planen können. In der Beschreibung finden Sie Ablauf, praktische Hinweise sowie Reservierung oder Ticketkauf — ein anderer Blick auf das Schloss als beim stillen Gang durch den Park.",
+    "featuredLabel": "Unser nächster Programmhöhepunkt",
     "archiveLabel": "Bereits stattgefunden",
     "archiveTitle": "Veranstaltungen, die bereits im Schloss stattgefunden haben",
     "archiveBody": "Vergangene Termine bleiben bewusst separat sichtbar, damit sich ihre Atmosphäre mit einem kurzen Recap und gegebenenfalls einem Video erneut aufrufen lässt.",
     "pastBadge": "Vergangen",
-    "detailCta": "Detail öffnen",
+    "detailCta": "Details und Reservierung",
     "emptyLabel": "Programm in Vorbereitung",
-    "emptyTitle": "Die aktuelle Veranstaltungsübersicht wird in Kürze veröffentlicht.",
-    "emptyBody": "Sobald in Sanity die ersten Termine angelegt sind, erscheint hier die Übersicht mit Datum, optionaler Anfangszeit und auf der Detailseite auch mit einem optionalen smsticket-iframe."
+    "emptyTitle": "Die ersten Abende der Saison folgen in Kürze",
+    "emptyBody": "Wir bereiten kulturelle und gesellschaftliche Termine vor. Sobald sie feststehen, erscheinen sie hier mit Datum, Uhrzeit und dem Weg zum Eintritt über die Veranstaltungsdetailseite."
   },
   "EventDetailPage": {
     "eyebrow": "Veranstaltungen",

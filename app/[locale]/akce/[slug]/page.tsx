@@ -32,7 +32,9 @@ export default async function EventDetailPage({
   }
 
   const eventDate = formatEventDateTime(event.date, locale, event.startTime)
-  const hasTicketEmbed = Boolean(parseSmsTicketEmbedCode(event.smsticketEmbedCode))
+  const hasTicketEmbed = Boolean(
+    parseSmsTicketEmbedCode(event.smsticketEmbedCode)
+  )
   const hasYouTubeEmbed = Boolean(parseYouTubeEmbedUrl(event.youtubeUrl))
   const hasRecap = Boolean(event.recap && event.recap.length > 0)
 
@@ -65,14 +67,11 @@ export default async function EventDetailPage({
             <p className='editorial-body editorial-body-dark mt-5 whitespace-pre-line'>
               {event.description}
             </p>
-            {event.isPast ?
+            {event.isPast && (
               <p className='editorial-body-subtle-dark mt-5'>
                 {t('pastNotice')}
               </p>
-            : <p className='editorial-body-subtle-dark mt-5'>
-                {t('detailBody')}
-              </p>
-            }
+            )}
           </div>
 
           {hasTicketEmbed && !event.isPast ?
@@ -83,9 +82,6 @@ export default async function EventDetailPage({
               <h2 className='editorial-subheading editorial-subheading-dark mt-5'>
                 {t('ticketsTitle')}
               </h2>
-              <p className='editorial-body editorial-body-dark mt-5 max-w-[52ch]'>
-                {t('ticketsBody')}
-              </p>
               <div className='mt-6'>
                 <SmsTicketEmbed
                   embedCode={event.smsticketEmbedCode}

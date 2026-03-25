@@ -20,9 +20,7 @@ export function EventsPreview({
     <section className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'>
       <div className='mx-auto w-full max-w-376'>
         <p className='editorial-eyebrow editorial-eyebrow-light'>{eyebrow}</p>
-        <h2 className='editorial-title editorial-title-light mt-4 max-w-[16ch]'>
-          {title}
-        </h2>
+        <h2 className='editorial-title editorial-title-light mt-4'>{title}</h2>
         <p className='editorial-body editorial-body-light mt-5 max-w-[52ch]'>
           {body}
         </p>

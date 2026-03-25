@@ -207,19 +207,19 @@
   "EventsPage": {
     "eyebrow": "Akce",
     "title": "Akce a společenské události",
-    "lead": "Průběžně připravujeme kulturní a společenský program v prostorách zámku.",
-    "upcomingLabel": "Nadcházející program",
-    "upcomingTitle": "Nejbližší termíny",
-    "upcomingBody": "Aktuální program se soustředí nahoře. U každé akce najdete datum a případně i čas začátku, aby bylo hned zřejmé, kdy se zámek znovu otevírá návštěvníkům.",
-    "featuredLabel": "Nejbližší akce",
+    "lead": "Kulturní večery a setkávání vrací do Lázně hudbu, světlo a společnost. Prohlédněte si naplánované termíny a z detailu si sjednejte vstup nebo vstupenky.",
+    "upcomingLabel": "Blížící se program",
+    "upcomingTitle": "Vyberte si večer, na který přijdete",
+    "upcomingBody": "U každé akce uvidíte datum a čas začátku, abyste si mohli naplánovat příchod. V detailu najdete popis programu, praktické informace i rezervaci nebo nákup vstupenek — jiný pohled na zámek než při tiché procházce parkem.",
+    "featuredLabel": "Nejbližší večer v programu",
     "archiveLabel": "Proběhlo",
     "archiveTitle": "Události, které už se na zámku odehrály",
     "archiveBody": "Minulé termíny zůstávají v přehledu odděleně, aby bylo možné vrátit se k jejich atmosféře, doplnit stručný recap a případně i videozáznam.",
     "pastBadge": "Proběhlo",
-    "detailCta": "Otevřít detail",
+    "detailCta": "Podrobnosti a rezervace",
     "emptyLabel": "Program se připravuje",
-    "emptyTitle": "Aktuální přehled akcí bude zveřejněn brzy.",
-    "emptyBody": "Jakmile budou v Sanity zadané první termíny, zobrazí se zde přehled akcí s datem, případným časem začátku a na detailu i volitelným smsticket iframe."
+    "emptyTitle": "První večery sezóny brzy v přehledu",
+    "emptyBody": "Chystáme termíny kulturních a společenských setkání. Jakmile budou potvrzené, objeví se zde s datem, časem a odkazem na vstup z detailu akce."
   },
   "EventDetailPage": {
     "eyebrow": "Akce",
