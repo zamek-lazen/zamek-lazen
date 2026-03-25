@@ -1,22 +1,27 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 const STORAGE_KEY = 'zamek-home-intro-seen'
-const DEFAULT_LOAD_DURATION_MS = 2400
+const DEFAULT_LOAD_DURATION_MS = 1500
 const DEFAULT_REVEAL_DELAY_MS = 180
 const DEFAULT_REVEAL_DURATION_MS = 420
-const REDUCED_LOAD_DURATION_MS = 520
+const REDUCED_LOAD_DURATION_MS = 500
 const REDUCED_REVEAL_DELAY_MS = 60
 const REDUCED_REVEAL_DURATION_MS = 180
 
 type IntroPhase = 'loading' | 'revealing' | 'done'
 
+type HomeIntroLoaderProps = {
+  crestAlt: string
+}
+
 function easeOutQuart(value: number) {
   return 1 - (1 - value) ** 4
 }
 
-export function HomeIntroLoader() {
+export function HomeIntroLoader({ crestAlt }: HomeIntroLoaderProps) {
   const [phase, setPhase] = useState<IntroPhase>('loading')
   const [progress, setProgress] = useState(0)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
@@ -119,12 +124,20 @@ export function HomeIntroLoader() {
         phase === 'revealing' ? 'is-revealing' : ''
       } ${prefersReducedMotion ? 'is-reduced-motion' : ''}`}
     >
+      <div className='home-intro-loader__logo'>
+        <Image
+          src='/images/erb.webp'
+          alt={crestAlt}
+          width={120}
+          height={120}
+          className='home-intro-loader__crest'
+          priority
+          sizes='80px'
+        />
+      </div>
       <div className='home-intro-loader__content'>
         <p className='editorial-title editorial-title-dark editorial-title-hero'>
           Zámek Lázeň
-        </p>
-        <p className='editorial-eyebrow editorial-eyebrow-dark mt-3 text-[0.72rem] tracking-[0.36em]'>
-          Chudenice
         </p>
       </div>
 

@@ -101,7 +101,7 @@ export default async function HomePage() {
 })();`}
       </Script>
 
-      <HomeIntroLoader />
+      <HomeIntroLoader crestAlt={t('familyPreviewCrestAlt')} />
 
       <Hero
         eyebrow={t('heroEyebrow')}

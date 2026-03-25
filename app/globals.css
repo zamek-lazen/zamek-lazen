@@ -83,6 +83,16 @@ a {
   visibility: hidden;
 }
 
+.home-intro-loader__logo {
+  position: absolute;
+  top: clamp(1.25rem, 4vw, 2rem);
+  left: clamp(1.25rem, 4vw, 2rem);
+  z-index: 1;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
 .home-intro-loader__content {
   position: absolute;
   left: 50%;
@@ -93,6 +103,21 @@ a {
   transition:
     opacity 220ms ease,
     transform 220ms ease;
+}
+
+.home-intro-loader__crest {
+  display: block;
+  width: clamp(4.25rem, 14vw, 5.25rem);
+  height: auto;
+  margin: 0;
+  object-fit: contain;
+  opacity: 0.94;
+  filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.38));
+}
+
+.home-intro-loader.is-revealing .home-intro-loader__logo {
+  opacity: 0;
+  transform: translateY(-0.35rem);
 }
 
 .home-intro-loader.is-revealing .home-intro-loader__content {
@@ -151,6 +176,7 @@ a {
     visibility 180ms linear;
 }
 
+.home-intro-loader.is-reduced-motion .home-intro-loader__logo,
 .home-intro-loader.is-reduced-motion .home-intro-loader__content,
 .home-intro-loader.is-reduced-motion .home-intro-loader__progress {
   transition-duration: 160ms;
