@@ -207,18 +207,18 @@
   "EventsPage": {
     "eyebrow": "Akce",
     "title": "Akce a společenské události",
-    "lead": "Kulturní večery a setkávání vrací do Lázně hudbu, světlo a společnost. Prohlédněte si naplánované termíny a z detailu si sjednejte vstup nebo vstupenky.",
+    "lead": "Koncerty, odpolední i večerní program a společenská setkání vrací do Lázně hudbu, světlo a život. Prohlédněte si naplánované termíny a z detailu si sjednejte vstup nebo vstupenky.",
     "upcomingLabel": "Blížící se program",
-    "upcomingTitle": "Vyberte si večer, na který přijdete",
-    "upcomingBody": "U každé akce uvidíte datum a čas začátku, abyste si mohli naplánovat příchod. V detailu najdete popis programu, praktické informace i rezervaci nebo nákup vstupenek — jiný pohled na zámek než při tiché procházce parkem.",
-    "featuredLabel": "Nejbližší večer v programu",
+    "upcomingTitle": "Přijďte zažít atmosféru zámku",
+    "upcomingBody": "U každé akce uvidíte datum a čas začátku, abyste si mohli naplánovat návštěvu. V detailu najdete popis programu, praktické informace i rezervaci nebo nákup vstupenek — jiný pohled na zámek než při tiché procházce parkem.",
+    "featuredLabel": "Nejbližší akce v programu",
     "archiveLabel": "Proběhlo",
     "archiveTitle": "Události, které už se na zámku odehrály",
     "archiveBody": "Minulé termíny zůstávají v přehledu odděleně, aby bylo možné vrátit se k jejich atmosféře, doplnit stručný recap a případně i videozáznam.",
     "pastBadge": "Proběhlo",
     "detailCta": "Podrobnosti a rezervace",
     "emptyLabel": "Program se připravuje",
-    "emptyTitle": "První večery sezóny brzy v přehledu",
+    "emptyTitle": "První termíny sezóny brzy v přehledu",
     "emptyBody": "Chystáme termíny kulturních a společenských setkání. Jakmile budou potvrzené, objeví se zde s datem, časem a odkazem na vstup z detailu akce."
   },
   "EventDetailPage": {

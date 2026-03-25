@@ -208,18 +208,18 @@
   "EventsPage": {
     "eyebrow": "Veranstaltungen",
     "title": "Veranstaltungen und gesellschaftliche Events",
-    "lead": "Kulturabende und festliche Begegnungen bringen Musik, Licht und Leben ins Schloss. Schauen Sie sich die geplanten Termine an und sichern Sie sich Eintritt oder Tickets über die Detailseite.",
+    "lead": "Konzerte, Nachmittags- und Abendprogramm sowie festliche Begegnungen bringen Musik, Licht und Leben ins Schloss. Schauen Sie sich die geplanten Termine an und sichern Sie sich Eintritt oder Tickets über die Detailseite.",
     "upcomingLabel": "Das kommt als Nächstes",
-    "upcomingTitle": "Wählen Sie Ihren Abend im Schloss",
-    "upcomingBody": "Zu jeder Veranstaltung sehen Sie Datum und Beginn, damit Sie Anreise und Abend planen können. In der Beschreibung finden Sie Ablauf, praktische Hinweise sowie Reservierung oder Ticketkauf — ein anderer Blick auf das Schloss als beim stillen Gang durch den Park.",
-    "featuredLabel": "Unser nächster Programmhöhepunkt",
+    "upcomingTitle": "Erleben Sie die Atmosphäre des Schlosses",
+    "upcomingBody": "Zu jeder Veranstaltung sehen Sie Datum und Beginn, damit Sie Anreise und Besuch planen können. In der Beschreibung finden Sie Ablauf, praktische Hinweise sowie Reservierung oder Ticketkauf — ein anderer Blick auf das Schloss als beim stillen Gang durch den Park.",
+    "featuredLabel": "Unsere nächste Veranstaltung im Programm",
     "archiveLabel": "Bereits stattgefunden",
     "archiveTitle": "Veranstaltungen, die bereits im Schloss stattgefunden haben",
     "archiveBody": "Vergangene Termine bleiben bewusst separat sichtbar, damit sich ihre Atmosphäre mit einem kurzen Recap und gegebenenfalls einem Video erneut aufrufen lässt.",
     "pastBadge": "Vergangen",
     "detailCta": "Details und Reservierung",
     "emptyLabel": "Programm in Vorbereitung",
-    "emptyTitle": "Die ersten Abende der Saison folgen in Kürze",
+    "emptyTitle": "Die ersten Termine der Saison folgen in Kürze",
     "emptyBody": "Wir bereiten kulturelle und gesellschaftliche Termine vor. Sobald sie feststehen, erscheinen sie hier mit Datum, Uhrzeit und dem Weg zum Eintritt über die Veranstaltungsdetailseite."
   },
   "EventDetailPage": {
