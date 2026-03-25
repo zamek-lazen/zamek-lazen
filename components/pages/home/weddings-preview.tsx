@@ -18,9 +18,9 @@ export function WeddingsPreview({
   title
 }: WeddingsPreviewProps) {
   return (
-    <section className='bg-[linear-gradient(180deg,#f7f2e8,#efe7da)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-[var(--color-forest-900)] md:px-8'>
-      <div className='mx-auto grid w-full max-w-[94rem] gap-10 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-start'>
-        <div className='max-w-[34rem]'>
+    <section className='bg-[linear-gradient(180deg,#f7f2e8,#efe7da)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-forest-900) md:px-8'>
+      <div className='mx-auto grid w-full max-w-376 gap-10 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-start'>
+        <div className='max-w-136'>
           <p className='font-sans text-[0.72rem] tracking-[0.2em] text-[rgba(19,52,45,0.56)] uppercase'>
             {eyebrow}
           </p>

@@ -83,14 +83,14 @@ export function GalleryMasonry({ images, ui }: GalleryMasonryProps) {
           <button
             type='button'
             onClick={() => setActiveIndex(null)}
-            className='absolute top-4 right-4 z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(221,232,223,0.24)] bg-[rgba(7,24,19,0.72)] text-[1.4rem] leading-none text-[var(--color-mist-50)] transition-colors duration-200 hover:bg-[rgba(11,39,31,0.9)] md:top-6 md:right-6'
+            className='absolute top-4 right-4 z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(221,232,223,0.24)] bg-[rgba(7,24,19,0.72)] text-[1.4rem] leading-none text-mist-50 transition-colors duration-200 hover:bg-[rgba(11,39,31,0.9)] md:top-6 md:right-6'
             aria-label={ui.closeImageLabel}
           >
             <span aria-hidden>×</span>
           </button>
 
           <div
-            className='flex max-h-full w-full max-w-[92rem] flex-col gap-4'
+            className='flex max-h-full w-full max-w-368 flex-col gap-4'
             onClick={(event) => event.stopPropagation()}
           >
             <div className='relative h-[min(78vh,calc(100dvh-11rem))] w-full overflow-hidden p-3 shadow-[0_32px_100px_rgba(0,0,0,0.45)] md:h-[min(82vh,calc(100dvh-12rem))] md:p-6'>

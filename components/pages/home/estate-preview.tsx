@@ -17,9 +17,9 @@ export function EstatePreview({
   title
 }: EstatePreviewProps) {
   return (
-    <section className='bg-[linear-gradient(180deg,#ebe7dc,#f3efe5)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-[var(--color-forest-900)] md:px-8'>
-      <div className='mx-auto grid w-full max-w-[94rem] gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] lg:items-center'>
-        <div className='max-w-[38rem]'>
+    <section className='bg-[linear-gradient(180deg,#ebe7dc,#f3efe5)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-forest-900) md:px-8'>
+      <div className='mx-auto grid w-full max-w-376 gap-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] lg:items-center'>
+        <div className='max-w-152'>
           <p className='font-sans text-[0.72rem] tracking-[0.2em] text-[rgba(19,52,45,0.56)] uppercase'>
             {eyebrow}
           </p>
@@ -42,7 +42,7 @@ export function EstatePreview({
         </div>
 
         <div className='grid gap-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]'>
-          <div className='relative min-h-[21rem] overflow-hidden rounded-[1.25rem] border border-[rgba(19,52,45,0.08)] bg-[rgba(255,255,255,0.24)] shadow-[0_20px_60px_rgba(15,33,28,0.12)]'>
+          <div className='relative min-h-84 overflow-hidden rounded-[1.25rem] border border-[rgba(19,52,45,0.08)] bg-[rgba(255,255,255,0.24)] shadow-[0_20px_60px_rgba(15,33,28,0.12)]'>
             <Image
               src='/images/estate/castle-park-lawn.webp'
               alt=''
@@ -52,7 +52,7 @@ export function EstatePreview({
             />
           </div>
           <div className='grid gap-4'>
-            <div className='relative min-h-[13rem] overflow-hidden rounded-[1rem] border border-[rgba(19,52,45,0.08)] bg-[rgba(255,255,255,0.24)] shadow-[0_20px_60px_rgba(15,33,28,0.12)]'>
+            <div className='relative min-h-52 overflow-hidden rounded-2xl border border-[rgba(19,52,45,0.08)] bg-[rgba(255,255,255,0.24)] shadow-[0_20px_60px_rgba(15,33,28,0.12)]'>
               <Image
                 src='/images/estate/castle-side-garden-summer.webp'
                 alt=''
@@ -61,7 +61,7 @@ export function EstatePreview({
                 className='object-cover'
               />
             </div>
-            <div className='rounded-[1rem] border border-[rgba(19,52,45,0.08)] bg-[rgba(255,255,255,0.48)] p-6 shadow-[0_20px_60px_rgba(15,33,28,0.08)]'>
+            <div className='rounded-2xl border border-[rgba(19,52,45,0.08)] bg-[rgba(255,255,255,0.48)] p-6 shadow-[0_20px_60px_rgba(15,33,28,0.08)]'>
               <p className='font-sans text-[0.72rem] tracking-[0.2em] text-[rgba(19,52,45,0.48)] uppercase'>
                 1728 / 12 ha / 2009
               </p>

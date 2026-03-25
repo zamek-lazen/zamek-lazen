@@ -19,8 +19,8 @@ export default async function EventsPage() {
         lead={t('lead')}
       />
 
-      <section className='bg-[linear-gradient(180deg,#f4efe4,#ece4d8)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-[var(--color-forest-900)] md:px-8'>
-        <div className='mx-auto flex w-full max-w-[94rem] flex-col gap-6'>
+      <section className='bg-[linear-gradient(180deg,#f4efe4,#ece4d8)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-forest-900) md:px-8'>
+        <div className='mx-auto flex w-full max-w-376 flex-col gap-6'>
           {featuredEvent ?
             <>
               <Link
@@ -56,7 +56,7 @@ export default async function EventsPage() {
                   </div>
 
                   {featuredEvent.image ?
-                    <div className='relative min-h-[18rem] lg:min-h-full'>
+                    <div className='relative min-h-72 lg:min-h-full'>
                       <Image
                         src={urlFor(featuredEvent.image)
                           .width(1400)

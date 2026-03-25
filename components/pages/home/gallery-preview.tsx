@@ -15,10 +15,10 @@ export function GalleryPreview({
   title
 }: GalleryPreviewProps) {
   return (
-    <section className='bg-[linear-gradient(180deg,#f4efe4,#ece4d8)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-[var(--color-forest-900)] md:px-8'>
-      <div className='mx-auto w-full max-w-[94rem]'>
+    <section className='bg-[linear-gradient(180deg,#f4efe4,#ece4d8)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-forest-900) md:px-8'>
+      <div className='mx-auto w-full max-w-376'>
         <div className='grid gap-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end'>
-          <div className='max-w-[34rem]'>
+          <div className='max-w-136'>
             <p className='font-sans text-[0.72rem] tracking-[0.2em] text-[rgba(19,52,45,0.56)] uppercase'>
               {eyebrow}
             </p>
@@ -37,7 +37,7 @@ export function GalleryPreview({
           </div>
 
           <div className='grid gap-3 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]'>
-            <div className='group relative min-h-[25rem] overflow-hidden rounded-[1rem]'>
+            <div className='group relative min-h-100 overflow-hidden rounded-2xl'>
               <Image
                 src='/images/estate/castle-front-summer-path.webp'
                 alt=''
@@ -47,7 +47,7 @@ export function GalleryPreview({
               />
             </div>
             <div className='grid gap-3'>
-              <div className='group relative min-h-[12rem] overflow-hidden rounded-[0.9rem]'>
+              <div className='group relative min-h-48 overflow-hidden rounded-[0.9rem]'>
                 <Image
                   src='/images/estate/castle-park-lawn.webp'
                   alt=''
@@ -56,7 +56,7 @@ export function GalleryPreview({
                   className='object-cover transition-transform duration-500 group-hover:scale-[1.03]'
                 />
               </div>
-              <div className='group relative min-h-[12rem] overflow-hidden rounded-[0.9rem]'>
+              <div className='group relative min-h-48 overflow-hidden rounded-[0.9rem]'>
                 <Image
                   src='/images/flora/magnolia-bloom-closeup.webp'
                   alt=''

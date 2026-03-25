@@ -27,8 +27,8 @@ export function Story({
     'inline-flex items-center justify-center border px-[1.35rem] py-[0.8rem] font-sans text-[0.77rem] uppercase tracking-[0.18em] transition-transform duration-200 hover:-translate-y-0.5'
 
   return (
-    <section className='relative z-[3] bg-[linear-gradient(180deg,rgba(6,22,17,0.98),rgba(10,48,41,0.98))] px-[1.2rem] py-[clamp(3.6rem,8.5vw,6.4rem)]'>
-      <div className='mx-auto grid w-full max-w-[94rem] gap-[clamp(1.6rem,4vw,4rem)] md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-start'>
+    <section className='relative z-3 bg-[linear-gradient(180deg,rgba(6,22,17,0.98),rgba(10,48,41,0.98))] px-[1.2rem] py-[clamp(3.6rem,8.5vw,6.4rem)]'>
+      <div className='mx-auto grid w-full max-w-376 gap-[clamp(1.6rem,4vw,4rem)] md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-start'>
         <div className='grid content-start'>
           <p className='mb-[0.85rem] font-sans text-[0.72rem] tracking-[0.16em] text-[rgba(201,218,208,0.64)] uppercase'>
             {eyebrow}

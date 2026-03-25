@@ -151,11 +151,11 @@ export function HistoryInteractiveTimeline({
   }
 
   return (
-    <div className='bg-[linear-gradient(180deg,#f4efe4_0%,#ece4d8_26%,#ece7df_100%)] text-[var(--color-forest-900)]'>
+    <div className='bg-[linear-gradient(180deg,#f4efe4_0%,#ece4d8_26%,#ece7df_100%)] text-(--color-forest-900)'>
       <section className='px-[1.2rem] py-[clamp(4rem,7vw,7rem)] md:px-8'>
         <div
           ref={layoutRef}
-          className='mx-auto w-full max-w-[94rem] lg:grid lg:grid-cols-[17rem_minmax(0,1fr)] lg:items-start lg:gap-14'
+          className='mx-auto w-full max-w-376 lg:grid lg:grid-cols-[17rem_minmax(0,1fr)] lg:items-start lg:gap-14'
         >
           <aside className='mb-10 lg:mb-0 lg:self-start'>
             <div
@@ -178,14 +178,14 @@ export function HistoryInteractiveTimeline({
                         onClick={() => scrollToChapter(item.id)}
                         className={`relative min-w-fit pl-4 text-left lg:block lg:w-full ${
                           isActive ?
-                            'text-[var(--color-forest-900)]'
+                            'text-(--color-forest-900)'
                           : 'text-[rgba(19,52,45,0.48)] hover:text-[rgba(19,52,45,0.78)]'
                         }`}
                       >
                         <span
                           className={`absolute top-[0.55rem] left-[-1.1rem] h-2.5 w-2.5 rounded-full border ${
                             isActive ?
-                              'border-[var(--color-forest-900)] bg-[var(--color-forest-900)]'
+                              'border-(--color-forest-900) bg-(--color-forest-900)'
                             : 'border-[rgba(19,52,45,0.24)] bg-[#ece4d8]'
                           }`}
                         />
@@ -194,7 +194,7 @@ export function HistoryInteractiveTimeline({
                             {item.year}
                           </span>
                         : null}
-                        <span className='mt-1 block font-serif text-[1.15rem] leading-[1] tracking-[-0.02em]'>
+                        <span className='mt-1 block font-serif text-[1.15rem] leading-none tracking-[-0.02em]'>
                           {'navLabel' in item ? item.navLabel : item.label}
                         </span>
                       </button>
@@ -269,7 +269,7 @@ export function HistoryInteractiveTimeline({
                           }}
                         />
                       </div>
-                      <figcaption className='font-sans text-[0.82rem] leading-[1.5] text-[rgba(19,52,45,0.54)]'>
+                      <figcaption className='font-sans text-[0.82rem] leading-normal text-[rgba(19,52,45,0.54)]'>
                         {image.caption}
                       </figcaption>
                     </figure>
@@ -320,7 +320,7 @@ export function HistoryInteractiveTimeline({
                         }}
                       />
                     </div>
-                    <figcaption className='font-sans text-[0.82rem] leading-[1.5] text-[rgba(19,52,45,0.54)]'>
+                    <figcaption className='font-sans text-[0.82rem] leading-normal text-[rgba(19,52,45,0.54)]'>
                       {image.caption}
                     </figcaption>
                   </figure>

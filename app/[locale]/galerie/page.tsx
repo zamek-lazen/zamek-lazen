@@ -18,8 +18,8 @@ export default async function GalleryPage() {
         lead={t('lead')}
       />
 
-      <section className='bg-[linear-gradient(180deg,#0c221d,#0f362e)] px-[1.2rem] py-[clamp(3rem,7vw,5.5rem)] text-[var(--color-mist-100)] md:px-8'>
-        <div className='mx-auto w-full max-w-[94rem]'>
+      <section className='bg-[linear-gradient(180deg,#0c221d,#0f362e)] px-[1.2rem] py-[clamp(3rem,7vw,5.5rem)] text-(--color-mist-100) md:px-8'>
+        <div className='mx-auto w-full max-w-376'>
           <GalleryMasonry
             images={images}
             ui={{

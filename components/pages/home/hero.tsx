@@ -58,7 +58,7 @@ export function Hero({
 
   return (
     <section
-      className='relative isolate h-[100dvh] min-h-[100svh] overflow-hidden bg-[var(--color-forest-950)] px-[1.2rem] pt-[clamp(6.25rem,10vh,8.5rem)] text-[var(--color-mist-50)] md:px-8 md:pt-[clamp(6.75rem,10vh,9rem)]'
+      className='relative isolate h-dvh min-h-svh overflow-hidden bg-(--color-forest-950) px-[1.2rem] pt-[clamp(6.25rem,10vh,8.5rem)] text-mist-50 md:px-8 md:pt-[clamp(6.75rem,10vh,9rem)]'
       onMouseMove={(event) => {
         if (prefersReducedMotion) {
           return
@@ -82,7 +82,7 @@ export function Hero({
             fill
             priority
             sizes='100vw'
-            className='object-cover [object-position:center_35%]'
+            className='object-cover object-[center_35%]'
           />
         </div>
         <div className='absolute inset-0 bg-[linear-gradient(180deg,rgba(6,22,17,0.24),rgba(6,22,17,0.18)_22%,rgba(6,22,17,0.36)_40%,rgba(6,22,17,0.6)_60%)]' />
@@ -93,10 +93,10 @@ export function Hero({
         />
       </div>
 
-      <div className='relative mx-auto flex h-full w-full max-w-[94rem] items-end pb-[clamp(2.25rem,5vh,4.75rem)]'>
+      <div className='relative mx-auto flex h-full w-full max-w-376 items-end pb-[clamp(2.25rem,5vh,4.75rem)]'>
         <div className='grid w-full gap-8 md:grid-cols-[minmax(0,1fr)_minmax(16rem,0.46fr)] md:items-end md:gap-12'>
           <div
-            className='max-w-[44rem] transition-transform duration-300 ease-out'
+            className='max-w-176 transition-transform duration-300 ease-out'
             style={{ transform: copyTransform }}
           >
             <h1 className='font-script mt-4 max-w-[11ch] text-[clamp(3.5rem,8vw,7.5rem)] leading-[0.9] tracking-[0.4rem] text-balance text-yellow-50'>
@@ -116,7 +116,7 @@ export function Hero({
             <div className='mt-28 flex flex-wrap gap-3'>
               <Link
                 href='/historie'
-                className='inline-flex min-h-11 items-center justify-center border border-[rgba(236,242,236,0.46)] bg-[rgba(239,244,238,0.94)] px-6 py-3 font-sans text-[0.75rem] font-medium tracking-[0.18em] text-[var(--color-forest-900)] uppercase transition-colors duration-200 hover:bg-[rgba(246,249,245,1)]'
+                className='inline-flex min-h-11 items-center justify-center border border-[rgba(236,242,236,0.46)] bg-[rgba(239,244,238,0.94)] px-6 py-3 font-sans text-[0.75rem] font-medium tracking-[0.18em] text-(--color-forest-900) uppercase transition-colors duration-200 hover:bg-[rgba(246,249,245,1)]'
                 style={{ color: 'var(--color-forest-900)' }}
               >
                 {ctaPrimary}
@@ -139,7 +139,7 @@ export function Hero({
                 <p className='font-sans text-[0.68rem] tracking-[0.28em] text-[rgba(223,232,224,0.52)] uppercase transition-colors duration-200 group-hover:text-[rgba(236,241,236,0.72)]'>
                   {nextEvent.label}
                 </p>
-                <p className='mt-3 max-w-[18ch] font-serif text-[1.25rem] leading-[1.25] text-[rgba(236,241,236,0.84)] transition-colors duration-200 group-hover:text-[rgba(246,249,244,0.98)]'>
+                <p className='mt-3 max-w-[18ch] font-serif text-[1.25rem] leading-tight text-[rgba(236,241,236,0.84)] transition-colors duration-200 group-hover:text-[rgba(246,249,244,0.98)]'>
                   {nextEvent.title}
                 </p>
                 <p className='mt-2 font-sans text-[0.82rem] tracking-[0.18em] text-[rgba(198,216,204,0.66)] uppercase transition-colors duration-200 group-hover:text-[rgba(221,232,223,0.84)]'>
@@ -153,7 +153,7 @@ export function Hero({
                 <p className='font-sans text-[0.68rem] tracking-[0.28em] text-[rgba(223,232,224,0.52)] uppercase'>
                   {scrollPrompt}
                 </p>
-                <p className='mt-3 max-w-[18ch] font-serif text-[1.25rem] leading-[1.25] text-[rgba(236,241,236,0.84)]'>
+                <p className='mt-3 max-w-[18ch] font-serif text-[1.25rem] leading-tight text-[rgba(236,241,236,0.84)]'>
                   {sideLeft}{' '}
                   <span className='text-[rgba(198,216,204,0.66)]'>/</span>{' '}
                   {sideRight}

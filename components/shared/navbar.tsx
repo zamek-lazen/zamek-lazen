@@ -54,7 +54,7 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b text-mist-100 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${headerClassName}`}
     >
-      <div className='relative mx-auto w-full max-w-[94rem] px-3 pt-3 pb-2 md:px-8 md:pt-4 md:pb-3'>
+      <div className='relative mx-auto w-full max-w-376 px-3 pt-3 pb-2 md:px-8 md:pt-4 md:pb-3'>
         <div className='flex items-center justify-between gap-4'>
           <Link
             href='/'

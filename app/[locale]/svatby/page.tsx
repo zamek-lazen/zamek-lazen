@@ -84,8 +84,8 @@ export default async function WeddingsPage() {
         lead={t('lead')}
       />
 
-      <section className='bg-[linear-gradient(180deg,#f4efe4,#ece4d8)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-[var(--color-forest-900)] md:px-8'>
-        <div className='mx-auto w-full max-w-[94rem]'>
+      <section className='bg-[linear-gradient(180deg,#f4efe4,#ece4d8)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-forest-900) md:px-8'>
+        <div className='mx-auto w-full max-w-376'>
           <div className=''>
             <p className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(19,52,45,0.48)] uppercase'>
               {t('whyEyebrow')}
@@ -102,7 +102,7 @@ export default async function WeddingsPage() {
             {reasons.map((reason) => (
               <article
                 key={reason.title}
-                className='rounded-[1rem] border border-[rgba(19,52,45,0.08)] bg-[rgba(255,252,247,0.72)] p-6'
+                className='rounded-2xl border border-[rgba(19,52,45,0.08)] bg-[rgba(255,252,247,0.72)] p-6'
               >
                 <h3 className='max-w-[14ch] font-serif text-[1.65rem] leading-[1.08] text-[rgba(19,52,45,0.94)]'>
                   {reason.title}
@@ -116,9 +116,9 @@ export default async function WeddingsPage() {
         </div>
       </section>
 
-      <section className='bg-[linear-gradient(180deg,rgba(8,27,22,1),rgba(6,22,17,1))] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-[var(--color-mist-100)] md:px-8'>
-        <div className='mx-auto grid w-full max-w-[94rem] gap-10 lg:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] lg:items-start'>
-          <div className='max-w-[35rem]'>
+      <section className='bg-[linear-gradient(180deg,rgba(8,27,22,1),rgba(6,22,17,1))] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-mist-100) md:px-8'>
+        <div className='mx-auto grid w-full max-w-376 gap-10 lg:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] lg:items-start'>
+          <div className='max-w-140'>
             <p className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(184,201,191,0.58)] uppercase'>
               {t('processEyebrow')}
             </p>
@@ -134,7 +134,7 @@ export default async function WeddingsPage() {
             {steps.map((step, index) => (
               <article
                 key={step.title}
-                className='grid gap-4 rounded-[1rem] border border-[rgba(185,212,197,0.12)] bg-[rgba(242,246,241,0.04)] p-5 md:grid-cols-[auto_minmax(0,1fr)] md:items-start md:gap-5 md:p-6'
+                className='grid gap-4 rounded-2xl border border-[rgba(185,212,197,0.12)] bg-[rgba(242,246,241,0.04)] p-5 md:grid-cols-[auto_minmax(0,1fr)] md:items-start md:gap-5 md:p-6'
               >
                 <span className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(184,201,191,0.56)] uppercase'>
                   {String(index + 1).padStart(2, '0')}
@@ -153,8 +153,8 @@ export default async function WeddingsPage() {
         </div>
       </section>
 
-      <section className='bg-[linear-gradient(180deg,#f5f1e8,#ede4d7)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-[var(--color-forest-900)] md:px-8'>
-        <div className='mx-auto w-full max-w-[94rem]'>
+      <section className='bg-[linear-gradient(180deg,#f5f1e8,#ede4d7)] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-forest-900) md:px-8'>
+        <div className='mx-auto w-full max-w-376'>
           <div className=''>
             <p className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(19,52,45,0.48)] uppercase'>
               {t('venueEyebrow')}
@@ -171,7 +171,7 @@ export default async function WeddingsPage() {
             {venues.map((venue) => (
               <article
                 key={venue.title}
-                className='rounded-[1rem] border border-[rgba(19,52,45,0.08)] bg-[rgba(255,252,247,0.78)] p-6 md:p-7'
+                className='rounded-2xl border border-[rgba(19,52,45,0.08)] bg-[rgba(255,252,247,0.78)] p-6 md:p-7'
               >
                 <h3 className='font-serif text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.04] text-[rgba(19,52,45,0.94)]'>
                   {venue.title}
@@ -185,9 +185,9 @@ export default async function WeddingsPage() {
         </div>
       </section>
 
-      <section className='border-t border-[rgba(185,212,197,0.12)] bg-[linear-gradient(180deg,rgba(13,49,41,0.98),rgba(6,22,17,1))] px-[1.2rem] py-[clamp(4rem,8vw,6rem)] text-[var(--color-mist-100)] md:px-8'>
-        <div className='mx-auto grid w-full max-w-[94rem] gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end'>
-          <div className='max-w-[36rem]'>
+      <section className='border-t border-[rgba(185,212,197,0.12)] bg-[linear-gradient(180deg,rgba(13,49,41,0.98),rgba(6,22,17,1))] px-[1.2rem] py-[clamp(4rem,8vw,6rem)] text-(--color-mist-100) md:px-8'>
+        <div className='mx-auto grid w-full max-w-376 gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end'>
+          <div className='max-w-xl'>
             <p className='font-sans text-[0.72rem] tracking-[0.22em] text-[rgba(184,201,191,0.58)] uppercase'>
               {t('finalEyebrow')}
             </p>
@@ -204,12 +204,12 @@ export default async function WeddingsPage() {
               <a
                 key={contact.value}
                 href={contact.href}
-                className='block rounded-[1rem] border border-[rgba(185,212,197,0.16)] bg-[rgba(242,246,241,0.05)] p-6 transition-colors duration-200 hover:border-[rgba(221,231,223,0.34)] hover:bg-[rgba(242,246,241,0.08)]'
+                className='block rounded-2xl border border-[rgba(185,212,197,0.16)] bg-[rgba(242,246,241,0.05)] p-6 transition-colors duration-200 hover:border-[rgba(221,231,223,0.34)] hover:bg-[rgba(242,246,241,0.08)]'
               >
                 <p className='font-sans text-[0.68rem] tracking-[0.2em] text-[rgba(184,201,191,0.62)] uppercase'>
                   {contact.label}
                 </p>
-                <p className='mt-3 font-serif text-[clamp(1.55rem,2.8vw,2.25rem)] leading-[1.08] break-words text-[rgba(241,245,239,0.97)]'>
+                <p className='mt-3 font-serif text-[clamp(1.55rem,2.8vw,2.25rem)] leading-[1.08] wrap-break-word text-[rgba(241,245,239,0.97)]'>
                   {contact.value}
                 </p>
                 <span className='mt-6 inline-flex border-b border-[rgba(221,231,223,0.32)] pb-1 font-sans text-[0.75rem] tracking-[0.16em] text-[rgba(229,236,230,0.82)] uppercase'>

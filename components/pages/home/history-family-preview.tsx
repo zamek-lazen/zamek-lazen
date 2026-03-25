@@ -20,8 +20,8 @@ export function HistoryFamilyPreview({
   historyTitle
 }: HistoryFamilyPreviewProps) {
   return (
-    <section className='bg-[linear-gradient(180deg,rgba(10,37,31,0.98),rgba(7,26,21,1))] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-[var(--color-mist-100)] md:px-8'>
-      <div className='mx-auto w-full max-w-[94rem]'>
+    <section className='bg-[linear-gradient(180deg,rgba(10,37,31,0.98),rgba(7,26,21,1))] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-mist-100) md:px-8'>
+      <div className='mx-auto w-full max-w-376'>
         <p className='font-sans text-[0.72rem] tracking-[0.2em] text-[rgba(201,218,208,0.64)] uppercase'>
           {eyebrow}
         </p>

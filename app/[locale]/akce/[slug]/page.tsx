@@ -47,8 +47,8 @@ export default async function EventDetailPage({
         }
       />
 
-      <section className='bg-[linear-gradient(180deg,rgba(10,37,31,0.98),rgba(15,54,46,0.98))] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-[var(--color-mist-100)] md:px-8'>
-        <div className='mx-auto flex w-full max-w-[94rem] flex-col gap-6'>
+      <section className='bg-[linear-gradient(180deg,rgba(10,37,31,0.98),rgba(15,54,46,0.98))] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-mist-100) md:px-8'>
+        <div className='mx-auto flex w-full max-w-376 flex-col gap-6'>
           {hasEmbed ?
             <div className='flex flex-col gap-4'>
               <SmsTicketEmbed

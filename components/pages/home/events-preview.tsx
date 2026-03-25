@@ -25,10 +25,10 @@ export function EventsPreview({
   const [featuredEvent, ...remainingEvents] = events
 
   return (
-    <section className='bg-[linear-gradient(180deg,rgba(10,37,31,0.98),rgba(18,70,60,0.98))] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-[var(--color-mist-100)] md:px-8'>
-      <div className='mx-auto w-full max-w-[94rem]'>
+    <section className='bg-[linear-gradient(180deg,rgba(10,37,31,0.98),rgba(18,70,60,0.98))] px-[1.2rem] py-[clamp(4rem,8vw,7rem)] text-(--color-mist-100) md:px-8'>
+      <div className='mx-auto w-full max-w-376'>
         <div className='grid gap-10 lg:grid-cols-[minmax(0,0.74fr)_minmax(0,1.26fr)] lg:items-start'>
-          <div className='max-w-[34rem]'>
+          <div className='max-w-136'>
             <p className='font-sans text-[0.72rem] tracking-[0.2em] text-[rgba(201,218,208,0.64)] uppercase'>
               {eyebrow}
             </p>
