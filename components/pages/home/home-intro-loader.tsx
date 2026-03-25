@@ -4,12 +4,14 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 const STORAGE_KEY = 'zamek-home-intro-seen'
-const DEFAULT_LOAD_DURATION_MS = 1500
-const DEFAULT_REVEAL_DELAY_MS = 180
-const DEFAULT_REVEAL_DURATION_MS = 420
-const REDUCED_LOAD_DURATION_MS = 500
-const REDUCED_REVEAL_DELAY_MS = 60
-const REDUCED_REVEAL_DURATION_MS = 180
+/** Celkem: load + revealDelay + revealDuration = 1500 ms */
+const DEFAULT_LOAD_DURATION_MS = 1050
+const DEFAULT_REVEAL_DELAY_MS = 100
+const DEFAULT_REVEAL_DURATION_MS = 350
+/** Celkem reduced: 500 ms */
+const REDUCED_LOAD_DURATION_MS = 320
+const REDUCED_REVEAL_DELAY_MS = 40
+const REDUCED_REVEAL_DURATION_MS = 140
 
 type IntroPhase = 'loading' | 'revealing' | 'done'
 

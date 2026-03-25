@@ -74,8 +74,8 @@ a {
   z-index: 70;
   background: linear-gradient(180deg, #0a221b 0%, #061611 100%);
   transition:
-    opacity 420ms ease,
-    visibility 420ms linear;
+    opacity 350ms ease,
+    visibility 350ms linear;
 }
 
 .home-intro-loader.is-revealing {
@@ -172,8 +172,8 @@ a {
 
 .home-intro-loader.is-reduced-motion {
   transition:
-    opacity 180ms ease,
-    visibility 180ms linear;
+    opacity 140ms ease,
+    visibility 140ms linear;
 }
 
 .home-intro-loader.is-reduced-motion .home-intro-loader__logo,
