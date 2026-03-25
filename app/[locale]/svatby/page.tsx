@@ -284,12 +284,12 @@ export default async function WeddingsPage() {
               <a
                 key={`${contact.label}-${contact.value}`}
                 href={contact.href}
-                className='editorial-card-dark group flex flex-col rounded-2xl p-7 transition-[transform,box-shadow,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-[rgba(255,253,242,0.28)] hover:bg-[rgba(254,252,232,0.08)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.2)] md:p-8'
+                className='editorial-card-dark group flex flex-col rounded-2xl p-7 transition-[transform,box-shadow,border-color,background-color] duration-200 hover:border-[rgba(255,253,242,0.28)] hover:bg-[rgba(254,252,232,0.08)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.2)] md:p-8'
               >
                 <span className='editorial-eyebrow editorial-eyebrow-dark text-[0.72rem]'>
                   {contact.label}
                 </span>
-                <span className='mt-4 font-sans text-[1.0625rem] font-medium leading-snug text-[rgba(254,252,232,0.95)] sm:text-[1.125rem] wrap-break-word'>
+                <span className='mt-4 font-sans text-[1.0625rem] leading-snug font-medium wrap-break-word text-[rgba(254,252,232,0.95)] sm:text-[1.125rem]'>
                   {contact.value}
                 </span>
                 <span className='editorial-button editorial-button-secondary mt-6 w-fit px-5 py-2.5 text-[0.72rem] group-hover:border-[rgba(255,253,242,0.52)]'>
