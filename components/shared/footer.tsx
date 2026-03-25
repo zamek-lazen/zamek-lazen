@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server'
+import { FacebookLink } from '@/components/shared/facebook-link'
 import { Link } from '@/i18n/navigation'
 import { FooterLocaleSwitch } from '@/components/shared/footer-locale-switch'
 import { navItems } from '@/components/shared/nav-items'
@@ -151,7 +152,10 @@ export async function Footer() {
             </p>
           </div>
 
-          <div className='flex items-center justify-start lg:justify-end'>
+          <div className='flex items-center justify-start gap-4 lg:justify-end'>
+            <FacebookLink
+              className='inline-flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(185,212,197,0.18)] text-mist-300 transition hover:border-[rgba(221,231,223,0.42)] hover:text-mist-50'
+            />
             <FooterLocaleSwitch />
           </div>
         </div>
