@@ -58,7 +58,7 @@ export function Hero({
 
   return (
     <section
-      className='relative isolate h-dvh min-h-svh overflow-hidden bg-(--color-forest-950) px-[1.2rem] pt-[clamp(6.25rem,10vh,8.5rem)] text-mist-50 md:px-8 md:pt-[clamp(6.75rem,10vh,9rem)]'
+      className='bg-background relative isolate h-dvh min-h-svh overflow-hidden px-[1.2rem] pt-[clamp(6.25rem,10vh,8.5rem)] text-mist-50 md:px-8 md:pt-[clamp(6.75rem,10vh,9rem)]'
       onMouseMove={(event) => {
         if (prefersReducedMotion) {
           return
