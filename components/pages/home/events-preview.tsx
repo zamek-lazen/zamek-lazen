@@ -32,7 +32,7 @@ export function EventsPreview({
               <Link
                 key={`${event.title}-${index}`}
                 href={event.href}
-                className='group block h-full w-full rounded-2xl border border-[rgba(254,252,232,0.14)] bg-[var(--color-forest-900)] p-6 shadow-[0_18px_48px_rgba(0,0,0,0.18)] transition-[transform,background-color,border-color] duration-200 hover:-translate-y-1 hover:border-[rgba(254,252,232,0.22)] hover:bg-[var(--color-forest-800)]'
+                className='group block h-full w-full rounded-2xl border border-[rgba(254,252,232,0.14)] bg-[var(--color-forest-900)] p-6 shadow-[0_18px_48px_rgba(0,0,0,0.18)] transition-[transform,background-color,border-color] duration-200 hover:border-[rgba(254,252,232,0.22)] hover:bg-[var(--color-forest-800)]'
               >
                 <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.74rem]'>
                   {event.label}
