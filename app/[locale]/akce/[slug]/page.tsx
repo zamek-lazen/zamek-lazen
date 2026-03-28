@@ -1,4 +1,5 @@
 import { ArrowLeftIcon } from '@sanity/icons'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -149,67 +150,55 @@ export default async function EventDetailPage({
 
         <RevealOnScroll
           as='section'
-          className='editorial-surface-dark px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'
+          className='editorial-surface-dark px-[1.2rem] py-10 md:px-8'
         >
-          <div className='mx-auto grid w-full max-w-376 gap-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)]'>
-            <div className='editorial-card-dark rounded-[1.25rem] p-7 md:p-8'>
-              <h2 className='editorial-subheading editorial-subheading-dark mt-5'>
-                {event.isPast ? t('detailPastTitle') : t('detailTitle')}
-              </h2>
-              <p className='editorial-body editorial-body-dark mt-5 whitespace-pre-line'>
-                {event.description}
-              </p>
-              {event.isPast && (
-                <p className='editorial-body-subtle-dark mt-5'>
-                  {t('pastNotice')}
+          <div className='mx-auto flex w-full max-w-376 flex-col gap-8 lg:gap-10'>
+            <div
+              className={
+                hasTicketEmbed ?
+                  'grid gap-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-start'
+                : 'grid gap-6'
+              }
+            >
+              <div className='editorial-card-dark rounded-[1.25rem] p-7 md:p-8'>
+                <h2 className='editorial-subheading editorial-subheading-dark'>
+                  {t('detailTitle')}
+                </h2>
+                <p className='editorial-body editorial-body-dark mt-5 whitespace-pre-line'>
+                  {event.description}
                 </p>
-              )}
-            </div>
+              </div>
 
-            {hasTicketEmbed && (
-              <div className='editorial-card-dark rounded-[1.25rem] p-7 md:p-8'>
-                <h2 className='editorial-subheading editorial-subheading-dark mt-5'>
-                  {t('ticketsTitle')}
-                </h2>
-                <div className='mt-6'>
-                  <SmsTicketEmbed
-                    embedCode={event.smsticketEmbedCode}
-                    title={event.title}
-                  />
+              {hasTicketEmbed ?
+                <div className='editorial-card-dark rounded-[1.25rem] p-7 md:p-8'>
+                  <h2 className='editorial-subheading editorial-subheading-dark'>
+                    {t('ticketsTitle')}
+                  </h2>
+                  <div className='mt-6'>
+                    <SmsTicketEmbed
+                      embedCode={event.smsticketEmbedCode}
+                      title={event.title}
+                    />
+                  </div>
                 </div>
-              </div>
-            )}
-            {event.isPast && (
-              <div className='editorial-card-dark rounded-[1.25rem] p-7 md:p-8'>
-                <h2 className='editorial-subheading editorial-subheading-dark mt-5'>
-                  {t('pastTitle')}
-                </h2>
-                <p className='editorial-body editorial-body-dark mt-5 max-w-[52ch]'>
-                  {t('pastBody')}
-                </p>
-              </div>
-            )}
+              : null}
+            </div>
           </div>
         </RevealOnScroll>
 
         {(hasRecap || hasYouTubeEmbed) && event.isPast ?
           <RevealOnScroll
             as='section'
-            className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'
+            className='editorial-surface-light px-[1.2rem] py-10 md:px-8'
           >
-            <div className='mx-auto flex w-full max-w-376 flex-col gap-6'>
-              <div className='grid gap-5 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-end'>
-                <div>
-                  <p className='editorial-eyebrow editorial-eyebrow-light text-[0.76rem]'>
-                    {t('recapLabel')}
-                  </p>
-                  <h2 className='editorial-subheading editorial-subheading-light mt-4'>
-                    {t('recapTitle')}
-                  </h2>
-                </div>
-                <p className='editorial-body editorial-body-light max-w-152'>
-                  {t('recapBody')}
+            <div className='mx-auto flex w-full max-w-376 flex-col gap-8'>
+              <div>
+                <p className='editorial-eyebrow editorial-eyebrow-light text-[0.76rem]'>
+                  {t('recapLabel')}
                 </p>
+                <h2 className='editorial-subheading editorial-subheading-light mt-4'>
+                  {t('recapTitle')}
+                </h2>
               </div>
 
               {hasRecap ?
@@ -220,17 +209,9 @@ export default async function EventDetailPage({
 
               {hasYouTubeEmbed ?
                 <div className='flex flex-col gap-4'>
-                  <div>
-                    <p className='editorial-eyebrow editorial-eyebrow-light text-[0.76rem]'>
-                      {t('videoLabel')}
-                    </p>
-                    <h3 className='editorial-card-title editorial-card-title-light mt-4'>
-                      {t('videoTitle')}
-                    </h3>
-                    <p className='editorial-body editorial-body-light mt-4 max-w-176'>
-                      {t('videoBody')}
-                    </p>
-                  </div>
+                  <p className='editorial-eyebrow editorial-eyebrow-light text-[0.76rem]'>
+                    {t('videoLabel')}
+                  </p>
                   <YouTubeEmbed
                     youtubeUrl={event.youtubeUrl}
                     title={event.title}

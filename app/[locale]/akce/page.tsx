@@ -78,7 +78,7 @@ export default async function EventsPage({ params }: EventsPageProps) {
           className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'
         >
           <div className='mx-auto flex w-full max-w-376 flex-col gap-8'>
-            <div className=''>
+            <div>
               <p className='editorial-eyebrow editorial-eyebrow-light text-[0.76rem]'>
                 {t('upcomingLabel')}
               </p>
@@ -208,24 +208,24 @@ export default async function EventsPage({ params }: EventsPageProps) {
           </div>
         </RevealOnScroll>
 
-        {pastEvents.length > 0 ?
-          <RevealOnScroll
-            as='section'
-            className='editorial-surface-dark px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'
-          >
-            <div className='mx-auto flex w-full max-w-376 flex-col gap-6'>
-              <div className='max-w-2xl'>
-                <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.76rem]'>
-                  {t('archiveLabel')}
-                </p>
-                <h2 className='editorial-title editorial-title-dark mt-4'>
-                  {t('archiveTitle')}
-                </h2>
-                <p className='editorial-body editorial-body-dark mt-5 max-w-152'>
-                  {t('archiveBody')}
-                </p>
-              </div>
+        <RevealOnScroll
+          as='section'
+          className='editorial-surface-dark px-[1.2rem] py-10 md:px-8'
+        >
+          <div className='mx-auto flex w-full max-w-376 flex-col gap-6'>
+            <div>
+              <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.76rem]'>
+                {t('archiveLabel')}
+              </p>
+              <h2 className='editorial-title editorial-title-dark mt-4'>
+                {t('archiveTitle')}
+              </h2>
+              <p className='editorial-body editorial-body-dark mt-5 max-w-152'>
+                {t('archiveBody')}
+              </p>
+            </div>
 
+            {pastEvents.length > 0 ?
               <RevealStagger className='grid gap-5 lg:grid-cols-2'>
                 {pastEvents.map((event) => (
                   <Link
@@ -237,7 +237,7 @@ export default async function EventsPage({ params }: EventsPageProps) {
                     className='editorial-card-dark group block h-full w-full overflow-hidden rounded-[1.2rem] transition-transform duration-200 hover:border-[rgba(254,252,232,0.28)]'
                   >
                     {event.image ?
-                      <div className='relative h-56'>
+                      <div className='relative h-120'>
                         <Image
                           src={urlFor(event.image)
                             .width(1200)
@@ -253,16 +253,13 @@ export default async function EventsPage({ params }: EventsPageProps) {
 
                     <div className='p-7'>
                       <div className='flex flex-wrap items-center gap-3'>
-                        <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.76rem]'>
+                        <p className='editorial-eyebrow editorial-eyebrow-dark text-[0.96rem]'>
                           {formatEventDateTime(
                             event.date,
                             locale,
                             event.startTime
                           )}
                         </p>
-                        <span className='rounded-full border border-[rgba(254,252,232,0.18)] px-3 py-1 text-[0.63rem] font-semibold tracking-[0.18em] text-[rgba(254,252,232,0.6)] uppercase'>
-                          {t('pastBadge')}
-                        </span>
                       </div>
                       <h3 className='editorial-card-title editorial-card-title-dark mt-4'>
                         {event.title}
@@ -271,15 +268,26 @@ export default async function EventsPage({ params }: EventsPageProps) {
                         {event.description}
                       </p>
                       <span className='editorial-button editorial-button-secondary mt-6 group-hover:border-[rgba(254,252,232,0.48)]'>
-                        {t('detailCta')}
+                        {t('pastDetailCta')}
                       </span>
                     </div>
                   </Link>
                 ))}
               </RevealStagger>
-            </div>
-          </RevealOnScroll>
-        : null}
+            : <div className='editorial-card-dark rounded-[1.25rem] p-8 md:p-10'>
+                <p className='editorial-eyebrow editorial-eyebrow-dark'>
+                  {t('archiveEmptyLabel')}
+                </p>
+                <p className='editorial-subheading editorial-subheading-dark mt-5 max-w-[30ch]'>
+                  {t('archiveEmptyTitle')}
+                </p>
+                <p className='editorial-body editorial-body-dark mt-5 max-w-[62ch]'>
+                  {t('archiveEmptyBody')}
+                </p>
+              </div>
+            }
+          </div>
+        </RevealOnScroll>
       </div>
     </>
   )
