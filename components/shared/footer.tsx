@@ -119,6 +119,14 @@ export async function Footer() {
       </RevealOnScroll>
 
       <div className='border-t border-[rgba(185,212,197,0.12)]'>
+        <div className='mx-auto max-w-376 px-[1.2rem] py-6 md:px-8'>
+          <p className='editorial-body editorial-body-dark max-w-[72ch] text-[0.92rem] leading-[1.55] text-mist-200'>
+            {tFooter('accessNotice')}
+          </p>
+        </div>
+      </div>
+
+      <div className='border-t border-[rgba(185,212,197,0.12)]'>
         <div className='mx-auto flex w-full max-w-376 flex-col gap-4 px-[1.2rem] py-5 md:px-8 lg:flex-row lg:items-center lg:justify-between lg:gap-8'>
           <div className='flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-5'>
             <p className='inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-4 py-3 font-sans text-[1rem] leading-[1.45] tracking-[-0.02em] text-mist-200'>
