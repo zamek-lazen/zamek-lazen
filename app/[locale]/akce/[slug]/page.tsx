@@ -94,6 +94,8 @@ export default async function EventDetailPage({
     event.image ?
       urlFor(event.image).width(1600).height(900).fit('crop').url()
     : undefined
+  const detailCardClassName =
+    'editorial-card-dark rounded-[1.25rem] border-[rgba(185,212,197,0.18)] bg-[linear-gradient(180deg,rgba(18,70,60,0.96),rgba(9,28,22,0.98))] p-7 shadow-[0_24px_56px_rgba(5,18,14,0.22)] md:p-8'
   const pageSchema = [
     buildWebPageSchema({
       locale,
@@ -150,7 +152,7 @@ export default async function EventDetailPage({
 
         <RevealOnScroll
           as='section'
-          className='editorial-surface-dark px-[1.2rem] py-10 md:px-8'
+          className='editorial-surface-light px-[1.2rem] py-10 md:px-8'
         >
           <div className='mx-auto flex w-full max-w-376 flex-col gap-8 lg:gap-10'>
             <div
@@ -160,7 +162,7 @@ export default async function EventDetailPage({
                 : 'grid gap-6'
               }
             >
-              <div className='editorial-card-dark rounded-[1.25rem] p-7 md:p-8'>
+              <div className={detailCardClassName}>
                 <h2 className='editorial-subheading editorial-subheading-dark'>
                   {t('detailTitle')}
                 </h2>
@@ -170,7 +172,7 @@ export default async function EventDetailPage({
               </div>
 
               {hasTicketEmbed ?
-                <div className='editorial-card-dark rounded-[1.25rem] p-7 md:p-8'>
+                <div className={detailCardClassName}>
                   <h2 className='editorial-subheading editorial-subheading-dark'>
                     {t('ticketsTitle')}
                   </h2>
