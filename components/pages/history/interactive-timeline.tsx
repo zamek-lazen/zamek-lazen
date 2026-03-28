@@ -166,14 +166,14 @@ export function HistoryInteractiveTimeline({
                         onClick={() => scrollToChapter(item.id)}
                         className={`relative min-w-fit pl-4 text-left lg:block lg:w-full ${
                           isActive ?
-                            'text-[var(--color-forest-900)]'
+                            'text-(--color-forest-900)'
                           : 'text-[rgba(19,52,45,0.58)] hover:text-[rgba(13,49,41,0.88)]'
                         }`}
                       >
                         <span
                           className={`absolute top-[0.55rem] left-[-1.1rem] h-2.5 w-2.5 rounded-full border ${
                             isActive ?
-                              'border-[var(--color-forest-900)] bg-[var(--color-forest-900)]'
+                              'border-(--color-forest-900) bg-(--color-forest-900)'
                             : 'border-[rgba(19,52,45,0.24)] bg-[#ece4d8]'
                           }`}
                         />
@@ -182,7 +182,7 @@ export function HistoryInteractiveTimeline({
                             {item.year}
                           </span>
                         : null}
-                        <span className='mt-1 block font-sans text-[0.9375rem] font-semibold leading-snug'>
+                        <span className='mt-1 block font-sans text-[0.9375rem] leading-snug font-semibold'>
                           {item.navLabel}
                         </span>
                       </button>
@@ -202,7 +202,7 @@ export function HistoryInteractiveTimeline({
                 {paragraphs.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className='editorial-body editorial-body-light max-w-[64ch]'
+                    className='editorial-body editorial-body-light'
                   >
                     {paragraph}
                   </p>
@@ -219,8 +219,15 @@ export function HistoryInteractiveTimeline({
                 ref={(node) => {
                   sectionRefs.current[chapter.id] = node
                 }}
-                transition={{ duration: reduceMotion ? 0.01 : 0.72, ease: REVEAL_EASE }}
-                viewport={{ once: true, margin: '-72px 0px -14% 0px', amount: 0.1 }}
+                transition={{
+                  duration: reduceMotion ? 0.01 : 0.72,
+                  ease: REVEAL_EASE
+                }}
+                viewport={{
+                  once: true,
+                  margin: '-72px 0px -14% 0px',
+                  amount: 0.1
+                }}
                 whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               >
                 <p className='editorial-eyebrow editorial-eyebrow-light'>
@@ -229,13 +236,13 @@ export function HistoryInteractiveTimeline({
                 <h2 className='editorial-title editorial-title-light mt-3'>
                   {chapter.title}
                 </h2>
-                <p className='editorial-body editorial-body-light mt-5 max-w-[64ch]'>
+                <p className='editorial-body editorial-body-light mt-5'>
                   {chapter.body}
                 </p>
-                <p className='editorial-note editorial-note-light mt-4 max-w-[58ch]'>
+                <p className='editorial-note editorial-note-light mt-4'>
                   {chapter.note}
                 </p>
-                <p className='editorial-body editorial-body-light mt-3 max-w-[58ch]'>
+                <p className='editorial-body editorial-body-light mt-3'>
                   {chapter.detail}
                 </p>
 
