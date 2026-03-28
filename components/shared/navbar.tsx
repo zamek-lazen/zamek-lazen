@@ -233,7 +233,7 @@ export function Navbar() {
                 alt={t('crestAlt')}
                 width={34}
                 height={34}
-                className='h-8 w-8 rounded-full object-cover p-0.5 lg:h-9 lg:w-9'
+                className='h-8 w-8 object-cover p-0.5 lg:h-9 lg:w-9'
                 priority
               />
             </Link>
