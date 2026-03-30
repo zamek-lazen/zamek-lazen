@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useReducedMotion } from 'motion/react'
-import { REVEAL_DURATION, REVEAL_EASE, REVEAL_Y } from '@/components/motion/constants'
+import { REVEAL_DURATION, REVEAL_EASE } from '@/components/motion/constants'
 
 type RevealOnScrollProps = {
   as?: 'div' | 'section'
@@ -9,15 +9,13 @@ type RevealOnScrollProps = {
   children: React.ReactNode
   /** Extra delay after entering view (seconds) */
   delay?: number
-  y?: number
 }
 
 export function RevealOnScroll({
   as = 'div',
   className,
   children,
-  delay = 0,
-  y = REVEAL_Y
+  delay = 0
 }: RevealOnScrollProps) {
   const reduceMotion = useReducedMotion()
 
@@ -30,7 +28,9 @@ export function RevealOnScroll({
     return (
       <motion.section
         className={className}
-        initial={{ opacity: 0, y }}
+        // Keep SSR content visible. Hiding entire sections until whileInView fires
+        // leaves real content invisible when hydration or intersection is delayed.
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-56px 0px -10% 0px', amount: 0.12 }}
         transition={{
@@ -47,7 +47,9 @@ export function RevealOnScroll({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y }}
+      // Keep SSR content visible. Hiding entire sections until whileInView fires
+      // leaves real content invisible when hydration or intersection is delayed.
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-56px 0px -10% 0px', amount: 0.12 }}
       transition={{

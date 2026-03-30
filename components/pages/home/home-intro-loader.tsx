@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useSyncExternalStore } from 'react'
 
 const STORAGE_KEY = 'zamek-home-intro-seen'
 /** Celkem: load + revealDelay + revealDuration = 1500 ms */
@@ -23,23 +23,29 @@ function easeOutQuart(value: number) {
   return 1 - (1 - value) ** 4
 }
 
+function subscribeToReducedMotion(callback: () => void) {
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+  mediaQuery.addEventListener('change', callback)
+
+  return () => mediaQuery.removeEventListener('change', callback)
+}
+
+function getReducedMotionSnapshot() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
 export function HomeIntroLoader({ crestAlt }: HomeIntroLoaderProps) {
   const [phase, setPhase] = useState<IntroPhase>('loading')
   const [progress, setProgress] = useState(0)
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
-    if (typeof window === 'undefined') {
-      return false
-    }
-
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  })
+  const prefersReducedMotion = useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotionSnapshot,
+    () => false
+  )
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     const reducedMotion = mediaQuery.matches
-    const handleMotionChange = () => setPrefersReducedMotion(mediaQuery.matches)
-
-    mediaQuery.addEventListener('change', handleMotionChange)
 
     try {
       if (window.sessionStorage.getItem(STORAGE_KEY) === '1') {
@@ -47,8 +53,7 @@ export function HomeIntroLoader({ crestAlt }: HomeIntroLoaderProps) {
           setPhase('done')
         })
 
-        return () =>
-          mediaQuery.removeEventListener('change', handleMotionChange)
+        return
       }
     } catch {
       // Ignore storage access issues and allow the intro to play.
@@ -109,7 +114,6 @@ export function HomeIntroLoader({ crestAlt }: HomeIntroLoaderProps) {
       window.clearTimeout(revealTimeout)
       window.clearTimeout(finishTimeout)
       document.body.classList.remove('intro-lock')
-      mediaQuery.removeEventListener('change', handleMotionChange)
     }
   }, [])
 
