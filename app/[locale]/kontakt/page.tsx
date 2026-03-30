@@ -26,13 +26,11 @@ export async function generateMetadata({
     locale,
     page: 'contact',
     title: t('title'),
-    description: `${t('company')} ${t('address')}`
+    description: `${t('lead')} ${t('address')}`
   })
 }
 
-export default async function ContactPage({
-  params
-}: ContactPageProps) {
+export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'ContactPage' })
   const pageUrl = getStaticPageUrl(locale, 'contact')
@@ -40,7 +38,7 @@ export default async function ContactPage({
     buildWebPageSchema({
       locale,
       name: t('title'),
-      description: `${t('company')} ${t('address')}`,
+      description: `${t('lead')} ${t('address')}`,
       url: pageUrl
     }),
     buildBreadcrumbSchema([
@@ -63,7 +61,7 @@ export default async function ContactPage({
       />
       <div className='-mt-28 md:-mt-32'>
         <PageHero
-          eyebrow={t('company')}
+          eyebrow={t('eyebrow')}
           title={t('title')}
           lead={t('lead')}
         />

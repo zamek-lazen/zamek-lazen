@@ -1,5 +1,4 @@
 import { ArrowLeftIcon } from '@sanity/icons'
-import Image from 'next/image'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'

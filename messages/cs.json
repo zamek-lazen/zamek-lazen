@@ -156,7 +156,8 @@
     "p3": "Původ Czerninů, respektive Drslaviců, i obce Chudenice společně vystupuje z temnoty bez pramenů a dodnes zůstává úzce propojen. Časová kontinuita rodu v českých zemích je výjimečná a řadí Czerniny mezi nejstarší dochované šlechtické linie, které stále nesou historickou vazbu ke svému místu původu.",
     "currentHeadLabel": "Současná hlava rodu",
     "currentHeadTitle": "Karel Evžen Czernin z Chudenic",
-    "currentHeadBody": "Současnou hlavou rodu Czerninů a majitelem zámku Lázeň v Chudenicích je Karel Evžen Czernin z Chudenic. Narodil se v roce 1956 ve Vídni, vystudoval lesní inženýrství a krátkou dobu žil v Argentině. Dnes žije s rodinou mezi Chudenicemi a okolím Vídně. V roce 1985 se u Mnichova oženil s Fionou Piou hraběnkou z Rechbergu a Rothenloewenu."
+    "currentHeadBody": "Současnou hlavou rodu Czerninů a majitelem zámku Lázeň v Chudenicích je Karel Evžen Czernin z Chudenic. Narodil se v roce 1956 ve Vídni, vystudoval lesní inženýrství a krátkou dobu žil v Argentině. Dnes žije s rodinou mezi Chudenicemi a okolím Vídně. V roce 1985 se u Mnichova oženil s Fionou Piou hraběnkou z Rechbergu a Rothenloewenu.",
+    "familyPortraitAlt": "Rodina Czerninů spojená se zámkem Lázeň"
   },
   "WeddingsPage": {
     "eyebrow": "Svatby",
@@ -275,16 +276,30 @@
     }
   },
   "ContactPage": {
+    "eyebrow": "Správa zámku",
     "title": "Kontakty",
-    "lead": "Czernínská správa majetku s.r.o.",
+    "lead": "Pro svatby, kulturní program i domluvu návštěvy jsme vám k dispozici osobně, telefonicky i e-mailem.",
     "company": "Správa zámku Lázeň",
+    "companyLegalLabel": "Provozovatel",
+    "companyLegal": "Czernínská správa majetku s.r.o.",
     "addressLabel": "Adresa",
     "address": "Chudenice 60, 339 01 Chudenice",
     "icoLabel": "IČO",
     "ico": "CZ27074714",
     "phoneLabel": "Telefon",
     "emailLabel": "E-mail",
-    "email": "zameklazen@kecz.at"
+    "email": "zameklazen@kecz.at",
+    "introTitle": "Spojení pro klidnou domluvu.",
+    "introBody": "Nejlépe funguje přímý kontakt. Ozvěte se nám, pokud hledáte místo pro svatební den, komorní kulturní akci nebo si chcete domluvit osobní setkání přímo na zámku.",
+    "reachUsTitle": "Jak se s námi spojit",
+    "reachUsBody": "Telefon je vhodný pro rychlou domluvu termínu a základních možností. E-mail je nejlepší pro podrobnější poptávku se zadáním, počtem hostů nebo preferovaným datem.",
+    "planningTitle": "S čím vám pomůžeme",
+    "planningBody": "Navážeme na charakter místa a navrhneme vhodný další krok, ať už jde o svatbu, kulturní program, soukromé setkání nebo první orientaci v možnostech areálu.",
+    "accessTitle": "Návštěva a přístup",
+    "accessBody": "Zámek Lázeň a park jsou přístupné během kulturních a společenských akcí nebo po předchozí domluvě se správou. Pokud plánujete návštěvu, doporučujeme ozvat se předem.",
+    "weddingsCta": "Přejít na svatby",
+    "eventsCta": "Přejít na akce",
+    "historyCta": "Objevit historii"
   },
   "Footer": {
     "headline": "Zámek, park a místo pro setkávání.",

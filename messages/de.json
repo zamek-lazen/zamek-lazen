@@ -157,7 +157,8 @@
     "p3": "Die Ursprünge der Czernins beziehungsweise der Drslavici und des Ortes Chudenice liegen gemeinsam in derselben quellenlosen Dunkelheit, aus der sie langsam hervortreten und bis heute miteinander verbunden bleiben. Diese zeitliche Kontinuität macht die Familie Czernin zu einer der ältesten noch greifbaren Adelslinien Böhmens.",
     "currentHeadLabel": "Heutiges Familienoberhaupt",
     "currentHeadTitle": "Karl Eugen Czernin von Chudenic",
-    "currentHeadBody": "Der derzeitige Chef der Familie Czernin und Eigentümer des Schlosses Lázeň in Chudenice ist Karl Eugen Czernin von Chudenic. Er wurde 1956 in Wien geboren, studierte Forstwirtschaft und lebte kurze Zeit in Argentinien. Heute lebt er mit seiner Familie zwischen Chudenice und der Region Wien. 1985 heiratete er bei München Fiona Pia, Gräfin von Rechberg und Rothenloewen."
+    "currentHeadBody": "Der derzeitige Chef der Familie Czernin und Eigentümer des Schlosses Lázeň in Chudenice ist Karl Eugen Czernin von Chudenic. Er wurde 1956 in Wien geboren, studierte Forstwirtschaft und lebte kurze Zeit in Argentinien. Heute lebt er mit seiner Familie zwischen Chudenice und der Region Wien. 1985 heiratete er bei München Fiona Pia, Gräfin von Rechberg und Rothenloewen.",
+    "familyPortraitAlt": "Die mit Schloss Lázeň verbundene Familie Czernin"
   },
   "WeddingsPage": {
     "eyebrow": "Hochzeiten",
@@ -276,16 +277,30 @@
     }
   },
   "ContactPage": {
+    "eyebrow": "Schlossverwaltung",
     "title": "Kontakt",
-    "lead": "Czernínská správa majetku s.r.o.",
+    "lead": "Für Hochzeiten, kulturelle Programme und die Abstimmung eines Besuchs sind wir persönlich, telefonisch und per E-Mail erreichbar.",
     "company": "Verwaltung Schloss Lázeň",
+    "companyLegalLabel": "Betreiber",
+    "companyLegal": "Czernínská správa majetku s.r.o.",
     "addressLabel": "Adresse",
     "address": "Chudenice 60, 339 01 Chudenice",
     "icoLabel": "Identifikationsnummer",
     "ico": "CZ27074714",
     "phoneLabel": "Telefon",
     "emailLabel": "E-Mail",
-    "email": "zameklazen@kecz.at"
+    "email": "zameklazen@kecz.at",
+    "introTitle": "Kontakt für eine ruhige Abstimmung.",
+    "introBody": "Am besten funktioniert der direkte Kontakt. Schreiben oder rufen Sie uns an, wenn Sie einen Ort für Ihren Hochzeitstag, eine kulturelle Veranstaltung oder ein persönliches Treffen direkt im Schloss suchen.",
+    "reachUsTitle": "So erreichen Sie uns",
+    "reachUsBody": "Das Telefon eignet sich für eine schnelle Abstimmung von Termin und Grundrahmen. E-Mail ist ideal für eine ausführlichere Anfrage mit Briefing, Gästezahl oder gewünschtem Datum.",
+    "planningTitle": "Wobei wir helfen",
+    "planningBody": "Wir knüpfen an den Charakter des Ortes an und empfehlen den passenden nächsten Schritt, ob für eine Hochzeit, ein Kulturprogramm, eine private Begegnung oder die erste Orientierung im Areal.",
+    "accessTitle": "Besuch und Zugang",
+    "accessBody": "Schloss Lázeň und der Park sind während kultureller und gesellschaftlicher Veranstaltungen oder nach vorheriger Abstimmung mit der Verwaltung zugänglich. Wenn Sie einen Besuch planen, melden Sie sich bitte vorab.",
+    "weddingsCta": "Zu Hochzeiten",
+    "eventsCta": "Zu Veranstaltungen",
+    "historyCta": "Geschichte entdecken"
   },
   "Footer": {
     "headline": "Schloss, Park und ein Ort der Begegnung.",

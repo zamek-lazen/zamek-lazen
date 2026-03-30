@@ -75,7 +75,7 @@ export function Hero({
 
   return (
     <section
-      className='bg-background relative isolate flex h-dvh min-h-0 min-h-svh flex-col overflow-hidden px-[1.2rem] pt-[clamp(6.25rem,10vh,8.5rem)] text-mist-50 lg:px-8 lg:pt-[clamp(6.75rem,10vh,9rem)]'
+      className='bg-background relative isolate flex h-dvh min-h-svh flex-col overflow-hidden px-[1.2rem] pt-[clamp(6.25rem,10vh,8.5rem)] text-mist-50 lg:px-8 lg:pt-[clamp(6.75rem,10vh,9rem)]'
       onMouseMove={(event) => {
         if (prefersReducedMotion) {
           return
@@ -143,7 +143,7 @@ export function Hero({
                 {ctaPrimary}
               </Link>
               <Link
-                href='/kontakt'
+                href='/rod'
                 className='editorial-button editorial-button-secondary'
               >
                 {ctaSecondary}

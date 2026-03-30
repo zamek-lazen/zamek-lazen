@@ -89,7 +89,7 @@ function MobileNavOverlay({
   return (
     <div
       id='mobile-nav-dialog'
-      className='fixed inset-0 z-[60] bg-[rgba(6,22,17,0.97)] backdrop-blur-md motion-reduce:backdrop-blur-none'
+      className='fixed inset-0 z-60 bg-[rgba(6,22,17,0.97)] backdrop-blur-md motion-reduce:backdrop-blur-none'
       role='dialog'
       aria-modal='true'
       aria-label={menuTitle}
