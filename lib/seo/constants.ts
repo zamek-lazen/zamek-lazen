@@ -19,6 +19,7 @@ export const BRAND_NAME: Record<AppLocale, string> = {
 }
 
 export const OG_IMAGE_PATH = '/images/castle-front-flower.webp'
+export const SITE_LOGO_PATH = '/images/erb.png'
 export const FACEBOOK_URL =
   'https://www.facebook.com/profile.php?id=100076194634170'
 

@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     'Zámek Lázeň v Chudenicích: historie rodu Czerninů, svatby, kulturní akce, galerie a kontakt.',
   applicationName: 'Zámek Lázeň',
   icons: {
-    icon: '/images/erb.png',
-    shortcut: '/images/erb.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
     apple: '/images/erb.png'
   },
   openGraph: {

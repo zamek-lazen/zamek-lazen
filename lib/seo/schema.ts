@@ -1,6 +1,7 @@
 import {
   CONTACT_EMAIL,
   FACEBOOK_URL,
+  SITE_LOGO_PATH,
   SITE_ADDRESS,
   SITE_URL,
   type AppLocale
@@ -81,6 +82,7 @@ export function buildOrganizationSchema({
     '@id': `${SITE_URL}/#organization`,
     name,
     url,
+    logo: `${SITE_URL}${SITE_LOGO_PATH}`,
     email: CONTACT_EMAIL,
     inLanguage: locale,
     sameAs: [FACEBOOK_URL],
