@@ -10,6 +10,7 @@ import {
   buildWebPageSchema,
   createJsonLdId
 } from '@/lib/seo/schema'
+import Image from 'next/image'
 
 type FamilyPageProps = {
   params: Promise<{
@@ -98,6 +99,16 @@ export default async function FamilyPage({ params }: FamilyPageProps) {
                 {t('currentHeadBody')}
               </p>
             </aside>
+          </div>
+
+          <div className='relative mt-8 aspect-video overflow-hidden rounded-[1.25rem] shadow-[0_24px_64px_rgba(15,33,28,0.14)]'>
+            <Image
+              src='/images/rodina.webp'
+              alt={t('familyPortraitAlt')}
+              fill
+              sizes='(max-width: 1024px) 100vw, 60vw'
+              className='object-cover'
+            />
           </div>
         </RevealOnScroll>
       </div>
