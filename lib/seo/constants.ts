@@ -9,7 +9,7 @@ export type StaticRouteKey =
   | 'gallery'
   | 'contact'
 
-export const SITE_URL = 'https://zameklazen.eu'
+export const SITE_URL = 'https://www.zameklazen.eu'
 export const DEFAULT_LOCALE: AppLocale = 'cs'
 export const APP_LOCALES: readonly AppLocale[] = ['cs', 'de']
 
