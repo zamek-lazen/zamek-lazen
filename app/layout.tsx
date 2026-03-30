@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Bodoni_Moda, Arizonia, Cormorant_Garamond } from 'next/font/google'
 import { getLocale } from 'next-intl/server'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { OG_IMAGE_PATH, SITE_URL } from '@/lib/seo/constants'
 import './globals.css'
 
@@ -81,6 +82,7 @@ export default async function RootLayout({
     >
       <body className='antialiased'>
         <Analytics />
+        <SpeedInsights />
 
         {children}
       </body>

@@ -14,6 +14,7 @@
     "@sanity/locale-cs-cz": "^1.1.29",
     "@sanity/vision": "4",
     "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "motion": "^12.38.0",
     "next": "16.1.6",
     "next-intl": "^4.8.3",
