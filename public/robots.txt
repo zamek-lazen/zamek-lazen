@@ -5,4 +5,4 @@ Disallow: /studio/
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://zameklazen.eu/sitemap.xml
+Sitemap: https://www.zameklazen.eu/sitemap.xml
