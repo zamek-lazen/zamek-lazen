@@ -6,6 +6,8 @@ import {
 import { getEventDetailUrl, getStaticPageUrl } from '@/lib/seo/metadata'
 import { getEventSitemapEntries } from '@/sanity/lib/events'
 
+export const revalidate = 3600
+
 const STATIC_ROUTES: StaticRouteKey[] = [
   'home',
   'history',
@@ -28,7 +30,13 @@ function buildStaticEntries(): MetadataRoute.Sitemap {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticEntries = buildStaticEntries()
-  const eventEntries = await getEventSitemapEntries()
+  let eventEntries: Awaited<ReturnType<typeof getEventSitemapEntries>> = []
+
+  try {
+    eventEntries = await getEventSitemapEntries()
+  } catch (error) {
+    console.error('Failed to fetch event sitemap entries', error)
+  }
 
   const localizedEventEntries = eventEntries.flatMap((event) =>
     APP_LOCALES.map((locale) => ({
