@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /studio/
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://zameklazen.eu/sitemap.xml
