@@ -18,6 +18,11 @@ type RawEvent = {
   youtubeUrl?: string
 }
 
+type EventSitemapEntry = {
+  date: string
+  slug: string
+}
+
 const EVENT_PROJECTION = `
   _id,
   date,
@@ -41,6 +46,14 @@ const ALL_EVENTS_QUERY = groq`
 const EVENT_BY_SLUG_QUERY = groq`
   *[_type == "event" && slug.current == $slug][0] {
     ${EVENT_PROJECTION}
+  }
+`
+
+const EVENT_SITEMAP_QUERY = groq`
+  *[_type == "event" && defined(date) && defined(slug.current)]
+  | order(date asc) {
+    date,
+    "slug": slug.current
   }
 `
 
@@ -70,7 +83,10 @@ function getPragueNow() {
 }
 
 function isValidStartTime(startTime?: string) {
-  return typeof startTime === 'string' && /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(startTime)
+  return (
+    typeof startTime === 'string' &&
+    /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(startTime)
+  )
 }
 
 function getStartTimeInMinutes(startTime?: string) {
@@ -95,7 +111,9 @@ function isPastEvent(date: string, startTime?: string) {
 
   const startTimeInMinutes = getStartTimeInMinutes(startTime)
 
-  return startTimeInMinutes === null ? false : startTimeInMinutes <= nowInMinutes
+  return startTimeInMinutes === null ? false : (
+      startTimeInMinutes <= nowInMinutes
+    )
 }
 
 function mapEvent(event: RawEvent): LocalizedEvent {
@@ -130,7 +148,8 @@ function sortUpcomingEvents(events: LocalizedEvent[]) {
       return left.date.localeCompare(right.date)
     }
 
-    const leftTime = getStartTimeInMinutes(left.startTime) ?? Number.MAX_SAFE_INTEGER
+    const leftTime =
+      getStartTimeInMinutes(left.startTime) ?? Number.MAX_SAFE_INTEGER
     const rightTime =
       getStartTimeInMinutes(right.startTime) ?? Number.MAX_SAFE_INTEGER
 
@@ -153,9 +172,13 @@ function sortPastEvents(events: LocalizedEvent[]) {
 
 export async function getUpcomingEvents(locale: Locale, limit?: number) {
   const events = await fetchEvents(locale)
-  const upcomingEvents = sortUpcomingEvents(events.filter((event) => !event.isPast))
+  const upcomingEvents = sortUpcomingEvents(
+    events.filter((event) => !event.isPast)
+  )
 
-  return typeof limit === 'number' ? upcomingEvents.slice(0, limit) : upcomingEvents
+  return typeof limit === 'number' ?
+      upcomingEvents.slice(0, limit)
+    : upcomingEvents
 }
 
 export async function getPastEvents(locale: Locale, limit?: number) {
@@ -192,6 +215,14 @@ export async function getEventBySlug(
   )
 
   return event ? mapEvent(event) : null
+}
+
+export async function getEventSitemapEntries(): Promise<EventSitemapEntry[]> {
+  return client.fetch<EventSitemapEntry[]>(
+    EVENT_SITEMAP_QUERY,
+    {},
+    { next: { revalidate: 60 } }
+  )
 }
 
 export function formatEventDate(date: string, locale: Locale) {
