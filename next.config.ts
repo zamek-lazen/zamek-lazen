@@ -11,6 +11,15 @@ const nextConfig: NextConfig = {
         hostname: 'cdn.sanity.io'
       }
     ]
+  },
+  async redirects() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/index-sitemap.xml',
+        permanent: true
+      }
+    ]
   }
 }
 

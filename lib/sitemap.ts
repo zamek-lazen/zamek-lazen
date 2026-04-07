@@ -1,8 +1,5 @@
 import type { MetadataRoute } from 'next'
-import {
-  APP_LOCALES,
-  type StaticRouteKey
-} from '@/lib/seo/constants'
+import { APP_LOCALES, type StaticRouteKey } from '@/lib/seo/constants'
 import { getEventDetailUrl, getStaticPageUrl } from '@/lib/seo/metadata'
 import { getEventSitemapEntries } from '@/sanity/lib/events'
 
@@ -26,7 +23,8 @@ function buildStaticEntries(): MetadataRoute.Sitemap {
   )
 }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+/** Same entries as the former `app/sitemap.ts` metadata route. */
+export async function getSitemapEntries(): Promise<MetadataRoute.Sitemap> {
   const staticEntries = buildStaticEntries()
   let eventEntries: Awaited<ReturnType<typeof getEventSitemapEntries>> = []
 
@@ -46,4 +44,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   )
 
   return [...staticEntries, ...localizedEventEntries]
+}
+
+/** Mirrors Next.js sitemap XML for url / lastmod / changefreq / priority. */
+export function serializeSitemapXml(data: MetadataRoute.Sitemap): string {
+  let content = ''
+  content += '<?xml version="1.0" encoding="UTF-8"?>\n'
+  content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+  for (const item of data) {
+    content += '<url>\n'
+    content += `<loc>${item.url}</loc>\n`
+    if (item.lastModified) {
+      const serializedDate =
+        item.lastModified instanceof Date ?
+          item.lastModified.toISOString()
+        : item.lastModified
+      content += `<lastmod>${serializedDate}</lastmod>\n`
+    }
+    if (item.changeFrequency) {
+      content += `<changefreq>${item.changeFrequency}</changefreq>\n`
+    }
+    if (typeof item.priority === 'number') {
+      content += `<priority>${item.priority}</priority>\n`
+    }
+    content += '</url>\n'
+  }
+  content += '</urlset>\n'
+  return content
 }
