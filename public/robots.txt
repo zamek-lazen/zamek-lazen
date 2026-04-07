@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /studio/
-
-Sitemap: https://www.zameklazen.eu/index-sitemap.xml
+Sitemap: https://www.zameklazen.eu/sitemap.xml
