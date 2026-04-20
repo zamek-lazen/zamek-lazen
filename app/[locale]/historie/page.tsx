@@ -41,7 +41,14 @@ export default async function HistoryPage({
     getTranslations({ locale, namespace: 'HistoryPage' })
   ])
 
-  const paragraphs = [t('p1'), t('p2'), t('p3')]
+  const paragraphs = [
+    t('p1'),
+    t('p2'),
+    t('p3'),
+    t('p4'),
+    t('p5'),
+    t('p6')
+  ]
   const pageUrl = getStaticPageUrl(locale, 'history')
   const pageSchema = [
     buildWebPageSchema({

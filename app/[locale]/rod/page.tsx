@@ -11,11 +11,40 @@ import {
   createJsonLdId
 } from '@/lib/seo/schema'
 import Image from 'next/image'
+import { Fragment } from 'react'
 
 type FamilyPageProps = {
   params: Promise<{
     locale: AppLocale
   }>
+}
+
+const URL_PATTERN = /(https?:\/\/[^\s]+)/g
+const TRAILING_PUNCTUATION = /[),.;!?]+$/
+
+function renderTextWithLinks(text: string) {
+  return text.split(URL_PATTERN).map((part, index) => {
+    if (!part.startsWith('http')) {
+      return <Fragment key={`text-${index}`}>{part}</Fragment>
+    }
+
+    const trailing = part.match(TRAILING_PUNCTUATION)?.[0] ?? ''
+    const href = trailing ? part.slice(0, -trailing.length) : part
+
+    return (
+      <Fragment key={`link-${index}`}>
+        <a
+          href={href}
+          target='_blank'
+          rel='noreferrer noopener'
+          className='underline underline-offset-4 transition-colors hover:text-[var(--color-forest)]'
+        >
+          {href}
+        </a>
+        {trailing}
+      </Fragment>
+    )
+  })
 }
 
 export async function generateMetadata({
@@ -75,20 +104,20 @@ export default async function FamilyPage({ params }: FamilyPageProps) {
           as='section'
           className='editorial-surface-light px-[1.2rem] py-[clamp(4rem,8vw,7rem)] md:px-8'
         >
-          <div className='mx-auto grid w-full max-w-376 gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1.15fr)]'>
+          <div className='mx-auto grid w-full max-w-376 items-start gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1.15fr)]'>
             <div>
               <p className='editorial-body editorial-body-light max-w-[60ch]'>
-                {t('p1')}
+                {renderTextWithLinks(t('p1'))}
               </p>
               <p className='editorial-body editorial-body-light mt-5 max-w-[60ch]'>
-                {t('p2')}
+                {renderTextWithLinks(t('p2'))}
               </p>
               <p className='editorial-body editorial-body-light mt-5 max-w-[60ch]'>
-                {t('p3')}
+                {renderTextWithLinks(t('p3'))}
               </p>
             </div>
 
-            <aside className='editorial-card rounded-[1.25rem] p-7 md:p-8'>
+            <aside className='editorial-card self-start rounded-[1.25rem] p-7 md:p-8'>
               <p className='editorial-eyebrow editorial-eyebrow-light'>
                 {t('currentHeadLabel')}
               </p>
