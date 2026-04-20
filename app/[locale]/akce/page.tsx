@@ -88,6 +88,9 @@ export default async function EventsPage({ params }: EventsPageProps) {
               <p className='editorial-body editorial-body-light mt-5 max-w-[100ch]'>
                 {t('upcomingBody')}
               </p>
+              <p className='editorial-body editorial-body-light mt-4 max-w-[100ch] whitespace-pre-line'>
+                {t('upcomingNotice')}
+              </p>
             </div>
 
             {featuredEvent ?
