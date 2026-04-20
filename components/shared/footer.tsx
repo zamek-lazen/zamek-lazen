@@ -2,6 +2,7 @@ import { getLocale, getTranslations } from 'next-intl/server'
 import { RevealOnScroll } from '@/components/motion'
 import { FacebookLink } from '@/components/shared/facebook-link'
 import { FooterLocaleSwitch } from '@/components/shared/footer-locale-switch'
+import { InstagramLink } from '@/components/shared/instagram-link'
 import { navItems } from '@/components/shared/nav-items'
 import { SiteContactPeopleBlock } from '@/components/shared/site-contact-people'
 import { Link } from '@/i18n/navigation'
@@ -149,6 +150,7 @@ export async function Footer() {
 
           <div className='flex items-center justify-start gap-4 lg:justify-end'>
             <FacebookLink className='inline-flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(185,212,197,0.18)] text-mist-300 transition hover:border-[rgba(221,231,223,0.42)] hover:text-mist-50' />
+            <InstagramLink className='inline-flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(185,212,197,0.18)] text-mist-300 transition hover:border-[rgba(221,231,223,0.42)] hover:text-mist-50' />
             <FooterLocaleSwitch />
           </div>
         </div>

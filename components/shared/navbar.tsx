@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
 import { FacebookLink } from '@/components/shared/facebook-link'
+import { InstagramLink } from '@/components/shared/instagram-link'
 import { Link, usePathname } from '@/i18n/navigation'
 import { navItems } from '@/components/shared/nav-items'
 
@@ -136,7 +137,10 @@ function MobileNavOverlay({
         </nav>
 
         <div className='pointer-events-auto mt-auto flex items-center justify-between gap-4 border-t border-[rgba(185,212,197,0.2)] px-6 py-5'>
-          <FacebookLink className='inline-flex h-10 w-10 items-center justify-center text-[rgba(221,231,223,1)] transition hover:text-mist-50' />
+          <div className='flex items-center gap-3'>
+            <FacebookLink className='inline-flex h-10 w-10 items-center justify-center text-[rgba(221,231,223,1)] transition hover:text-mist-50' />
+            <InstagramLink className='inline-flex h-10 w-10 items-center justify-center text-[rgba(221,231,223,1)] transition hover:text-mist-50' />
+          </div>
           <Link
             href={localeHref}
             locale={nextLocale}
@@ -261,6 +265,7 @@ export function Navbar() {
 
             <div className='pointer-events-auto flex items-center gap-2'>
               <FacebookLink className='inline-flex h-9 w-9 items-center justify-center text-[rgba(221,231,223,1)] transition hover:text-mist-50 lg:h-10 lg:w-10' />
+              <InstagramLink className='inline-flex h-9 w-9 items-center justify-center text-[rgba(221,231,223,1)] transition hover:text-mist-50 lg:h-10 lg:w-10' />
               <Link
                 href={localeHref}
                 locale={nextLocale}
