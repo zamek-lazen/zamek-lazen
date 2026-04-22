@@ -117,17 +117,34 @@ export default async function FamilyPage({ params }: FamilyPageProps) {
               </p>
             </div>
 
-            <aside className='editorial-card self-start rounded-[1.25rem] p-7 md:p-8'>
-              <p className='editorial-eyebrow editorial-eyebrow-light'>
-                {t('currentHeadLabel')}
-              </p>
-              <h2 className='editorial-title editorial-title-light mt-4'>
-                {t('currentHeadTitle')}
-              </h2>
-              <p className='editorial-body editorial-body-light mt-5'>
-                {t('currentHeadBody')}
-              </p>
-            </aside>
+            <div className='self-start'>
+              <aside className='editorial-card rounded-[1.25rem] p-7 md:p-8'>
+                <p className='editorial-eyebrow editorial-eyebrow-light'>
+                  {t('currentHeadLabel')}
+                </p>
+                <h2 className='editorial-title editorial-title-light mt-4 whitespace-pre-line'>
+                  {t('currentHeadTitle')}
+                </h2>
+                <p className='editorial-body editorial-body-light mt-5'>
+                  {t('currentHeadBody1')}
+                </p>
+                <p className='editorial-body editorial-body-light mt-5'>
+                  {t('currentHeadBody2')}
+                </p>
+                <p className='editorial-body editorial-body-light mt-5'>
+                  {t('currentHeadBody3')}
+                </p>
+              </aside>
+              <div className='relative mx-auto mt-6 aspect-3/4 w-full max-w-80 overflow-hidden'>
+                <Image
+                  src='/images/erb-oval.webp'
+                  alt={t('familyCrestAlt')}
+                  fill
+                  sizes='208px'
+                  className='object-contain'
+                />
+              </div>
+            </div>
           </div>
 
           <div className='relative mt-8 aspect-video overflow-hidden rounded-[1.25rem] shadow-[0_24px_64px_rgba(15,33,28,0.14)]'>
